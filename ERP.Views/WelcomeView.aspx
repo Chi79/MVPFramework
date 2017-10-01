@@ -12,6 +12,13 @@
 
 <style type="text/css">
 
+body{
+    color: darkslategray;
+    background: cornsilk;;
+}
+form1{
+    color:darkslategrey;
+}
 .WelcomeTitle{
     position: absolute;
     left: 32%;
