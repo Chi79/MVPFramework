@@ -11,17 +11,31 @@ namespace ERP.Presenters.Presenters
 {
     public class WelcomePresenter : PresenterBase
     {
+
         private readonly IWelcomeView _view;
         private readonly IWelcomeModel _model;
 
         public WelcomePresenter(IWelcomeView view, IWelcomeModel model)
         {
+
             this._view = view;
             this._model = model;
+
+            _view.GoToLoginButtonClicked += OnGoToLoginButtonClicked;
+
         }
+
+        private void OnGoToLoginButtonClicked(object sender, EventArgs e)
+        {
+
+            _view.RedirectToLoginView();
+
+        }
+
 
         public override void Load()
         {
+
             _view.WelcomeTitle = _model.GetWelcomeTitle();
 
             _view.WelcomeMessage = _model.GetWelcomeMessage();

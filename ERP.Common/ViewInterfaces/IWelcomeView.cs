@@ -11,5 +11,8 @@ namespace ERP.Common.ViewInterfaces
         string WelcomeTitle { set; }
         string WelcomeMessage { set; }
 
+        event EventHandler<EventArgs> GoToLoginButtonClicked;
+
+        void RedirectToLoginView();
     }
 }

@@ -26,11 +26,32 @@ namespace ERP.Views
 
         }
 
+        public event EventHandler<EventArgs> GoToLoginButtonClicked;
+
+        protected void btnGoToLoginScreen_Click(object sender, EventArgs e)
+        {
+
+            if(GoToLoginButtonClicked != null)
+            {
+
+                GoToLoginButtonClicked(this, EventArgs.Empty);
+
+            }
+
+        }
+
+        public void RedirectToLoginView()
+        {
+
+            txtWelcomeMessage.Text = "Login Page Coming Soon....";
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        
+
     }
 }
