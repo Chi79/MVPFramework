@@ -9,6 +9,7 @@ namespace ERP.Common.ViewInterfaces
     public interface IWelcomeView
     {
         string WelcomeTitle { set; }
+
         string WelcomeMessage { set; }
 
         event EventHandler<EventArgs> GoToLoginButtonClicked;

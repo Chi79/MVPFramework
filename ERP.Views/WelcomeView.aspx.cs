@@ -12,6 +12,12 @@ namespace ERP.Views
 {
     public partial class WelcomeView : ViewBase<WelcomePresenter> , IWelcomeView
     {
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public string WelcomeMessage
         {
 
@@ -43,15 +49,9 @@ namespace ERP.Views
         public void RedirectToLoginView()
         {
 
-            txtWelcomeMessage.Text = "Login Page Coming Soon....";
+            Response.Redirect("LoginView.aspx");
 
         }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
     }
 }

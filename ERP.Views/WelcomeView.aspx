@@ -35,7 +35,7 @@ form1{
 .GoToLoginButton{
     position: absolute;
     top: 67%;
-    left: 39%;
+    left: 38%;
     font-size: 44px;
     font-variant:small-caps;
     background: honeydew;

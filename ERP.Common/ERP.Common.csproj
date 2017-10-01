@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ClientType.cs" />
+    <Compile Include="ModelInterfaces\ILoginModel.cs" />
     <Compile Include="ModelInterfaces\IWelcomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IView.cs" />
     <Compile Include="ViewInterfaces\IWelcomeView.cs" />
   </ItemGroup>

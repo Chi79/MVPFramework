@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace ERP.Common.ModelInterfaces
 {
-    public interface IWelcomeModel
+    public interface ILoginModel
     {
-        string GetWelcomeTitle();
 
-        string GetWelcomeMessage();
+        void AttemptToLogin(string username, string password);
+
+        bool IsLoginSuccesful();
+
+        int GetClientType();
+
+
     }
 }
