@@ -32,6 +32,16 @@ form1{
     top: 39%;
     font-size: 35px;
 }
+.GoToLoginButton{
+    position: absolute;
+    top: 67%;
+    left: 40%;
+    font-size: 44px;
+    font-variant:small-caps;
+    background: honeydew;
+    border-radius: 14px;
+    border-bottom-width: thick;
+}
 </style>
 
 <body>
@@ -39,6 +49,7 @@ form1{
     <div>
     <asp:Label ID="txtWelcomeTitle" CssClass="WelcomeTitle" runat="server" Text=""></asp:Label>
     <asp:Label ID="txtWelcomeMessage" CssClass="WelcomeMessage" runat="server" Text=""></asp:Label>
+    <asp:Button ID="btnGoToLoginScreen" CssClass="GoToLoginButton" runat="server" Text="Go To Login" /> 
     </div>
     </form>
 </body>
