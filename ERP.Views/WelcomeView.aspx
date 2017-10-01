@@ -14,7 +14,7 @@
 
 body{
     color: darkslategray;
-    background: cornsilk;;
+    background: cornsilk;
 }
 form1{
     color:darkslategrey;
