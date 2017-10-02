@@ -15,6 +15,7 @@ namespace ERP.Presenters.Bases
         //Base view class which will be inhereted by all of the views.  It needs an object that is of the type 'PresenterBase', 
         //and implements the IView interface. The generic Tpresenter is created by IOC when the pages OnLoad event fires -
         //then the appropriate PresenterBase method will run depending on the postback conditions.
+
         private TPresenter _presenter;
 
         protected override void OnLoad(EventArgs e)
@@ -32,6 +33,7 @@ namespace ERP.Presenters.Bases
 
         protected override void OnPreRender(EventArgs e)
         {
+
             base.OnPreRenderComplete(e);
 
             _presenter.PreRender();

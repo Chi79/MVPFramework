@@ -45,7 +45,7 @@ namespace ERP.Presenters.Presenters
             if (ClientExists)
             {
 
-                _clientType = (ClientType)_model.GetClientType();
+               _clientType = (ClientType)_model.GetClientType();
 
                 CheckClientType();
 

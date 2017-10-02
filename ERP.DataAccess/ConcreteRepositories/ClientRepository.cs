@@ -23,21 +23,21 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<CLIENT> GetAllClientsThatAreCustomers()
+        public IEnumerable<CLIENT> GetAllCustomers()
         {
 
             return ERPContext.CLIENT.Where(c => c.ClientType == (int)ClientType.Customer).OrderBy(c => c.FirstName);
 
         }
 
-        public IEnumerable<CLIENT> GetAllClientsThatAreOperators()
+        public IEnumerable<CLIENT> GetAllOperators()
         {
 
             return ERPContext.CLIENT.Where(c => c.ClientType == (int)ClientType.Operator).OrderBy(c => c.FirstName);
 
         }
 
-        public IEnumerable<CLIENT> GetAllClientsThatAreAdministrators()
+        public IEnumerable<CLIENT> GetAllAdministrators()
         {
 
             return ERPContext.CLIENT.Where(c => c.ClientType == (int)ClientType.Admin).OrderBy(c => c.FirstName);

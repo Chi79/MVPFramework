@@ -9,11 +9,11 @@ namespace ERP.Common.RepositoryInterfaces
 {
     public interface IClientRepository : IRepository<CLIENT>
     {
-        IEnumerable<CLIENT> GetAllClientsThatAreCustomers();
+        IEnumerable<CLIENT> GetAllCustomers();
 
-        IEnumerable<CLIENT> GetAllClientsThatAreOperators();
+        IEnumerable<CLIENT> GetAllOperators();
 
-        IEnumerable<CLIENT> GetAllClientsThatAreAdministrators();
+        IEnumerable<CLIENT> GetAllAdministrators();
 
         IEnumerable<CLIENT> GetClientByName(string name);
 

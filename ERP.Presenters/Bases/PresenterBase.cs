@@ -14,6 +14,6 @@ namespace ERP.Presenters.Bases
 
         public virtual void Load() { }
         public virtual void PreRender() { }
-        public virtual void FirstTimeInit() { }   // will run when a page loads for the first time and is not a postback
+        public virtual void FirstTimeInit() { }   // will run when a page loads for the first time and it is not a postback
     }
 }

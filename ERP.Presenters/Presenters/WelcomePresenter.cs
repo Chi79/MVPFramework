@@ -13,13 +13,15 @@ namespace ERP.Presenters.Presenters
     {
 
         private readonly IWelcomeView _view;
+
         private readonly IWelcomeModel _model;
 
         public WelcomePresenter(IWelcomeView view, IWelcomeModel model)
         {
 
-            this._view = view;
-            this._model = model;
+            _view = view;
+
+            _model = model;
 
             _view.GoToLoginButtonClicked += OnGoToLoginButtonClicked;
 
