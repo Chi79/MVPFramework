@@ -9,9 +9,7 @@ namespace ERP.Common.ModelInterfaces
     public interface ILoginModel
     {
 
-        void AttemptToLogin(string username, string password);
-
-        bool IsLoginSuccesful();
+        bool CheckClientExists(string username, string password);
 
         int GetClientType();
 

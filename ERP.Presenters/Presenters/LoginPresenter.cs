@@ -40,20 +40,12 @@ namespace ERP.Presenters.Presenters
         public void AttemptLogin()
         {
 
-            string email = _view.Email;
 
-            string password = _view.Password;
-
-            _model.AttemptToLogin(email, password);
-
-
-            bool LoginIsSuccesful = _model.IsLoginSuccesful();
-            if(LoginIsSuccesful)
+            bool ClientExists = _model.CheckClientExists(_view.Email, _view.Password);
+            if (ClientExists)
             {
 
                 _clientType = (ClientType)_model.GetClientType();
-
-                InitializeSession(email);
 
                 CheckClientType();
 
@@ -87,9 +79,5 @@ namespace ERP.Presenters.Presenters
 
         }
 
-        public void InitializeSession(string email)
-        {
-            //TODO store client details to session and reset session state
-        }
     }
 }

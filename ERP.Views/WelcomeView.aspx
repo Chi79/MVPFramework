@@ -42,15 +42,23 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
 }
+
+
 </style>
 
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:Label ID="txtWelcomeTitle" CssClass="WelcomeTitle" runat="server" Text=""></asp:Label>
-    <asp:Label ID="txtWelcomeMessage" CssClass="WelcomeMessage" runat="server" Text=""></asp:Label>
-    <asp:Button ID="btnGoToLoginScreen" CssClass="GoToLoginButton" runat="server" Text="Go To Login" OnClick="btnGoToLoginScreen_Click" /> 
+
+    <div >
+
+        <asp:Label ID="txtWelcomeTitle" CssClass="WelcomeTitle" runat="server" Text=""></asp:Label> 
+
+        <asp:Label ID="txtWelcomeMessage" CssClass="WelcomeMessage" runat="server" Text=""></asp:Label> 
+
+        <asp:Button ID="btnGoToLoginScreen" CssClass="GoToLoginButton" runat="server" Text="Go To Login" OnClick="btnGoToLoginScreen_Click" />
+
     </div>
+
     </form>
 </body>
 </html>

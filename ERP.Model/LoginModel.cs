@@ -9,17 +9,10 @@ namespace ERP.Model
 {
     public class LoginModel : ILoginModel
     {
-        public void AttemptToLogin(string username, string password)
+        public bool CheckClientExists(string username, string password)
         {
 
-            //TODO login against DB with OUW and LoginStruct
-
-        }
-        
-        public bool IsLoginSuccesful()
-        {
-
-            return true; //TODO get data from LoginStruct
+            return true; //TODO login against DB with OUW and LoginStruct
 
         }
         
@@ -30,6 +23,6 @@ namespace ERP.Model
 
         }
 
-        //TODO Add session methods to store client to session and reset sessionstate
+        //TODO Add session methods to store client to session and reset sessionstate when logging in
     }
 }
