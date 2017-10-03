@@ -12,4 +12,10 @@ namespace ERP.Common.Enums
         Operator,
         Admin
     }
+    public enum OrderStatus
+    {
+        Confirmed,
+        InProduction,
+        Complete
+    }
 }
