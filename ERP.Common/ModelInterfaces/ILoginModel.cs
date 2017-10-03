@@ -13,6 +13,5 @@ namespace ERP.Common.ModelInterfaces
 
         int GetClientType();
 
-
     }
 }

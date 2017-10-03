@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StructureMap;
 using ERP.Presenters.Bases;
 using ERP.Model;
+using ERP.DataAccess.ConcreteRepositories;
 
 namespace ERP.Bootstrap.Registries
 {
@@ -17,7 +18,8 @@ namespace ERP.Bootstrap.Registries
             {
                 scanner.RegisterConcreteTypesAgainstTheFirstInterface();     
                 scanner.AssemblyContainingType<PresenterBase>();             
-                scanner.AssemblyContainingType<WelcomeModel>();              
+                scanner.AssemblyContainingType<WelcomeModel>();
+                scanner.AssemblyContainingType<UnitOfWork>();
                 scanner.WithDefaultConventions();                            
                 scanner.SingleImplementationsOfInterface();                  
             });

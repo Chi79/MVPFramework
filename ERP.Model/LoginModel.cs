@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ERP.Common.ModelInterfaces;
+using ERP.Common.RepositoryInterfaces;
+using ERP.DataTables.Tables;
 
 namespace ERP.Model
 {
     public class LoginModel : ILoginModel
     {
+        private readonly IUnitOfWork _uOW;
+
+        public LoginModel(IUnitOfWork uOW)
+        {
+
+            _uOW = uOW;
+
+        }
+
         public bool CheckClientExists(string username, string password)
         {
 

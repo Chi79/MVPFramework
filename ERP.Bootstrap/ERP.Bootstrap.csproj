@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ERP.DataAccess\ERP.DataAccess.csproj">
+      <Project>{e65d3e9e-8928-453c-ab03-bc46a7fd8169}</Project>
+      <Name>ERP.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP.Model\ERP.Model.csproj">
       <Project>{3dd9045d-8bcb-4295-a54f-d870308f59dd}</Project>
       <Name>ERP.Model</Name>

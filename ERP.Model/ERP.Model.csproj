@@ -49,6 +49,10 @@
       <Project>{ba8ab5bf-9442-4cb3-84e7-1e2989b0c6f7}</Project>
       <Name>ERP.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP.DataTables\ERP.DataTables.csproj">
+      <Project>{ee0da115-2c4b-45b2-9ca7-4c8f672a2b5d}</Project>
+      <Name>ERP.DataTables</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
