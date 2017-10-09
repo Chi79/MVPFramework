@@ -7,7 +7,9 @@
     <title></title>
 </head>
 
+
 <style type="text/css">
+
 
 body{
     color: darkslategray;
@@ -19,9 +21,9 @@ form1{
 .parent{
     width: 100%;
     height: 500px;
-    background:cornsilk;
+    background: cornsilk;
     margin: auto;
-    padding: 10px;
+    margin-top: 75px;
 }
 .loginDiv{
     text-align: center;
@@ -72,8 +74,11 @@ form1{
 }
 </style>
 
+
 <body>
-    <form id="form1" runat="server">
+
+    <form id="form1" runat="server" autocomplete="off">
+
     <div>
 
     <div id="parentDiv" class="parent" runat="server">

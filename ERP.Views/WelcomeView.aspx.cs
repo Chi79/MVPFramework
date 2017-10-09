@@ -13,26 +13,13 @@ namespace ERP.Views
     public partial class WelcomeView : ViewBase<WelcomePresenter> , IWelcomeView
     {
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        public string WelcomeMessage { set { txtWelcomeMessage.Text = value; } }
 
-        }
+        public string WelcomeTitle {set { txtWelcomeTitle.Text = value; } }
 
-        public string WelcomeMessage
-        {
-
-            set { txtWelcomeMessage.Text = value; }
-
-        }
-
-        public string WelcomeTitle
-        {
-
-            set { txtWelcomeTitle.Text = value; }
-
-        }
 
         public event EventHandler<EventArgs> GoToLoginButtonClicked;
+
 
         protected void btnGoToLoginScreen_Click(object sender, EventArgs e)
         {

@@ -6,46 +6,53 @@ using System.Threading.Tasks;
 using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.Structs;
-using ERP.DataTables.Tables;
+using ERP.Common.ServiceInterfaces;
 
 namespace ERP.Model
 {
     public class LoginModel : ILoginModel
     {
+
         private readonly IUnitOfWork _uOW;
 
-        private LoginResponse loginResponse;
+        private readonly ISessionService _sessionService;
 
-        public LoginModel(IUnitOfWork uOW)
+        private LoginResponse _loginResponse;
+
+
+        public LoginModel(IUnitOfWork uOW, ISessionService sessionservice)
         {
 
             _uOW = uOW;
+
+            _sessionService = sessionservice;
 
         }
 
         public bool CheckClientExists(string username, string password)
         {
 
-            loginResponse = _uOW.CLIENTs.LoginRequest(username, password);
+            _loginResponse = _uOW.CLIENTs.LoginRequest(username, password);
 
-            return loginResponse.CredentialsApproved;
+            return _loginResponse.CredentialsApproved;
 
         }
         
         public int GetClientType()
         {
 
-            return loginResponse.ClientType;
+            return _loginResponse.ClientType;
 
         }
 
         public void InitializeSession()
         {
 
-            //TODO Add session methods to store client to session and reset sessionstate when logging in
+            _sessionService.CurrentClientEmail = _loginResponse.ClientEmail;
+
+            _sessionService.LoggedInStatus = true;
 
         }
-
 
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.DataTables", "ERP.DataT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.DataAccess", "ERP.DataAccess\ERP.DataAccess.csproj", "{E65D3E9E-8928-453C-AB03-BC46A7FD8169}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.HTTP.Services", "ERP.HTTP.Services\ERP.HTTP.Services.csproj", "{EC07D81B-7C46-44CC-B0EA-A9EE2CA9303E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{E65D3E9E-8928-453C-AB03-BC46A7FD8169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E65D3E9E-8928-453C-AB03-BC46A7FD8169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65D3E9E-8928-453C-AB03-BC46A7FD8169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC07D81B-7C46-44CC-B0EA-A9EE2CA9303E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC07D81B-7C46-44CC-B0EA-A9EE2CA9303E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC07D81B-7C46-44CC-B0EA-A9EE2CA9303E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC07D81B-7C46-44CC-B0EA-A9EE2CA9303E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

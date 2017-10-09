@@ -7,6 +7,7 @@ using StructureMap;
 using ERP.Presenters.Bases;
 using ERP.Model;
 using ERP.DataAccess.ConcreteRepositories;
+using ERP.HTTP.Services;
 
 namespace ERP.Bootstrap.Registries
 {
@@ -17,7 +18,8 @@ namespace ERP.Bootstrap.Registries
             Scan(scanner =>
             {
                 scanner.RegisterConcreteTypesAgainstTheFirstInterface();     
-                scanner.AssemblyContainingType<PresenterBase>();             
+                scanner.AssemblyContainingType<PresenterBase>();
+                scanner.AssemblyContainingType<SessionService>();
                 scanner.AssemblyContainingType<WelcomeModel>();
                 scanner.AssemblyContainingType<UnitOfWork>();
                 scanner.WithDefaultConventions();                            
