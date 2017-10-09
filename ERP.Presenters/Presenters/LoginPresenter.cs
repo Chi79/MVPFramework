@@ -17,7 +17,6 @@ namespace ERP.Presenters.Presenters
 
         private readonly ILoginModel _model;
 
-        private ClientType _clientType;
         
         public LoginPresenter(ILoginView view, ILoginModel model)
         {
@@ -33,34 +32,37 @@ namespace ERP.Presenters.Presenters
         private void OnLoginAttempt(object sender, EventArgs e)
         {
 
-            AttemptLogin();
-
-        }
-
-        public void AttemptLogin()
-        {
-
-
             bool ClientExists = _model.CheckClientExists(_view.Email, _view.Password);
             if (ClientExists)
             {
 
-               _clientType = (ClientType)_model.GetClientType();
-
-                CheckClientType();
+                CompleteLogin();
 
             }
             else
             {
 
-                _view.Message = "Login Failed";
+                _view.MessageVisible = true;
 
-            }
-      
+                _view.Message = "Login Failed Please Enter A Valid Username & Password";
+
+            }          
+
         }
 
-        private void CheckClientType()
+        public void CompleteLogin()
         {
+
+            _model.InitializeSession();           
+
+            RedirectClient();
+
+        }
+
+        private void RedirectClient()
+        {
+
+            var _clientType = (ClientType)_model.GetClientType();
 
             switch (_clientType)
             {

@@ -24,8 +24,11 @@ namespace ERP.Views
 
         public string Message { set { lblMessage.Text = value; } }
 
+        public bool MessageVisible { set { messagePanel.Visible = value; } }
+
 
         public event EventHandler<EventArgs> LoginAttempt;
+
 
         protected void btnLoginButton_Click(object sender, EventArgs e)
         {
@@ -59,5 +62,6 @@ namespace ERP.Views
             lblMessage.Text = "Admin Home Page Coming Soon...";
 
         }
+
     }
 }

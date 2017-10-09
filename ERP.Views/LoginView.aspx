@@ -16,48 +16,59 @@ body{
 form1{
     color:darkslategrey;
 }
+.parent{
+    width: 100%;
+    height: 500px;
+    background:cornsilk;
+    margin: auto;
+    padding: 10px;
+}
+.loginDiv{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.messageDiv{
+    text-align: center;
+}
+.messagecontainer{
+    background-color: #b7b7b7;
+    border: #555d55;
+    border-bottom-style: solid;
+    border-bottom-width: 7px;
+    border-radius: 30px;
+    z-index: 30;
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75px;
+}
 .EmailLabel{
-    position: absolute;
-    top: 18%;
-    left: 29%;
     font-size: 37px;
-    font-weight:bolder;
+    font-weight: bolder;
 }
 .EmailBox{
-    position: absolute;
     font-size: 32px;
-    top: 18%;
-    left: 37%;
 }
 .PasswordLabel{
-    position: absolute;
-    top: 32%;
-    left: 25%;
     font-size: 37px;
-    font-weight:bolder;
+    font-weight: bolder;
 }
 .PasswordBox{
-    position: absolute;
-    top: 32%;
-    left: 37%;
     font-size: 32px;
 }
 .Message{
-    position: absolute;
-    top: 75%;
-    left: 34%;
     font-size: 32px;
+    color: #312b2b;
 }
 .LoginButton{
-    position: absolute;
-    top: 53%;
-    left: 43%;
     font-size: 45px;
     width: 222px;
-    font-variant:small-caps;
+    font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
+    margin-top: 35px;
 }
 </style>
 
@@ -65,12 +76,49 @@ form1{
     <form id="form1" runat="server">
     <div>
 
+    <div id="parentDiv" class="parent" runat="server">
+
+    <div id="loginDiv0" class="loginDiv">
+
     <asp:Label ID="lblEmail" CssClass="EmailLabel" Text="Email" runat="server"></asp:Label>
+
+    </div>
+
+    <div id="loginDiv1" class="loginDiv">
+
     <asp:TextBox ID="txtEmail" CssClass="EmailBox" runat="server"></asp:TextBox>
+
+    </div>
+
+    <div id="loginDiv2" class="loginDiv">
+
     <asp:Label ID="lblPassword" CssClass="PasswordLabel" Text="Password" runat="server"></asp:Label>
-    <asp:TextBox ID="txtPassword" CssClass="PasswordBox" runat="server"></asp:TextBox>
-    <asp:Label ID="lblMessage" CssClass="Message" Text="" runat="server"></asp:Label>
+
+    </div>
+
+    <div id="loginDiv3" class="loginDiv">
+
+    <asp:TextBox ID="txtPassword" CssClass="PasswordBox" runat="server" ></asp:TextBox>
+
+    </div>
+
+    <div id="loginDiv4" class="loginDiv">
+
     <asp:Button ID="btnLoginButton" CssClass="LoginButton" Text="Login" runat="server" OnClick="btnLoginButton_Click" />
+
+    </div>
+
+    <asp:Panel ID="messagePanel" CssClass="messagecontainer" runat="server" Visible="false"> 
+
+    <div id="messageDiv" class="messageDiv">
+
+    <asp:Label ID="lblMessage" CssClass="Message" Text="" runat="server"></asp:Label>
+
+    </div>
+
+    </asp:Panel>
+
+    </div>
 
     </div>
     </form>

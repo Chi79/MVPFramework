@@ -14,6 +14,8 @@ namespace ERP.Common.ViewInterfaces
 
         string Message { set; }
 
+        bool MessageVisible { set; }
+
         void RedirectToCustomerHomePage();
 
         void RedirectToOperatorHomePage();
@@ -21,5 +23,6 @@ namespace ERP.Common.ViewInterfaces
         void RedirectToAdminHomePage();
 
         event EventHandler<EventArgs> LoginAttempt;
+
     }
 }

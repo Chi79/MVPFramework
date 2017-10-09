@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
+using ERP.Common.Structs;
 using ERP.DataTables.Tables;
 
 namespace ERP.Model
@@ -12,6 +13,8 @@ namespace ERP.Model
     public class LoginModel : ILoginModel
     {
         private readonly IUnitOfWork _uOW;
+
+        private LoginResponse loginResponse;
 
         public LoginModel(IUnitOfWork uOW)
         {
@@ -23,17 +26,26 @@ namespace ERP.Model
         public bool CheckClientExists(string username, string password)
         {
 
-            return true; //TODO login against DB with OUW and LoginStruct
+            loginResponse = _uOW.CLIENTs.LoginRequest(username, password);
+
+            return loginResponse.CredentialsApproved;
 
         }
         
         public int GetClientType()
         {
 
-            return 0; //TODO get data from LoginStruct
+            return loginResponse.ClientType;
 
         }
 
-        //TODO Add session methods to store client to session and reset sessionstate when logging in
+        public void InitializeSession()
+        {
+
+            //TODO Add session methods to store client to session and reset sessionstate when logging in
+
+        }
+
+
     }
 }

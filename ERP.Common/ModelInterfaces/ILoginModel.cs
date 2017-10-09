@@ -13,5 +13,7 @@ namespace ERP.Common.ModelInterfaces
 
         int GetClientType();
 
+        void InitializeSession();
+
     }
 }

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using ERP.Common.RepositoryInterfaces;
 using ERP.DataTables.Tables;
 using ERP.Common.Enums;
+using ERP.Common.Structs;
 
 namespace ERP.DataAccess.ConcreteRepositories
 {
     public class ClientRepository : Repository<CLIENT> ,IClientRepository
     {
+
+        private LoginResponse _loginResponse;
+
         public ClientRepository(ERPContext context) : base(context)  // calls our base constructor Repository<CLIENT>
         {
 
@@ -22,6 +26,48 @@ namespace ERP.DataAccess.ConcreteRepositories
             get { return Context as ERPContext; }    // casting our context class as an entity DbContext 
 
         }
+
+        public LoginResponse LoginRequest(string email, string password)
+        {
+
+            var response = ERPContext.CLIENT
+                .Where(c => c.Email == email)
+                .Where(c => c.Password == password);
+
+
+            if (!response.Any())
+            {
+
+                ReturnNullClient();
+
+            }
+            else
+            {
+
+                var client = response.FirstOrDefault();
+
+                _loginResponse.ClientType = client.ClientType;
+
+                _loginResponse.ClientEmail = client.Email;
+
+                _loginResponse.CredentialsApproved = true;
+
+            }
+            return _loginResponse;
+
+        }
+
+        public void ReturnNullClient()
+        {
+
+            _loginResponse.ClientType = 0;
+
+            _loginResponse.ClientEmail = string.Empty;
+
+            _loginResponse.CredentialsApproved = false;
+
+        }
+
 
         public IEnumerable<CLIENT> GetAllCustomers()
         {

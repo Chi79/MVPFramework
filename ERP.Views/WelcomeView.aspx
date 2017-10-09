@@ -19,23 +19,19 @@ body{
 form1{
     color:darkslategrey;
 }
+.labelDiv{
+    text-align:center;
+    margin-bottom: 37px;
+    margin-top: 63px;
+}
 .WelcomeTitle{
-    position: absolute;
-    left: 32%;
-    top: 10%;
     font-size: 100px;
     font-weight: bolder;
 }
 .WelcomeMessage{
-    position: absolute;
-    left: 34%;
-    top: 39%;
     font-size: 35px;
 }
 .GoToLoginButton{
-    position: absolute;
-    top: 67%;
-    left: 38%;
     font-size: 44px;
     font-variant:small-caps;
     background: honeydew;
@@ -49,11 +45,19 @@ form1{
 <body>
     <form id="form1" runat="server">
 
-    <div >
+    <div id="labelDiv0" class="labelDiv" >
 
         <asp:Label ID="txtWelcomeTitle" CssClass="WelcomeTitle" runat="server" Text=""></asp:Label> 
 
+    </div>
+
+    <div id="labelDiv1" class="labelDiv">
+
         <asp:Label ID="txtWelcomeMessage" CssClass="WelcomeMessage" runat="server" Text=""></asp:Label> 
+
+    </div>
+
+    <div id="labelDiv2" class="labelDiv">
 
         <asp:Button ID="btnGoToLoginScreen" CssClass="GoToLoginButton" runat="server" Text="Go To Login" OnClick="btnGoToLoginScreen_Click" />
 
