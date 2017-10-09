@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginView.aspx.cs" Inherits="ERP.Views.LoginView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginView.aspx.cs" Inherits="ERP.Views.LoginView"  %>
 
 <!DOCTYPE html>
 
@@ -98,7 +98,7 @@ form1{
 
     <div id="loginDiv3" class="loginDiv">
 
-    <asp:TextBox ID="txtPassword" CssClass="PasswordBox" runat="server" ></asp:TextBox>
+    <asp:TextBox ID="txtPassword" CssClass="PasswordBox" runat="server" TextMode="Password"></asp:TextBox>
 
     </div>
 
