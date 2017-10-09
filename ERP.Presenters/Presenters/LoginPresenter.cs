@@ -38,6 +38,8 @@ namespace ERP.Presenters.Presenters
 
                 CompleteLogin();
 
+                _view.MessageVisible = true; // only for confirmation while homepages are not ready!
+
             }
             else
             {
