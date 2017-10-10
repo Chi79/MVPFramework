@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OperatorHomeView.aspx.cs" Inherits="ERP.Views.OperatorHomeView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerHomeView.aspx.cs" Inherits="ERP.Views.CustomerHomeView" %>
 
 <!DOCTYPE html>
 
@@ -6,9 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-
 <body>
-
 <style type="text/css">
 
 body{

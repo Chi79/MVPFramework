@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ClientType.cs" />
+    <Compile Include="ModelInterfaces\IAdminHomeModel.cs" />
+    <Compile Include="ModelInterfaces\ICustomerHomeModel.cs" />
     <Compile Include="ModelInterfaces\ILoginModel.cs" />
     <Compile Include="ModelInterfaces\IOperatorHomeModel.cs" />
     <Compile Include="ModelInterfaces\IWelcomeModel.cs" />
@@ -50,6 +52,8 @@
     <Compile Include="RepositoryInterfaces\IUnitOfWork.cs" />
     <Compile Include="ServiceInterfaces\ISessionService.cs" />
     <Compile Include="Structs\Structs.cs" />
+    <Compile Include="ViewInterfaces\IAdminHomeView.cs" />
+    <Compile Include="ViewInterfaces\ICustomerHomeView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IOperatorHomeView.cs" />
     <Compile Include="ViewInterfaces\IView.cs" />

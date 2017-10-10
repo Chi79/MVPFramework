@@ -116,12 +116,28 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminHomeView.aspx" />
+    <Content Include="CustomerHomeView.aspx" />
     <Content Include="LoginView.aspx" />
     <Content Include="OperatorHomeView.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomeView.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminHomeView.aspx.cs">
+      <DependentUpon>AdminHomeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHomeView.aspx.designer.cs">
+      <DependentUpon>AdminHomeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomeView.aspx.cs">
+      <DependentUpon>CustomerHomeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerHomeView.aspx.designer.cs">
+      <DependentUpon>CustomerHomeView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginView.aspx.cs">
       <DependentUpon>LoginView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

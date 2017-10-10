@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminHomeModel.cs" />
+    <Compile Include="CustomerHomeModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="OperatorHomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

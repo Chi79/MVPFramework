@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Common.ViewInterfaces
 {
-    public interface IOperatorHomeView
+    public interface IAdminHomeView
     {
 
         string Message { set; }

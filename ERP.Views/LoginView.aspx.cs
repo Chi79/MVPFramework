@@ -40,7 +40,7 @@ namespace ERP.Views
         public void RedirectToCustomerHomePage()
         {
 
-            lblMessage.Text = "Customer Home Page Coming Soon...";
+            Response.Redirect("CustomerHomeView.aspx");
 
         }
 
