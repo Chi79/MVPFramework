@@ -14,6 +14,8 @@ namespace ERP.Common.Structs
 
         public string ClientEmail;
 
+        public string ClientName;
+
         public bool CredentialsApproved;
 
     }

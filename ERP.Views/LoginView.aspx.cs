@@ -22,16 +22,16 @@ namespace ERP.Views
         public bool MessageVisible { set { messagePanel.Visible = value; } }
 
 
-        public event EventHandler<EventArgs> LoginAttempt;
+        public event EventHandler<EventArgs> LoginClick;
 
 
         protected void btnLoginButton_Click(object sender, EventArgs e)
         {
 
-            if(LoginAttempt != null)
+            if(LoginClick != null)
             {
 
-                LoginAttempt(this, EventArgs.Empty);
+                LoginClick(this, EventArgs.Empty);
 
             }
 
@@ -47,7 +47,7 @@ namespace ERP.Views
         public void RedirectToOperatorHomePage()
         {
 
-            lblMessage.Text = "Operator Home Page Coming Soon...";
+            Response.Redirect("OperatorHomeView.aspx");
 
         }
 

@@ -50,6 +50,8 @@ namespace ERP.DataAccess.ConcreteRepositories
 
                 _loginResponse.ClientEmail = client.Email;
 
+                _loginResponse.ClientName = client.FirstName + " " + client.LastName;
+
                 _loginResponse.CredentialsApproved = true;
 
             }
@@ -63,6 +65,8 @@ namespace ERP.DataAccess.ConcreteRepositories
             _loginResponse.ClientType = 0;
 
             _loginResponse.ClientEmail = string.Empty;
+
+            _loginResponse.ClientName = string.Empty;
 
             _loginResponse.CredentialsApproved = false;
 

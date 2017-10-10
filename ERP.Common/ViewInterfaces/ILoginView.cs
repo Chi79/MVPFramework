@@ -22,7 +22,7 @@ namespace ERP.Common.ViewInterfaces
 
         void RedirectToAdminHomePage();
 
-        event EventHandler<EventArgs> LoginAttempt;
+        event EventHandler<EventArgs> LoginClick;
 
     }
 }

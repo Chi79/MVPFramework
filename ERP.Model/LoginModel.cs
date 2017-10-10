@@ -15,17 +15,17 @@ namespace ERP.Model
 
         private readonly IUnitOfWork _uOW;
 
-        private readonly ISessionService _sessionService;
+        private readonly ISessionService _session;
 
         private LoginResponse _loginResponse;
 
 
-        public LoginModel(IUnitOfWork uOW, ISessionService sessionservice)
+        public LoginModel(IUnitOfWork uOW, ISessionService session)
         {
 
             _uOW = uOW;
 
-            _sessionService = sessionservice;
+            _session = session;
 
         }
 
@@ -48,9 +48,11 @@ namespace ERP.Model
         public void InitializeSession()
         {
 
-            _sessionService.CurrentClientEmail = _loginResponse.ClientEmail;
+            _session.CurrentClientEmail = _loginResponse.ClientEmail;
 
-            _sessionService.LoggedInStatus = true;
+            _session.CurrentClientName = _loginResponse.ClientName;
+
+            _session.LoggedInStatus = true;
 
         }
 

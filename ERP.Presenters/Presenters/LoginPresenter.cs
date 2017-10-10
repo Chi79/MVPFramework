@@ -25,11 +25,11 @@ namespace ERP.Presenters.Presenters
 
             _model = model;
 
-            _view.LoginAttempt += OnLoginAttempt;
+            _view.LoginClick += OnLoginClicked;
 
         }
 
-        private void OnLoginAttempt(object sender, EventArgs e)
+        private void OnLoginClicked(object sender, EventArgs e)
         {
 
             bool ClientExists = _model.CheckClientExists(_view.Email, _view.Password);

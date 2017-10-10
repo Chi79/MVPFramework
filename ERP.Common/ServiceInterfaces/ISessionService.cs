@@ -11,6 +11,8 @@ namespace ERP.Common.ServiceInterfaces
 
         string CurrentClientEmail { get; set; }
 
+        string CurrentClientName { get; set; }
+
         bool? LoggedInStatus { get; set; }
 
     }
