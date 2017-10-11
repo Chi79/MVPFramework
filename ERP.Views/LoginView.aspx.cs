@@ -24,16 +24,10 @@ namespace ERP.Views
 
         public event EventHandler<EventArgs> LoginClick;
 
-
         protected void btnLoginButton_Click(object sender, EventArgs e)
         {
 
-            if(LoginClick != null)
-            {
-
-                LoginClick(this, EventArgs.Empty);
-
-            }
+            LoginClick?.Invoke(this, EventArgs.Empty);
 
         }
 

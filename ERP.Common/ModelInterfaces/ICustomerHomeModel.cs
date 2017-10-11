@@ -15,5 +15,18 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
+        void SetSelectedOrderIdToSession(int orderId);
+
+        int GetSelectedOrderIdFromSession();
+
+        IEnumerable<object> GetAllOrders();
+
+        IEnumerable<object> GetAllConfirmedOrders();
+
+        IEnumerable<object> GetAllOrdersInProduction();
+
+        IEnumerable<object> GetAllCompletedOrders();
+
+        IEnumerable<object> GetAllItemsForOrder(int orderId);
     }
 }

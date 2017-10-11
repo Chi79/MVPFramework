@@ -17,6 +17,19 @@ namespace ERP.Views
 
         public bool MessageVisible { set { lblMessage.Visible = value; } }
 
+        public object SelectedRowValueDataKey { get { return gvOrders.DataKeys[SelectedRowIndex].Value; } }
+
+        public int SelectedRowIndex { get { return gvOrders.SelectedIndex; } }
+
+        public IEnumerable<object> SetDataSource { set { gvOrders.DataSource = value; } }
+
+        public void BindData()
+        {
+
+            gvOrders.DataBind();
+
+        }
+
         public void RedirectToLoginPage()
         {
 
@@ -29,12 +42,7 @@ namespace ERP.Views
         protected void btnLogoutButton_Click(object sender, EventArgs e)
         {
 
-            if (LogoutClick != null)
-            {
-
-                LogoutClick(this, EventArgs.Empty);
-
-            }
+            LogoutClick?.Invoke(this, EventArgs.Empty);
 
         }
 
@@ -45,13 +53,72 @@ namespace ERP.Views
 
             base.OnLoadComplete(e);
 
-            if (PageLoad != null)
+            PageLoad?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> ShowAllOrdersClick;
+  
+
+        protected void btnShowAllOrders_Click(object sender, EventArgs e)
+        {
+
+            ShowAllOrdersClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> ShowAllConfirmedOrdersClick;
+
+        protected void btnShowAllConfirmedOrders_Click(object sender, EventArgs e)
+        {
+
+            ShowAllConfirmedOrdersClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> ShowAllOrdersInProductionClick;
+
+        protected void btnShowAllOrdersInProduction_Click(object sender, EventArgs e)
+        {
+
+            ShowAllOrdersInProductionClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> ShowAllCompletedOrdersClick;
+
+        protected void btnShowAllCompletedOrders_Click(object sender, EventArgs e)
+        {
+
+            ShowAllCompletedOrdersClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> ShowAllItemsInOrderClick;
+
+        protected void btnShowAllItemsInOrder_Click(object sender, EventArgs e)
+        {
+
+            ShowAllItemsInOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> RowSelected;
+
+        protected void gvOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            RowSelected?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        protected void gvOrders_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
-                PageLoad(this, EventArgs.Empty);
-
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvOrders, "Select$" + e.Row.RowIndex);
             }
-
         }
     }
 }

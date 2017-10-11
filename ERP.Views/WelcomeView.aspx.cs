@@ -20,16 +20,10 @@ namespace ERP.Views
 
         public event EventHandler<EventArgs> GoToLoginButtonClicked;
 
-
         protected void btnGoToLoginScreen_Click(object sender, EventArgs e)
         {
 
-            if(GoToLoginButtonClicked != null)
-            {
-
-                GoToLoginButtonClicked(this, EventArgs.Empty);
-
-            }
+            GoToLoginButtonClicked?.Invoke(this, EventArgs.Empty);
 
         }
 

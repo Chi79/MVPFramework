@@ -24,10 +24,37 @@ namespace ERP.Presenters.Presenters
 
             _model = model;
 
-            _view.LogoutClick += OnLogoutClicked;
+            WireUpEvents();
+
+        }
+
+        private void WireUpEvents()
+        {
 
             _view.PageLoad += OnPageLoaded;
 
+            _view.LogoutClick += OnLogoutClicked;
+
+            _view.ShowAllOrdersClick += OnShowAllOrdersClicked;
+
+            _view.ShowAllConfirmedOrdersClick += OnShowAllConfirmedOrdersClicked;
+
+            _view.ShowAllOrdersInProductionClick += OnShowAllOrdersInProductionClicked;
+
+            _view.ShowAllCompletedOrdersClick += OnShowAllCompletedOrdersClicked;
+
+            _view.ShowAllItemsInOrderClick += OnShowAllItemsInOrderClicked;
+
+            _view.RowSelected += OnRowSelected;
+
+        }
+
+        private void OnRowSelected(object sender, EventArgs e)
+        {
+
+            int orderId = (int)_view.SelectedRowValueDataKey;
+
+            _model.SetSelectedOrderIdToSession(orderId);
 
         }
 
@@ -59,12 +86,60 @@ namespace ERP.Presenters.Presenters
 
         }
 
+
         private void OnLogoutClicked(object sender, EventArgs e)
         {
 
             _model.ResetSession();
 
             _view.RedirectToLoginPage();
+
+        }
+
+        private void OnShowAllOrdersClicked(object sender, EventArgs e)
+        {     
+
+            _view.SetDataSource = _model.GetAllOrders();
+
+            _view.BindData();
+
+        }
+
+        private void OnShowAllConfirmedOrdersClicked(object sender, EventArgs e)
+        {
+
+            _view.SetDataSource = _model.GetAllConfirmedOrders();
+
+            _view.BindData();
+
+        }
+
+        private void OnShowAllOrdersInProductionClicked(object sender, EventArgs e)
+        {
+
+            _view.SetDataSource = _model.GetAllOrdersInProduction();
+
+            _view.BindData();
+
+        }
+
+        private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
+        {
+           
+            _view.SetDataSource = _model.GetAllCompletedOrders();
+
+            _view.BindData();
+              
+        }
+
+        private void OnShowAllItemsInOrderClicked(object sender, EventArgs e)
+        {
+
+            int orderId = _model.GetSelectedOrderIdFromSession();
+
+            _view.SetDataSource = _model.GetAllItemsForOrder(orderId);
+        
+            _view.BindData();
 
         }
     }

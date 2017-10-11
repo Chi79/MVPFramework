@@ -18,4 +18,12 @@ namespace ERP.Common.Enums
         InProduction,
         Complete
     }
+
+    public enum ItemStatus
+    {
+        Confirmed,
+        InProduction,
+        Complete,
+        Failed
+    }
 }

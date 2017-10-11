@@ -16,7 +16,7 @@ namespace ERP.HTTP.Services
             get
             {
                 var client = HttpContext.Current.Session["CurrentClientEmail"].ToString();
-                if(client != null)
+                if (client != null)
                 {
                     return client.ToString();
                 }
@@ -52,7 +52,7 @@ namespace ERP.HTTP.Services
             get
             {
                 var status = HttpContext.Current.Session["LoggedInStatus"];
-                if(status != null)
+                if (status != null)
                 {
 
                     return (bool)status;
@@ -65,6 +65,26 @@ namespace ERP.HTTP.Services
             }
             set { HttpContext.Current.Session["LoggedInStatus"] = value; }
         }
-      
+
+        public int? SelectedOrderId
+        {
+            get
+            {
+                var orderId = HttpContext.Current.Session["SelectedOrderId"];
+                if (orderId != null)
+                {
+
+                    return (int)orderId;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set { HttpContext.Current.Session["SelectedOrderId"] = value; }
+
+        }
     }
+
 }

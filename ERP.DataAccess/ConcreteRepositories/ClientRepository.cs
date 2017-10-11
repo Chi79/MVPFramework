@@ -10,7 +10,7 @@ using ERP.Common.Structs;
 
 namespace ERP.DataAccess.ConcreteRepositories
 {
-    public class ClientRepository : Repository<CLIENT> ,IClientRepository
+    public class ClientRepository : Repository<CLIENT> , IClientRepository
     {
 
         private LoginResponse _loginResponse;

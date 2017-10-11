@@ -12,6 +12,10 @@ namespace ERP.Common.RepositoryInterfaces
 
         IClientRepository CLIENTs { get; }   //add all repository interfaces here that we wish to expose to the model
 
+        IOrdersRepository ORDERs { get; }
+
+        IOrdersRepository ITEMs { get; }
+
         SaveResult Complete();  //for saving changes to the DB - provides feedback on any errors
 
     }

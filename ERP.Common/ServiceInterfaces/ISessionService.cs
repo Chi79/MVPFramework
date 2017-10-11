@@ -15,5 +15,7 @@ namespace ERP.Common.ServiceInterfaces
 
         bool? LoggedInStatus { get; set; }
 
+        int? SelectedOrderId { get; set; }
+
     }
 }

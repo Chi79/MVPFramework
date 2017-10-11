@@ -23,10 +23,17 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             CLIENTs = new ClientRepository(_context); // intitializes the repo with our context object
 
+            ORDERs = new OrdersRepository(_context);
+
+            ITEMs = new OrdersRepository(_context);
+
         }
 
         public IClientRepository CLIENTs { get; private set; }  //add all the repo interfaces we want to expose
 
+        public IOrdersRepository ORDERs { get; private set; }
+
+        public IOrdersRepository ITEMs { get; private set; }
 
         public void Dispose()
         {
