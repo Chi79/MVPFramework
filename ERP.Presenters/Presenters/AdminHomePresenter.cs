@@ -24,10 +24,16 @@ namespace ERP.Presenters.Presenters
 
             _model = model;
 
+            WireUpEvents();
+
+        }
+
+        private void WireUpEvents()
+        {
+
             _view.LogoutClick += OnLogoutClicked;
 
             _view.PageLoad += OnPageLoaded;
-
 
         }
 

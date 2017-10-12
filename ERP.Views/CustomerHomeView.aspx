@@ -36,7 +36,7 @@ form1{
     font-size: 40px;
     color: #000000;
 }
-.navigationMessage{
+.infoMessage{
     font-variant: small-caps;
     font-size: 30px;
     color: #000000;
@@ -49,10 +49,9 @@ form1{
 .childDiv1{
     text-align: center;
 }
-.logoutButton{
+.navButton{
     position:relative;
     font-size: 45px;
-    width: 222px;
     font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
@@ -135,9 +134,9 @@ form1{
     <asp:UpdatePanel runat="server">
     <ContentTemplate>
 
-    <div id="navigationMessageDiv" class="messageDiv">
+    <div id="datanMessageDiv" class="messageDiv">
 
-    <asp:Label ID="lblNavigationMessage" class="navigationMessage" runat="server"></asp:Label>
+    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
 
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">
@@ -163,7 +162,9 @@ form1{
 
     <div id="childDiv1" class="childDiv1">
 
-    <asp:Button ID="btnLogoutButton" CssClass="logoutButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+    <asp:Button ID="btnLogoutButton" CssClass="navButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+
+    <asp:Button ID="btnCreateNewOrder" CssClass="navButton" runat="server" Text="Create New Order" OnClick="btnCreateNewOrder_Click" />
 
     </div>
 

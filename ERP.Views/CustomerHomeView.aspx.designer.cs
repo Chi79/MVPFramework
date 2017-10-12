@@ -58,13 +58,13 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.GridView gvOrders;
         
         /// <summary>
-        /// lblNavigationMessage control.
+        /// lblInfoMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNavigationMessage;
+        protected global::System.Web.UI.WebControls.Label lblInfoMessage;
         
         /// <summary>
         /// btnShowAllOrders control.
@@ -110,5 +110,14 @@ namespace ERP.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogoutButton;
+        
+        /// <summary>
+        /// btnCreateNewOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateNewOrder;
     }
 }

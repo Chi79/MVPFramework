@@ -45,7 +45,10 @@ namespace ERP.Presenters.Presenters
 
             _view.RowSelected += OnRowSelected;
 
+            _view.CreateNewOrderClick += OnCreateNewOrderClicked;
+
         }
+
 
         public override void FirstTimeInit()
         {
@@ -93,6 +96,13 @@ namespace ERP.Presenters.Presenters
 
         }
 
+        private void OnCreateNewOrderClicked(object sender, EventArgs e)
+        {
+
+            _view.RedirectToOrderPage();
+
+        }
+
         private void OnShowAllOrdersClicked(object sender, EventArgs e)
         {     
 
@@ -100,7 +110,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.NavigationMessage = "Viewing all orders. Please click a row to view the order items.";
+            _view.InfoMessage = "Viewing all orders. Please click a row to view the order items.";
 
         }
 
@@ -111,7 +121,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.NavigationMessage = "Viewing confirmed orders awaiting production. Please click a row to view the order items.";
+            _view.InfoMessage = "Viewing confirmed orders awaiting production. Please click a row to view the order items.";
 
         }
 
@@ -122,7 +132,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.NavigationMessage = "Viewing orders currently in production. Please click a row to view the order items.";
+            _view.InfoMessage = "Viewing orders currently in production. Please click a row to view the order items.";
         }
 
         private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
@@ -132,7 +142,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.NavigationMessage = "Viewing all completed orders. Please click a row to view the order items.";
+            _view.InfoMessage = "Viewing all completed orders. Please click a row to view the order items.";
 
         }
 
@@ -156,7 +166,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.NavigationMessage = "Viewing all items in the selected order.";
+            _view.InfoMessage = "Viewing all items in the selected order.";
 
         }
     }

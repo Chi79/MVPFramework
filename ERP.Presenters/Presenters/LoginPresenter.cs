@@ -25,6 +25,13 @@ namespace ERP.Presenters.Presenters
 
             _model = model;
 
+            WireUpEvents();
+
+        }
+
+        private void WireUpEvents()
+        {
+
             _view.LoginClick += OnLoginClicked;
 
         }
@@ -37,8 +44,6 @@ namespace ERP.Presenters.Presenters
             {
 
                 CompleteLogin();
-
-                _view.MessageVisible = true; // only for confirmation while homepages are not ready!
 
             }
             else

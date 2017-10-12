@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminHomeView.aspx" />
+    <Content Include="CreateOrderView.aspx" />
     <Content Include="CustomerHomeView.aspx" />
     <Content Include="LoginView.aspx" />
     <Content Include="OperatorHomeView.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="AdminHomeView.aspx.designer.cs">
       <DependentUpon>AdminHomeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateOrderView.aspx.cs">
+      <DependentUpon>CreateOrderView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateOrderView.aspx.designer.cs">
+      <DependentUpon>CreateOrderView.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerHomeView.aspx.cs">
       <DependentUpon>CustomerHomeView.aspx</DependentUpon>

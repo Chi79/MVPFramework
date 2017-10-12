@@ -13,7 +13,7 @@ namespace ERP.Common.ViewInterfaces
 
         bool MessageVisible { set; }
 
-        string NavigationMessage { set; }
+        string InfoMessage { set; }
 
         IEnumerable<object> SetDataSource { set; }
 
@@ -24,6 +24,9 @@ namespace ERP.Common.ViewInterfaces
         int SelectedRowIndex { get; }
 
         void RedirectToLoginPage();
+
+        void RedirectToOrderPage();
+
 
         event EventHandler<EventArgs> RowSelected;
     
@@ -38,6 +41,8 @@ namespace ERP.Common.ViewInterfaces
         event EventHandler<EventArgs> ShowAllOrdersInProductionClick;
 
         event EventHandler<EventArgs> ShowAllCompletedOrdersClick;
+
+        event EventHandler<EventArgs> CreateNewOrderClick;
 
     }
 }

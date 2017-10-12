@@ -17,7 +17,7 @@ namespace ERP.Views
 
         public bool MessageVisible { set { lblMessage.Visible = value; } }
 
-        public string NavigationMessage { set { lblNavigationMessage.Text = value; } }
+        public string InfoMessage { set { lblInfoMessage.Text = value; } }
 
         public object SelectedRowValueDataKey { get { return gvOrders.DataKeys[SelectedRowIndex].Value; } }
 
@@ -39,12 +39,10 @@ namespace ERP.Views
 
         }
 
-        public event EventHandler<EventArgs> LogoutClick;
-
-        protected void btnLogoutButton_Click(object sender, EventArgs e)
+        public void RedirectToOrderPage()
         {
 
-            LogoutClick?.Invoke(this, EventArgs.Empty);
+            Response.Redirect("CreateOrderView.aspx");
 
         }
 
@@ -59,17 +57,36 @@ namespace ERP.Views
 
         }
 
-        
+
+        public event EventHandler<EventArgs> LogoutClick;
+
+        protected void btnLogoutButton_Click(object sender, EventArgs e)
+        {
+
+            LogoutClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+
+        public event EventHandler<EventArgs> CreateNewOrderClick;
+
+        protected void btnCreateNewOrder_Click(object sender, EventArgs e)
+        {
+
+            CreateNewOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
 
         public event EventHandler<EventArgs> ShowAllOrdersClick;
   
-
         protected void btnShowAllOrders_Click(object sender, EventArgs e)
         {
 
             ShowAllOrdersClick?.Invoke(this, EventArgs.Empty);
 
         }
+
 
         public event EventHandler<EventArgs> ShowAllConfirmedOrdersClick;
 
@@ -80,6 +97,7 @@ namespace ERP.Views
 
         }
 
+
         public event EventHandler<EventArgs> ShowAllOrdersInProductionClick;
 
         protected void btnShowAllOrdersInProduction_Click(object sender, EventArgs e)
@@ -88,6 +106,7 @@ namespace ERP.Views
             ShowAllOrdersInProductionClick?.Invoke(this, EventArgs.Empty);
 
         }
+
 
         public event EventHandler<EventArgs> ShowAllCompletedOrdersClick;
 
@@ -108,6 +127,7 @@ namespace ERP.Views
 
         }
 
+
         protected void gvOrders_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
@@ -116,5 +136,6 @@ namespace ERP.Views
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvOrders, "Select$" + e.Row.RowIndex);
             }
         }
+
     }
 }
