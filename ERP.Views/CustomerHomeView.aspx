@@ -32,7 +32,13 @@ form1{
     text-align: center;
 }
 .message{
+    font-variant: small-caps;
     font-size: 40px;
+    color: #000000;
+}
+.navigationMessage{
+    font-variant: small-caps;
+    font-size: 30px;
     color: #000000;
 }
 .childDiv0{
@@ -117,8 +123,6 @@ form1{
     VerticalAlign="Middle" 
     Wrap="True"
     BackColor="#f0f0f0" />
-    <%--<SelectedRowStyle 
-    BackColor="#b1bcfe" ForeColor="#ffffff" />--%>
 
     </asp:GridView>
 
@@ -127,6 +131,17 @@ form1{
       
 
     <div id="searchButtonsDiv" class="searchButtonsDiv0">
+
+    <asp:UpdatePanel runat="server">
+    <ContentTemplate>
+
+    <div id="navigationMessageDiv" class="messageDiv">
+
+    <asp:Label ID="lblNavigationMessage" class="navigationMessage" runat="server"></asp:Label>
+
+    </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">
 

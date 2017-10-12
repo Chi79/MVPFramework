@@ -29,6 +29,7 @@ form1{
     text-align: center;
 }
 .message{
+    font-variant: small-caps;
     font-size: 40px;
     color: #000000;
 }

@@ -13,6 +13,8 @@ namespace ERP.Common.ViewInterfaces
 
         bool MessageVisible { set; }
 
+        string NavigationMessage { set; }
+
         IEnumerable<object> SetDataSource { set; }
 
         void BindData();

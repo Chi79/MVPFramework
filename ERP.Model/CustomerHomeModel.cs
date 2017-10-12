@@ -18,7 +18,6 @@ namespace ERP.Model
 
         private readonly IUnitOfWork _uOW;
 
-        private List<object> _emptyList = new List<object>();
 
         public CustomerHomeModel(ISessionService session, IUnitOfWork uOW)
         {
@@ -76,12 +75,6 @@ namespace ERP.Model
 
         }
 
-        public IEnumerable<T> NoDataFound<T>()
-        {
-
-            return _emptyList as IEnumerable<T>;
-
-        }
 
         public IEnumerable<object> GetAllOrders()
         {
@@ -89,14 +82,7 @@ namespace ERP.Model
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(_session.CurrentClientEmail)
                                                                    .ToList();
 
-            if (result.Count == 0)
-            {
-                return NoDataFound<ORDERS>();
-            }
-            else
-            {
-                return result;
-            }
+            return result;
 
         }
 
@@ -105,14 +91,8 @@ namespace ERP.Model
 
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.Confirmed)
                                                                       .ToList();
-            if (result.Count == 0)
-            {
-                return NoDataFound<ORDERS>();
-            }
-            else
-            {
-                return result;
-            }
+
+            return result;
 
         }
 
@@ -121,14 +101,8 @@ namespace ERP.Model
 
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.InProduction)
                                                                       .ToList();
-            if (result.Count == 0)
-            {
-                return NoDataFound<ORDERS>();
-            }
-            else
-            {
-                return result;
-            }
+
+            return result;
 
         }
 
@@ -136,15 +110,8 @@ namespace ERP.Model
         {
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.Complete)
                                                                       .ToList();
-        
-            if (result.Count == 0)
-            {
-                return NoDataFound<ORDERS>();
-            }
-            else
-            {
-                return result;
-            }
+
+            return result;
 
         }
 
@@ -153,14 +120,7 @@ namespace ERP.Model
 
             var result = _uOW.ITEMs.GetAllItemsForCustomerByOrderId(orderId).ToList();
 
-            if (result.Count == 0)
-            {
-                return NoDataFound<ITEM>();
-            }
-            else
-            {
-                return result;
-            }
+            return result;
 
         }
     }

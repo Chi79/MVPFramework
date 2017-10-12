@@ -25,10 +25,12 @@ form1{
     margin-top: 63px;
 }
 .WelcomeTitle{
+    font-variant: small-caps;
     font-size: 100px;
     font-weight: bolder;
 }
 .WelcomeMessage{
+    font-variant: small-caps;
     font-size: 35px;
 }
 .GoToLoginButton{

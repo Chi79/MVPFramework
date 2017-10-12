@@ -47,6 +47,13 @@ namespace ERP.Presenters.Presenters
 
         }
 
+        public override void FirstTimeInit()
+        {
+            base.FirstTimeInit();
+
+            OnShowAllOrdersClicked(this, EventArgs.Empty);
+
+        }
 
         private void OnPageLoaded(object sender, EventArgs e)
         {
@@ -93,6 +100,8 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
+            _view.NavigationMessage = "Viewing all orders. Please click a row to view the order items.";
+
         }
 
         private void OnShowAllConfirmedOrdersClicked(object sender, EventArgs e)
@@ -101,6 +110,8 @@ namespace ERP.Presenters.Presenters
             _view.SetDataSource = _model.GetAllConfirmedOrders();
 
             _view.BindData();
+
+            _view.NavigationMessage = "Viewing confirmed orders awaiting production. Please click a row to view the order items.";
 
         }
 
@@ -111,6 +122,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
+            _view.NavigationMessage = "Viewing orders currently in production. Please click a row to view the order items.";
         }
 
         private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
@@ -119,7 +131,9 @@ namespace ERP.Presenters.Presenters
             _view.SetDataSource = _model.GetAllCompletedOrders();
 
             _view.BindData();
-              
+
+            _view.NavigationMessage = "Viewing all completed orders. Please click a row to view the order items.";
+
         }
 
         private void OnRowSelected(object sender, EventArgs e)
@@ -141,6 +155,8 @@ namespace ERP.Presenters.Presenters
             _view.SetDataSource = _model.GetAllItemsForOrder(orderId);
 
             _view.BindData();
+
+            _view.NavigationMessage = "Viewing all items in the selected order.";
 
         }
     }

@@ -46,6 +46,7 @@ form1{
     margin-top: 75px;
 }
 .EmailLabel{
+    font-variant: small-caps;
     font-size: 37px;
     font-weight: bolder;
 }
@@ -53,6 +54,7 @@ form1{
     font-size: 32px;
 }
 .PasswordLabel{
+    font-variant: small-caps;
     font-size: 37px;
     font-weight: bolder;
 }
@@ -60,6 +62,7 @@ form1{
     font-size: 32px;
 }
 .Message{
+    font-variant: small-caps;
     font-size: 32px;
     color: #312b2b;
 }

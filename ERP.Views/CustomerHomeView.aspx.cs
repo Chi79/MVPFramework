@@ -17,6 +17,8 @@ namespace ERP.Views
 
         public bool MessageVisible { set { lblMessage.Visible = value; } }
 
+        public string NavigationMessage { set { lblNavigationMessage.Text = value; } }
+
         public object SelectedRowValueDataKey { get { return gvOrders.DataKeys[SelectedRowIndex].Value; } }
 
         public int SelectedRowIndex { get { return gvOrders.SelectedIndex; } }
@@ -56,6 +58,8 @@ namespace ERP.Views
             PageLoad?.Invoke(this, EventArgs.Empty);
 
         }
+
+        
 
         public event EventHandler<EventArgs> ShowAllOrdersClick;
   
