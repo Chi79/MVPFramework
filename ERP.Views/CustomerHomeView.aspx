@@ -137,8 +137,6 @@ form1{
 
     <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click" />
 
-    <asp:Button ID="btnShowAllItemsInOrder" CssClass="searchButtons" runat="server" Text="Items in Order" OnClick="btnShowAllItemsInOrder_Click" />
-
     </div>
 
     </div>

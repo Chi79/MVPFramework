@@ -94,15 +94,6 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.Button btnShowAllCompletedOrders;
         
         /// <summary>
-        /// btnShowAllItemsInOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowAllItemsInOrder;
-        
-        /// <summary>
         /// btnLogoutButton control.
         /// </summary>
         /// <remarks>
