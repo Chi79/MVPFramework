@@ -31,8 +31,8 @@ form1{
     text-align: center;
 }
 .message{
-    font-size: 32px;
-    color: #312b2b;
+    font-size: 40px;
+    color: #000000;
 }
 .childDiv0{
     position: fixed;
