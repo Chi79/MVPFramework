@@ -43,20 +43,10 @@ namespace ERP.Presenters.Presenters
 
             _view.ShowAllCompletedOrdersClick += OnShowAllCompletedOrdersClicked;
 
-            _view.ShowAllItemsInOrderClick += OnShowAllItemsInOrderClicked;
-
             _view.RowSelected += OnRowSelected;
 
         }
 
-        private void OnRowSelected(object sender, EventArgs e)
-        {
-
-            int orderId = (int)_view.SelectedRowValueDataKey;
-
-            _model.SetSelectedOrderIdToSession(orderId);
-
-        }
 
         private void OnPageLoaded(object sender, EventArgs e)
         {
@@ -132,13 +122,24 @@ namespace ERP.Presenters.Presenters
               
         }
 
-        private void OnShowAllItemsInOrderClicked(object sender, EventArgs e)
+        private void OnRowSelected(object sender, EventArgs e)
+        {
+
+            int orderId = (int)_view.SelectedRowValueDataKey;
+
+            _model.SetSelectedOrderIdToSession(orderId);
+
+            ShowItemsInSelecetedOrder();
+
+        }
+
+        public void ShowItemsInSelecetedOrder()
         {
 
             int orderId = _model.GetSelectedOrderIdFromSession();
 
             _view.SetDataSource = _model.GetAllItemsForOrder(orderId);
-        
+
             _view.BindData();
 
         }

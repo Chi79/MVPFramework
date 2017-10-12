@@ -37,7 +37,5 @@ namespace ERP.Common.ViewInterfaces
 
         event EventHandler<EventArgs> ShowAllCompletedOrdersClick;
 
-        event EventHandler<EventArgs> ShowAllItemsInOrderClick;
-
     }
 }

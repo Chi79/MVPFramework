@@ -94,14 +94,6 @@ namespace ERP.Views
 
         }
 
-        public event EventHandler<EventArgs> ShowAllItemsInOrderClick;
-
-        protected void btnShowAllItemsInOrder_Click(object sender, EventArgs e)
-        {
-
-            ShowAllItemsInOrderClick?.Invoke(this, EventArgs.Empty);
-
-        }
 
         public event EventHandler<EventArgs> RowSelected;
 
