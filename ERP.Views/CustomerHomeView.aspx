@@ -18,6 +18,7 @@ form1{
 }
 .gvOrders{
     margin-top: 25px;
+    font-size: 30px;
 }
 .parent{
     width: 100%;
@@ -33,19 +34,29 @@ form1{
     font-size: 32px;
     color: #312b2b;
 }
-.childDiv{
+.childDiv0{
+    position: fixed;
+    width: 100%;
+    bottom:60px;
+}
+.childDiv1{
     text-align: center;
 }
 .logoutButton{
+    position:relative;
     font-size: 45px;
     width: 222px;
     font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
-    margin-top: 150px;
 }
-.searchButtonsDiv{
+.searchButtonsDiv0{
+    position:fixed;
+    width:100%;
+    bottom:145px;
+}
+.searchButtonsDiv1{
     text-align:center;
 }
 .searchButtons{
@@ -114,7 +125,9 @@ form1{
     </asp:UpdatePanel>
       
 
-    <div id="searchButtonsDiv" class="searchButtonsDiv">
+    <div id="searchButtonsDiv" class="searchButtonsDiv0">
+
+    <div id="searchButtonsDiv1" class="searchButtonsDiv1">
 
     <asp:Button ID="btnShowAllOrders" CssClass="searchButtons" runat="server" Text="Show All Orders" OnClick="btnShowAllOrders_Click"/>
 
@@ -128,9 +141,15 @@ form1{
 
     </div>
 
-    <div id="childDiv" class="childDiv">
+    </div>
+
+    <div id="childDiv" class="childDiv0">
+
+    <div id="childDiv1" class="childDiv1">
 
     <asp:Button ID="btnLogoutButton" CssClass="logoutButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+
+    </div>
 
     </div>
 
