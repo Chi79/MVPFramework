@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ERP.DataTables.Tables;
-using ERP.Common.Structs;
 
 namespace ERP.Common.RepositoryInterfaces
 {

@@ -7,7 +7,6 @@ using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.ServiceInterfaces;
 using ERP.Common.Enums;
-using ERP.DataTables.Tables;
 
 namespace ERP.Model
 {

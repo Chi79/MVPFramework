@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using ERP.Common.RepositoryInterfaces;
 using ERP.DataTables.Tables;
 using ERP.Common.Enums;
-using ERP.Common.Structs;
 
 namespace ERP.DataAccess.ConcreteRepositories
 {
