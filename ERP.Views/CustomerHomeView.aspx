@@ -19,6 +19,7 @@ form1{
 .gvOrders{
     margin-top: 25px;
     font-size: 30px;
+    background: #b1bcfe;
 }
 .parent{
     width: 100%;
@@ -74,10 +75,10 @@ form1{
     text-align:center;
 }
 .Row:hover{
-      color:white;
+      border-color:white;
 }
-.AltRow:hover{
-      color:white;   
+.AltRow:hover{  
+      border-color:white;
 }
 
 </style>
@@ -116,8 +117,8 @@ form1{
     VerticalAlign="Middle" 
     Wrap="True"
     BackColor="#f0f0f0" />
-    <SelectedRowStyle 
-    BackColor="#b1bcfe" ForeColor="#ffffff" />
+    <%--<SelectedRowStyle 
+    BackColor="#b1bcfe" ForeColor="#ffffff" />--%>
 
     </asp:GridView>
 
