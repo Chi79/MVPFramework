@@ -84,7 +84,15 @@ form1{
 
     <div>
 
+    <asp:ScriptManager
+    ID="ScriptManager1"
+    runat="server">
+    </asp:ScriptManager> 
+
     <div id="parentDiv" class="parent" runat="server">
+
+    <asp:UpdatePanel runat="server">
+    <ContentTemplate>
 
     <div id="loginDiv0" class="loginDiv">
 
@@ -125,6 +133,9 @@ form1{
     </div>
 
     </asp:Panel>
+
+    </ContentTemplate>
+    </asp:UpdatePanel>
 
     </div>
 

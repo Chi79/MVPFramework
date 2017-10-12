@@ -139,9 +139,6 @@ form1{
 
     <asp:Label ID="lblNavigationMessage" class="navigationMessage" runat="server"></asp:Label>
 
-    </div>
-    </ContentTemplate>
-    </asp:UpdatePanel>
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">
 
@@ -154,6 +151,11 @@ form1{
     <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click" />
 
     </div>
+
+    </div>
+
+    </ContentTemplate>
+    </asp:UpdatePanel>
 
     </div>
 
