@@ -119,6 +119,10 @@
     <Content Include="AdminHomeView.aspx" />
     <Content Include="CreateOrderView.aspx" />
     <Content Include="CustomerHomeView.aspx" />
+    <Content Include="Images\largeT.png" />
+    <Content Include="Images\smallB.png" />
+    <Content Include="Images\smallR.png" />
+    <Content Include="Images\smallT.png" />
     <Content Include="LoginView.aspx" />
     <Content Include="OperatorHomeView.aspx" />
     <Content Include="Web.config" />

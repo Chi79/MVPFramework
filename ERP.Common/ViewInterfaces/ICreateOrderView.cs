@@ -14,6 +14,8 @@ namespace ERP.Common.ViewInterfaces
 
         string InfoMessage { set; }
 
+        string SmallClearAmountInMls { get; set; }
+
         void RedirectToHomePage();
 
         void RedirectToLoginPage();
@@ -23,5 +25,8 @@ namespace ERP.Common.ViewInterfaces
         event EventHandler<EventArgs> ViewOrdersClick;
 
         event EventHandler<EventArgs> LogoutClick;
+
+        event EventHandler<EventArgs> AddSmallClearClick;
+
     }
 }

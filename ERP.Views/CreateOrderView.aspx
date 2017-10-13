@@ -61,7 +61,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:145px;
+    bottom:250px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -74,6 +74,39 @@ form1{
     border-bottom-width: thick;
     margin-top: 25px;
 }
+.smallBottleImg{
+    height: 130px;
+}
+.largeBottleImg{
+    height: 220px;
+}
+.imgText{
+    display: grid;
+    font-variant: small-caps;
+    font-size: 24px;
+    color: #000000;
+}
+.div1{
+    display: inline-block;
+    width: 200px;
+}
+.addButtons{
+    font-variant: small-caps;
+    font-size: 25px;
+    border-radius: 20px;
+    background: honeydew;
+}
+.quantityTextBox{
+    text-align: center;
+    font-size: 20px;
+    width: 143px;
+}
+.inc_decSmallAmount{
+    text-align: center;
+    font-size: 20px;
+    width: 143px;
+}
+
 
 
 </style>
@@ -97,22 +130,58 @@ form1{
     <asp:UpdatePanel runat="server">
     <ContentTemplate>
 
-    <div id="datanMessageDiv" class="messageDiv">
-
-    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
 
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">
 
-<%--    <asp:Button ID="btnShowAllOrders" CssClass="searchButtons" runat="server" Text="Show All Orders" OnClick="btnShowAllOrders_Click"/>
 
-    <asp:Button ID="btnShowAllConfirmedOrders" CssClass="searchButtons" runat="server" Text="Confirmed Orders" OnClick="btnShowAllConfirmedOrders_Click" />
+    <div id="div1" class="div1">
 
-    <asp:Button ID="btnShowAllOrdersInProduction" CssClass="searchButtons" runat="server" Text="Orders In Production" OnClick="btnShowAllOrdersInProduction_Click" />
+    <asp:Image ID="imgSmallTransparentBottle" CssClass="smallBottleImg" ImageUrl="~/Images/smallT.png" runat="server" />
+    
+    <asp:Label ID="lblSmallT" CssClass="imgText" runat="server" Text="Small Clear"></asp:Label>
 
-    <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click" />--%>
+    <asp:Label ID="lblAmount" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
+
+    <asp:TextBox ID="txtSmallClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+
+    <asp:Button ID="btnAddSmallClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallClear_Click" />
 
     </div>
+
+
+    <div id="div2" class="div1">
+
+    <asp:Image ID="imgSmallBlackBottle" CssClass="smallBottleImg"  ImageUrl="~/Images/smallB.png"  runat="server" />
+
+    <asp:Label ID="lblSmallB" CssClass="imgText" runat="server" Text="Small Black"></asp:Label>
+
+    </div>
+
+
+    <div id="div3" class="div1">
+
+    <asp:Image ID="imgSmallRedBottle" CssClass="smallBottleImg" ImageUrl="~/Images/smallR.png" runat="server" />
+
+    <asp:Label ID="lblSmallRed" CssClass="imgText" runat="server" Text="Small Red"></asp:Label>
+
+    </div>
+
+
+    <div id="div4" class="div1">
+
+    <asp:Image ID="imgLargeTransparentBottle" CssClass="largeBottleImg" ImageUrl="~/Images/largeT.png" runat="server" />
+
+    <asp:Label ID="lblLargeT" CssClass="imgText" runat="server" Text="Large Clear"></asp:Label>
+
+    </div>
+
+
+    </div>
+
+    <div id="infoMessageDiv" class="messageDiv">
+
+    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
 
     </div>
 

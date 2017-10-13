@@ -51,5 +51,24 @@ namespace ERP.Model
 
         }
 
+        public string AddItemToCart(string amountInMls)
+        {
+            int amount = Convert.ToInt32(amountInMls);
+
+            int empty = 0;
+
+            if (amount == empty)
+            {
+                return "An item must contain some water! Please select the amount in mls before adding the item.";
+            }
+            else
+            {
+                return "One small clear bottle with " + amount.ToString() + " millileters has been added to your order.";
+
+                //TODO: add the item to the list of items and display the list in view
+            }
+
+        }
+
     }
 }

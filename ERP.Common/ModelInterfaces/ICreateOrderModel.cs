@@ -15,5 +15,7 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
+        string AddItemToCart(string amountInMls);
+
     }
 }

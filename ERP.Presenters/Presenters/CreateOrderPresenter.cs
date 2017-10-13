@@ -36,7 +36,11 @@ namespace ERP.Presenters.Presenters
             _view.LogoutClick += OnLogoutClicked;
 
             _view.ViewOrdersClick += OnViewOrdersClicked;
+
+            _view.AddSmallClearClick += OnAddSmallClearClicked;
+
         }
+
 
         public void DisplayMessage()
         {
@@ -81,5 +85,21 @@ namespace ERP.Presenters.Presenters
             _view.RedirectToLoginPage();
 
         }
+
+
+
+        private void OnAddSmallClearClicked(object sender, EventArgs e)
+        {
+
+            string amount = _view.SmallClearAmountInMls;
+
+            _view.InfoMessage = _model.AddItemToCart(amount);
+
+            _view.SmallClearAmountInMls = "0";
+
+            //get current cart items from session via model and display in view.
+
+        }
+
     }
 }

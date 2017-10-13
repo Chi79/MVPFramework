@@ -18,8 +18,10 @@ namespace ERP.Views
 
         public string InfoMessage { set { lblInfoMessage.Text = value; } }
 
+        public string SmallClearAmountInMls { get {return txtSmallClearMls.Text ; } set { txtSmallClearMls.Text = value ; }  }
+
         public void RedirectToHomePage()
-        {
+        { 
             Response.Redirect("CustomerHomeView.aspx");
         }
 
@@ -56,6 +58,15 @@ namespace ERP.Views
         {
 
             LogoutClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public event EventHandler<EventArgs> AddSmallClearClick;
+
+        protected void btnAddSmallClear_Click(object sender, EventArgs e)
+        {
+
+            AddSmallClearClick?.Invoke(this, EventArgs.Empty);
 
         }
     }
