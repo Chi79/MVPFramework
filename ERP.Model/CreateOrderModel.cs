@@ -105,7 +105,7 @@ namespace ERP.Model
 
             _cartItem.ItemType = itemType;
 
-            _cartItem.AmountInMls = amountInMls;
+            _cartItem.MLs = amountInMls;
 
             _cartItem.Price = _cartItem.CalculatePrice();
 

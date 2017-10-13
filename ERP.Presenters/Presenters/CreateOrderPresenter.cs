@@ -58,17 +58,20 @@ namespace ERP.Presenters.Presenters
 
         }
 
+        public override void FirstTimeInit()
+        {
+
+            base.FirstTimeInit();
+
+            DisplayMessage();
+
+        }
+
         private void OnPageLoaded(object sender, EventArgs e)
         {
 
             bool? IsValid = _model.CheckLoggedInStatus();
-            if ((bool)IsValid)
-            {
-
-                DisplayMessage();
-
-            }
-            else
+            if (!(bool)IsValid)
             {
 
                 _view.RedirectToLoginPage();

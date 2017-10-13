@@ -13,7 +13,7 @@ namespace ERP.Common.CartInterfaces
 
         string ItemType { get; set; }
 
-        int AmountInMls { get; set; }
+        int MLs { get; set; }
 
         double Price { get; set; }
 

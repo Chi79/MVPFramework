@@ -31,15 +31,6 @@ namespace ERP.Views {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl parentDiv;
         
         /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace ERP.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
         /// imgSmallTransparentBottle control.
@@ -229,15 +229,6 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.Button btnAddLargeClear;
         
         /// <summary>
-        /// lblInfoMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoMessage;
-        
-        /// <summary>
         /// gvItems control.
         /// </summary>
         /// <remarks>
@@ -245,6 +236,15 @@ namespace ERP.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvItems;
+        
+        /// <summary>
+        /// lblInfoMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInfoMessage;
         
         /// <summary>
         /// btnLogoutButton control.

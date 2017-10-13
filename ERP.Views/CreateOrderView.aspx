@@ -26,7 +26,11 @@ form1{
 }
 .messageDiv{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+.infoMessageDiv{
+    text-align: center;
+    margin-top:35px;
 }
 .message{
     font-variant: small-caps;
@@ -58,7 +62,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:90px;
+    top:130px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -103,18 +107,30 @@ form1{
     font-size: 20px;
     width: 143px;
 }
+.divGrid{
+    display:inline-block;
+    width: 350px;
+}
 .gvItems{
-    margin-top: 15px;
-    font-size: 18px;
+    font-size: 28px;
     background: #b1bcfe;
+    margin-bottom: 28px;
 }
 td{
     text-align:center;
 }
 
+
 </style>
     <form id="form1" runat="server">
     <div id="parentDiv" class="parent" runat="server">
+
+    <asp:ScriptManager
+    ID="ScriptManager1"
+    runat="server">
+    </asp:ScriptManager> 
+
+    <asp:UpdatePanel runat="server"><ContentTemplate>
 
     <div id="messageDiv" class="messageDiv">
 
@@ -122,10 +138,7 @@ td{
 
     </div>
 
-    <asp:ScriptManager
-    ID="ScriptManager1"
-    runat="server">
-    </asp:ScriptManager> 
+    </ContentTemplate></asp:UpdatePanel>
       
 
     <div id="searchButtonsDiv" class="searchButtonsDiv0">
@@ -197,14 +210,7 @@ td{
 
     </div>
 
-
-    </div>
-
-    <div id="infoMessageDiv" class="messageDiv">
-
-    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
-
-    </div>
+    <div id="div5" class="divGrid">
 
     <asp:GridView 
     ID="gvItems" 
@@ -224,10 +230,23 @@ td{
 
     </asp:GridView>
 
+    </div>
+
+    </div>
+
+    <div id="infoMessageDiv" class="infoMessageDiv">
+
+    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
+
+    </div>
+
+
     </ContentTemplate>
     </asp:UpdatePanel>
 
     </div>
+
+
 
     <div id="childDiv" class="childDiv0">
 

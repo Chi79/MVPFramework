@@ -40,7 +40,7 @@ namespace ERP.Model.CartObjects
 
         public string ItemType { get { return _itemType; } set { _itemType = value; } } 
 
-        public int AmountInMls { get { return _amountInMls; } set { _amountInMls = value; } }
+        public int MLs { get { return _amountInMls; } set { _amountInMls = value; } }
 
         public double Price { get { return _price; } set { _price = CalculatePrice(); } }
 
