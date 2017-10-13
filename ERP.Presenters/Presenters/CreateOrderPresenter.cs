@@ -103,11 +103,7 @@ namespace ERP.Presenters.Presenters
 
             _view.SmallClearAmountInMls = "0";
 
-            //get current cart items from session via model and display in view.
-
-            //_view.SetDataSource = _model.GetItemsInCart();
-
-            //_view.BindData();
+            DisplayItemList();
 
         }
 
@@ -120,7 +116,7 @@ namespace ERP.Presenters.Presenters
 
             _view.SmallBlackAmountInMls = "0";
 
-            //get current cart items from session via model and display in view.
+            DisplayItemList();
 
         }
 
@@ -134,7 +130,7 @@ namespace ERP.Presenters.Presenters
 
             _view.SmallRedAmountInMls = "0";
 
-            //get current cart items from session via model and display in view.
+            DisplayItemList();
 
         }
 
@@ -148,7 +144,16 @@ namespace ERP.Presenters.Presenters
 
             _view.LargeClearAmountInMls = "0";
 
-            //get current cart items from session via model and display in view.
+            DisplayItemList();
+
+        }
+
+        private void DisplayItemList()
+        {
+
+            _view.SetDataSource = _model.GetItemsInCart();
+
+            _view.BindData();
 
         }
 

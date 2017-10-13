@@ -96,7 +96,7 @@ namespace ERP.Model
 
             var itemsInCart = _session.ItemsInCart;
 
-            return itemsInCart;
+            return itemsInCart.ToList();
 
         }
 

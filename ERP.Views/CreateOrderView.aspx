@@ -58,7 +58,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:190px;
+    bottom:90px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -104,11 +104,13 @@ form1{
     width: 143px;
 }
 .gvItems{
-    margin-top: 25px;
-    font-size: 30px;
+    margin-top: 15px;
+    font-size: 18px;
     background: #b1bcfe;
 }
-
+td{
+    text-align:center;
+}
 
 </style>
     <form id="form1" runat="server">
@@ -208,8 +210,8 @@ form1{
     ID="gvItems" 
     CssClass="gvItems"
     runat="server"
-    HorizontalAlign="Center"
-    DataKeyNames="OrderID">
+    HorizontalAlign="Center">
+    <%--DataKeyNames="OrderID">--%>
 <%--    OnSelectedIndexChanged="gvOrders_SelectedIndexChanged"
     OnRowDataBound="gvOrders_RowDataBound">--%>
     <RowStyle BackColor="#e0d8d8" CssClass="Row"/>
