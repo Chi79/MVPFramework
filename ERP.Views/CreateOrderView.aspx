@@ -61,7 +61,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:250px;
+    bottom:180px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -156,6 +156,12 @@ form1{
 
     <asp:Label ID="lblSmallB" CssClass="imgText" runat="server" Text="Small Black"></asp:Label>
 
+    <asp:Label ID="lblAmount2" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
+
+    <asp:TextBox ID="txtSmallBlackMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+
+    <asp:Button ID="btnAddSmallBlack" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallBlack_Click" />
+
     </div>
 
 
@@ -165,6 +171,12 @@ form1{
 
     <asp:Label ID="lblSmallRed" CssClass="imgText" runat="server" Text="Small Red"></asp:Label>
 
+    <asp:Label ID="lblAmount3" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
+
+    <asp:TextBox ID="txtSmallRedMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+
+    <asp:Button ID="btnAddSmallRed" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallRed_Click" />
+
     </div>
 
 
@@ -173,6 +185,12 @@ form1{
     <asp:Image ID="imgLargeTransparentBottle" CssClass="largeBottleImg" ImageUrl="~/Images/largeT.png" runat="server" />
 
     <asp:Label ID="lblLargeT" CssClass="imgText" runat="server" Text="Large Clear"></asp:Label>
+
+    <asp:Label ID="lblAmount4" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
+
+    <asp:TextBox ID="txtLargeClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+
+    <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddLargeClear_Click" />
 
     </div>
 

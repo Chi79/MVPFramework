@@ -112,6 +112,33 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.Label lblSmallB;
         
         /// <summary>
+        /// lblAmount2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAmount2;
+        
+        /// <summary>
+        /// txtSmallBlackMls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSmallBlackMls;
+        
+        /// <summary>
+        /// btnAddSmallBlack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddSmallBlack;
+        
+        /// <summary>
         /// imgSmallRedBottle control.
         /// </summary>
         /// <remarks>
@@ -130,6 +157,33 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.Label lblSmallRed;
         
         /// <summary>
+        /// lblAmount3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAmount3;
+        
+        /// <summary>
+        /// txtSmallRedMls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSmallRedMls;
+        
+        /// <summary>
+        /// btnAddSmallRed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddSmallRed;
+        
+        /// <summary>
         /// imgLargeTransparentBottle control.
         /// </summary>
         /// <remarks>
@@ -146,6 +200,33 @@ namespace ERP.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLargeT;
+        
+        /// <summary>
+        /// lblAmount4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAmount4;
+        
+        /// <summary>
+        /// txtLargeClearMls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLargeClearMls;
+        
+        /// <summary>
+        /// btnAddLargeClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddLargeClear;
         
         /// <summary>
         /// lblInfoMessage control.

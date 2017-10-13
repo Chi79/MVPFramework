@@ -26,4 +26,12 @@ namespace ERP.Common.Enums
         Complete,
         Failed
     }
+
+    public enum ItemType
+    {
+        Small_Clear,
+        Small_Black,
+        Small_Red,
+        Large_Clear
+    }
 }

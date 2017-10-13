@@ -20,6 +20,12 @@ namespace ERP.Views
 
         public string SmallClearAmountInMls { get {return txtSmallClearMls.Text ; } set { txtSmallClearMls.Text = value ; }  }
 
+        public string SmallBlackAmountInMls { get { return txtSmallBlackMls.Text; } set { txtSmallBlackMls.Text = value; } }
+
+        public string SmallRedAmountInMls { get { return txtSmallRedMls.Text; } set { txtSmallRedMls.Text = value; } }
+
+        public string LargeClearAmountInMls { get { return txtLargeClearMls.Text; } set { txtLargeClearMls.Text = value; } }
+
         public void RedirectToHomePage()
         { 
             Response.Redirect("CustomerHomeView.aspx");
@@ -61,12 +67,43 @@ namespace ERP.Views
 
         }
 
+
         public event EventHandler<EventArgs> AddSmallClearClick;
 
         protected void btnAddSmallClear_Click(object sender, EventArgs e)
         {
 
             AddSmallClearClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+
+        public event EventHandler<EventArgs> AddSmallBlackClick;
+
+        protected void btnAddSmallBlack_Click(object sender, EventArgs e)
+        {
+
+            AddSmallBlackClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+
+        public event EventHandler<EventArgs> AddSmallRedClick;
+
+        protected void btnAddSmallRed_Click(object sender, EventArgs e)
+        {
+
+            AddSmallRedClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+
+        public event EventHandler<EventArgs> AddLargeClearClick;
+
+        protected void btnAddLargeClear_Click(object sender, EventArgs e)
+        {
+
+            AddLargeClearClick?.Invoke(this, EventArgs.Empty);
 
         }
     }

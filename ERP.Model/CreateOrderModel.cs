@@ -51,11 +51,13 @@ namespace ERP.Model
 
         }
 
-        public string AddItemToCart(string amountInMls)
+        public string AddItemToCart(string amountInMls , object itemTypeEnum)
         {
             int amount = Convert.ToInt32(amountInMls);
 
             int empty = 0;
+
+            string itemType = ConvertItemTypeEnumToString(itemTypeEnum);
 
             if (amount == empty)
             {
@@ -63,10 +65,18 @@ namespace ERP.Model
             }
             else
             {
-                return "One small clear bottle with " + amount.ToString() + " millileters has been added to your order.";
+
+                return "One " + itemType + " bottle with " + amount.ToString() + " millileters has been added to your order.";
 
                 //TODO: add the item to the list of items and display the list in view
             }
+
+        }
+
+        public string ConvertItemTypeEnumToString(object itemTypeEnum)
+        {
+
+            return Enum.GetName(typeof(ItemType), itemTypeEnum).ToString().Replace("_", " ");
 
         }
 

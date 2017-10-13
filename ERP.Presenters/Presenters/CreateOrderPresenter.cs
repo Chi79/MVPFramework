@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ERP.Common.ViewInterfaces;
 using ERP.Common.ModelInterfaces;
 using ERP.Presenters.Bases;
+using ERP.Common.Enums;
 
 namespace ERP.Presenters.Presenters
 {
@@ -38,6 +39,12 @@ namespace ERP.Presenters.Presenters
             _view.ViewOrdersClick += OnViewOrdersClicked;
 
             _view.AddSmallClearClick += OnAddSmallClearClicked;
+
+            _view.AddSmallBlackClick += OnAddSmallBlackClicked;
+
+            _view.AddSmallRedClick += OnAddSmallRedClicked;
+
+            _view.AddLargeClearClick += OnAddLargeClearClicked;
 
         }
 
@@ -87,15 +94,55 @@ namespace ERP.Presenters.Presenters
         }
 
 
-
         private void OnAddSmallClearClicked(object sender, EventArgs e)
         {
 
             string amount = _view.SmallClearAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(amount);
+            _view.InfoMessage = _model.AddItemToCart(amount , ItemType.Small_Clear);
 
             _view.SmallClearAmountInMls = "0";
+
+            //get current cart items from session via model and display in view.
+
+        }
+
+        private void OnAddSmallBlackClicked(object sender, EventArgs e)
+        {
+
+            string amount = _view.SmallBlackAmountInMls;
+
+            _view.InfoMessage = _model.AddItemToCart(amount, ItemType.Small_Black);
+
+            _view.SmallBlackAmountInMls = "0";
+
+            //get current cart items from session via model and display in view.
+
+        }
+
+
+        private void OnAddSmallRedClicked(object sender, EventArgs e)
+        {
+
+            string amount = _view.SmallRedAmountInMls;
+
+            _view.InfoMessage = _model.AddItemToCart(amount , ItemType.Small_Red );
+
+            _view.SmallRedAmountInMls = "0";
+
+            //get current cart items from session via model and display in view.
+
+        }
+
+
+        private void OnAddLargeClearClicked(object sender, EventArgs e)
+        {
+
+            string amount = _view.LargeClearAmountInMls;
+
+            _view.InfoMessage = _model.AddItemToCart(amount, ItemType.Large_Clear);
+
+            _view.LargeClearAmountInMls = "0";
 
             //get current cart items from session via model and display in view.
 
