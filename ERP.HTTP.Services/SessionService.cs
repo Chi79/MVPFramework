@@ -85,6 +85,28 @@ namespace ERP.HTTP.Services
             set { HttpContext.Current.Session["SelectedOrderId"] = value; }
 
         }
+
+        public IEnumerable<object> ItemsInCart
+        {
+            get
+            {
+                var items = HttpContext.Current.Session["ItemsInCart"];
+                if (items != null)
+                {
+
+                    return items as IEnumerable<object>;
+
+                }
+                else
+                {
+                    List<object> newItemsList = new List<object>();
+                    return newItemsList;
+                }
+            }
+            set { HttpContext.Current.Session["ItemsInCart"] = value; }
+
+        }
+
     }
 
 }

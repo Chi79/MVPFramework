@@ -22,6 +22,10 @@ namespace ERP.Common.ViewInterfaces
 
         string LargeClearAmountInMls { get; set; }
 
+        IEnumerable<object> SetDataSource { set; }
+
+        void BindData();
+
         void RedirectToHomePage();
 
         void RedirectToLoginPage();

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartInterfaces\ICartItem.cs" />
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="ModelInterfaces\IAdminHomeModel.cs" />
     <Compile Include="ModelInterfaces\ICreateOrderModel.cs" />

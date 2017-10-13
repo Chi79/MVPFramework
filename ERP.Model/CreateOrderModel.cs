@@ -7,6 +7,8 @@ using ERP.Common.ModelInterfaces;
 using ERP.Common.ServiceInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.Enums;
+using ERP.Model.CartObjects;
+using ERP.Common.CartInterfaces;
 
 namespace ERP.Model
 {
@@ -17,12 +19,17 @@ namespace ERP.Model
 
         private readonly IUnitOfWork _uOW;
 
-        public CreateOrderModel(ISessionService session, IUnitOfWork uOW)
+        private readonly ICartItem _cartItem;
+
+
+        public CreateOrderModel(ISessionService session, IUnitOfWork uOW, ICartItem cartItem)
         {
 
             _session = session;
 
             _uOW = uOW;
+
+            _cartItem = cartItem;
 
         }
 
@@ -66,17 +73,65 @@ namespace ERP.Model
             else
             {
 
+                CreateCartItem(itemType, amount);
+
+                AddItemToSessionCart();
+
                 return "One " + itemType + " bottle with " + amount.ToString() + " millileters has been added to your order.";
 
-                //TODO: add the item to the list of items and display the list in view
-            }
 
+            }
+            
         }
 
         public string ConvertItemTypeEnumToString(object itemTypeEnum)
         {
 
             return Enum.GetName(typeof(ItemType), itemTypeEnum).ToString().Replace("_", " ");
+
+        }
+
+        public IEnumerable<object> GetItemsInCart()
+        {
+
+            var itemsInCart = _session.ItemsInCart;
+
+            return itemsInCart;
+
+        }
+
+        public void CreateCartItem(string itemType, int amountInMls)
+        {
+
+            _cartItem.ItemType = itemType;
+
+            _cartItem.AmountInMls = amountInMls;
+
+            _cartItem.Price = _cartItem.CalculatePrice();
+
+            var CartList = GetItemsInCart().ToList();
+
+            if (CartList.Count == 0)
+            {
+                _cartItem.ID = 1;
+            }
+            else
+            {
+                CartItem lastInList = CartList.Last() as CartItem;
+
+                _cartItem.ID = lastInList.ID + 1;
+            }
+
+        }
+
+        public void AddItemToSessionCart()
+        {
+
+            var CartList = GetItemsInCart().ToList();
+
+            CartList.Add(_cartItem);
+
+            _session.ItemsInCart = CartList;
 
         }
 

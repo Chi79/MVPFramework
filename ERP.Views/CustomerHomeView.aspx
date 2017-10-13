@@ -16,11 +16,6 @@ body{
 form1{
     color:darkslategrey;
 }
-.gvOrders{
-    margin-top: 25px;
-    font-size: 30px;
-    background: #b1bcfe;
-}
 .parent{
     width: 100%;
     height: 500px;
@@ -72,6 +67,11 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 25px;
+}
+.gvOrders{
+    margin-top: 25px;
+    font-size: 30px;
+    background: #b1bcfe;
 }
 .Row td{
     text-align:center;

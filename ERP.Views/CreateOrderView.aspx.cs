@@ -26,6 +26,15 @@ namespace ERP.Views
 
         public string LargeClearAmountInMls { get { return txtLargeClearMls.Text; } set { txtLargeClearMls.Text = value; } }
 
+        public IEnumerable<object> SetDataSource { set { gvItems.DataSource = value; } }
+
+        public void BindData()
+        {
+
+            gvItems.DataBind();
+
+        }
+
         public void RedirectToHomePage()
         { 
             Response.Redirect("CustomerHomeView.aspx");

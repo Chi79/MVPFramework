@@ -105,6 +105,10 @@ namespace ERP.Presenters.Presenters
 
             //get current cart items from session via model and display in view.
 
+            //_view.SetDataSource = _model.GetItemsInCart();
+
+            //_view.BindData();
+
         }
 
         private void OnAddSmallBlackClicked(object sender, EventArgs e)

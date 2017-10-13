@@ -17,5 +17,7 @@ namespace ERP.Common.ServiceInterfaces
 
         int? SelectedOrderId { get; set; }
 
+        IEnumerable<object> ItemsInCart { get; set; }
+
     }
 }

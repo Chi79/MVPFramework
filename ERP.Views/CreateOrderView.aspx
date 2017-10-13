@@ -17,20 +17,16 @@ body{
 form1{
     color:darkslategrey;
 }
-.gvOrders{
-    margin-top: 25px;
-    font-size: 30px;
-    background: #b1bcfe;
-}
 .parent{
     width: 100%;
     height: 500px;
     background: cornsilk;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 5px;
 }
 .messageDiv{
     text-align: center;
+    margin-top: 10px;
 }
 .message{
     font-variant: small-caps;
@@ -40,19 +36,20 @@ form1{
 .infoMessage{
     font-variant: small-caps;
     font-size: 30px;
+    font-weight:bolder;
     color: #000000;
 }
 .childDiv0{
     position: fixed;
     width: 100%;
-    bottom:60px;
+    bottom:15px;
 }
 .childDiv1{
     text-align: center;
 }
 .navButton{
     position:relative;
-    font-size: 45px;
+    font-size: 30px;
     font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
@@ -61,7 +58,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:180px;
+    bottom:190px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -106,7 +103,11 @@ form1{
     font-size: 20px;
     width: 143px;
 }
-
+.gvItems{
+    margin-top: 25px;
+    font-size: 30px;
+    background: #b1bcfe;
+}
 
 
 </style>
@@ -188,7 +189,7 @@ form1{
 
     <asp:Label ID="lblAmount4" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <asp:TextBox ID="txtLargeClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+    <asp:TextBox ID="txtLargeClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="200" step="5" Text="0"/>
 
     <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddLargeClear_Click" />
 
@@ -202,6 +203,24 @@ form1{
     <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
 
     </div>
+
+    <asp:GridView 
+    ID="gvItems" 
+    CssClass="gvItems"
+    runat="server"
+    HorizontalAlign="Center"
+    DataKeyNames="OrderID">
+<%--    OnSelectedIndexChanged="gvOrders_SelectedIndexChanged"
+    OnRowDataBound="gvOrders_RowDataBound">--%>
+    <RowStyle BackColor="#e0d8d8" CssClass="Row"/>
+
+    <AlternatingRowStyle
+    CssClass="AltRow"
+    VerticalAlign="Middle" 
+    Wrap="True"
+    BackColor="#f0f0f0" />
+
+    </asp:GridView>
 
     </ContentTemplate>
     </asp:UpdatePanel>

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminHomeModel.cs" />
+    <Compile Include="CartObjects\CartItem.cs" />
     <Compile Include="CreateOrderModel.cs" />
     <Compile Include="CustomerHomeModel.cs" />
     <Compile Include="LoginModel.cs" />
