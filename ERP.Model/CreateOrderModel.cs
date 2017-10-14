@@ -19,17 +19,19 @@ namespace ERP.Model
 
         private readonly IUnitOfWork _uOW;
 
-        private readonly ICartItem _cartItem;
+        private ICartItem _cartItem;
+
+        private IList<object> _cartList;
 
 
-        public CreateOrderModel(ISessionService session, IUnitOfWork uOW, ICartItem cartItem)
+        public CreateOrderModel(ISessionService session, IUnitOfWork uOW)
         {
 
             _session = session;
 
             _uOW = uOW;
 
-            _cartItem = cartItem;
+            _cartList = GetItemsInCart().ToList();
 
         }
 
@@ -59,24 +61,22 @@ namespace ERP.Model
         }
 
 
-        public event EventHandler<string> BottleIsEmpty;
+        public event EventHandler<string> ItemIsEmpty;
 
-        public void AddItemToCart(string amountInMls , object itemTypeEnum)
+        public void AddItemToCart(string amountInMls , ItemType itemType)
         {
+
             int amount = Convert.ToInt32(amountInMls);
 
-            int empty = 0;
-
-            if (amount == empty)
+            bool BottleIsEmpty = amount == 0;
+            if (BottleIsEmpty)
             {
 
-                BottleIsEmpty?.Invoke(this, "An item must contain some water! Please select the amount in mls before adding the item.");
+                ItemIsEmpty?.Invoke(this, "An item must contain some water! Please select the amount in mls before adding the item.");
   
             }
             else
             {
-
-                string itemType = ConvertItemTypeEnumToString(itemTypeEnum);
 
                 CreateCartItem(itemType, amount);
 
@@ -84,13 +84,6 @@ namespace ERP.Model
 
             }
             
-        }
-
-        public string ConvertItemTypeEnumToString(object itemTypeEnum)
-        {
-
-            return Enum.GetName(typeof(ItemType), itemTypeEnum).ToString().Replace("_", " ");
-
         }
 
         public IEnumerable<object> GetItemsInCart()
@@ -102,14 +95,10 @@ namespace ERP.Model
 
         }
 
-        public void CreateCartItem(string itemType, int amountInMls)
+        public void CreateCartItem(ItemType itemType, int amountInMls)
         {
 
-            _cartItem.ItemType = itemType;
-
-            _cartItem.MLs = amountInMls;
-
-            _cartItem.Price = _cartItem.CalculatePrice();
+            _cartItem = new CartItem(itemType, amountInMls);
 
             AllocateCartId();
 
@@ -118,15 +107,13 @@ namespace ERP.Model
         public void AllocateCartId()
         {
 
-            var CartList = GetItemsInCart().ToList();
-
-            if (CartList.Count == 0)
+            if (_cartList.Count == 0)
             {
                 _cartItem.ID = 1;
             }
             else
             {
-                CartItem lastInList = CartList.Last() as CartItem;
+                CartItem lastInList = _cartList.Last() as CartItem;
 
                 _cartItem.ID = lastInList.ID + 1;
             }
@@ -134,7 +121,7 @@ namespace ERP.Model
         }
 
 
-        public event EventHandler<string> CartIsFull;
+        public event EventHandler<string> CartFull;
 
         public event EventHandler<string> ItemAddedToCart;
 
@@ -142,23 +129,20 @@ namespace ERP.Model
         public void AddItemToSessionCart()
         {
 
-            var CartList = GetItemsInCart().ToList();
+            int NumberOfItemsInCart = _cartList.Count;
 
-            int NumberOfItemsInCart = CartList.Count();
-
-            int MaximumNumberOfItemsPerOrder = 6;
-
-            if(NumberOfItemsInCart == MaximumNumberOfItemsPerOrder)
+            bool CartIsFull = NumberOfItemsInCart == 6;
+            if(CartIsFull)
             {
 
-                CartIsFull?.Invoke(this, "Cart is Full - Maximum of 6 items per order!");
+                CartFull?.Invoke(this, "Cart is Full - Maximum of 6 items per order!");
 
             }
             else
             {
-                CartList.Add(_cartItem);
+                _cartList.Add(_cartItem);
 
-                _session.ItemsInCart = CartList;
+                _session.ItemsInCart = _cartList;
 
                 ItemAddedToCart?.Invoke(this, "One " + _cartItem.ItemType 
                                                      + " bottle with " 

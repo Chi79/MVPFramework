@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ERP.Common.Enums;
 
 namespace ERP.Common.CartInterfaces
 {
@@ -11,13 +12,11 @@ namespace ERP.Common.CartInterfaces
 
         int ID { get; set; }
 
-        string ItemType { get; set; }
+        string ItemType { get; }
 
-        int MLs { get; set; }
+        int MLs { get; }
 
-        double Price { get; set; }
-
-        double CalculatePrice();
+        double Price { get; }
 
     }
 }

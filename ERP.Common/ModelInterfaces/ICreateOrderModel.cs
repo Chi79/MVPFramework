@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ERP.Common.Enums;
 
 namespace ERP.Common.ModelInterfaces
 {
@@ -15,19 +16,15 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
-        void AddItemToCart(string amountInMls, object itemTypeEnum);
+        void AddItemToCart(string amountInMls, ItemType itemType);
 
         IEnumerable<object> GetItemsInCart();
 
-        void CreateCartItem(string itemType, int amountInMls);
-
-        void AddItemToSessionCart();
-
-        event EventHandler<string> CartIsFull;
+        event EventHandler<string> CartFull;
 
         event EventHandler<string> ItemAddedToCart;
 
-        event EventHandler<string> BottleIsEmpty;
+        event EventHandler<string> ItemIsEmpty;
 
     }
 }

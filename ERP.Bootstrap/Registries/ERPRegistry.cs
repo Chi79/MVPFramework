@@ -9,6 +9,7 @@ using ERP.Model;
 using ERP.DataAccess.ConcreteRepositories;
 using ERP.HTTP.Services;
 
+
 namespace ERP.Bootstrap.Registries
 {
     public class ERPRegistry : Registry
@@ -17,13 +18,14 @@ namespace ERP.Bootstrap.Registries
         {
             Scan(scanner =>
             {
-                scanner.RegisterConcreteTypesAgainstTheFirstInterface();     
+                scanner.RegisterConcreteTypesAgainstTheFirstInterface();
                 scanner.AssemblyContainingType<PresenterBase>();
                 scanner.AssemblyContainingType<SessionService>();
                 scanner.AssemblyContainingType<WelcomeModel>();
                 scanner.AssemblyContainingType<UnitOfWork>();
                 scanner.WithDefaultConventions();                            
-                scanner.SingleImplementationsOfInterface();                  
+                scanner.SingleImplementationsOfInterface();
+
             });
 
             //here we define the classes to be resolved and configuure the container to search through the

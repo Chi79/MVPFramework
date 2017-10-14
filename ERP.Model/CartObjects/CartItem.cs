@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ERP.Common.CartInterfaces;
+using ERP.Common.Enums;
 
 
 namespace ERP.Model.CartObjects
@@ -19,34 +20,37 @@ namespace ERP.Model.CartObjects
 
         private double _price;
 
-        public CartItem()
+
+        public CartItem(ItemType itemType, int amountInMls)
         {
-
-        }
-        public CartItem(int ID, string itemType, int amountInMls)
-        {
-
-            _ID = ID;
-
-            _itemType = itemType;
 
             _amountInMls = amountInMls;
 
-            _price = CalculatePrice();
+            CalculatePrice();
+
+            ConvertItemTypeEnumToString(itemType);
 
         }
 
         public int ID { get { return _ID; } set { _ID = value; } }
 
-        public string ItemType { get { return _itemType; } set { _itemType = value; } } 
+        public string ItemType { get { return _itemType; } } 
 
-        public int MLs { get { return _amountInMls; } set { _amountInMls = value; } }
+        public int MLs { get { return _amountInMls; } }
 
-        public double Price { get { return _price; } set { _price = CalculatePrice(); } }
+        public double Price { get { return _price; }  }
 
-        public double CalculatePrice()
+
+        private void CalculatePrice()
         {
-            return _amountInMls * 10.5;
+            _price = _amountInMls * 10.5;
+        }
+
+        private void ConvertItemTypeEnumToString(ItemType itemType)
+        {
+
+            _itemType = Enum.GetName(typeof(ItemType), itemType).ToString().Replace("_", " ");
+
         }
     }
 }

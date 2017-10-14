@@ -46,11 +46,12 @@ namespace ERP.Presenters.Presenters
 
             _view.AddLargeClearClick += OnAddLargeClearClicked;
 
-            _model.CartIsFull += OnCartIsFilled;
+            _model.CartFull += OnCartIsFilled;
 
             _model.ItemAddedToCart += OnItemAddedToCart;
 
-            _model.BottleIsEmpty += OnBottleIsEmpty;
+            _model.ItemIsEmpty += OnBottleIsEmpty;
+
         }
 
 
