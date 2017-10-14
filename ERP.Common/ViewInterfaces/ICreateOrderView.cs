@@ -26,6 +26,10 @@ namespace ERP.Common.ViewInterfaces
 
         void BindData();
 
+        void DisableCartDiv();
+
+        void EnableCartDiv();
+
         void RedirectToHomePage();
 
         void RedirectToLoginPage();

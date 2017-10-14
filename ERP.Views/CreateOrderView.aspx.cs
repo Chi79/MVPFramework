@@ -35,15 +35,31 @@ namespace ERP.Views
 
         }
 
+        public void DisableCartDiv()
+        {
+    
+            divCartList.Attributes.Add("style", "display:none");
+
+        }
+
+        public void EnableCartDiv()
+        {
+
+            divCartList.Attributes.Add("style", "display:inline-block");
+
+        }
+
         public void RedirectToHomePage()
         { 
             Response.Redirect("CustomerHomeView.aspx");
         }
 
+
         public void RedirectToLoginPage()
         {
             Response.Redirect("LoginView.aspx");
         }
+
 
         public event EventHandler<EventArgs> PageLoad;
 

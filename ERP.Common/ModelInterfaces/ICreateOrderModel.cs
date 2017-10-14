@@ -15,13 +15,19 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
-        string AddItemToCart(string amountInMls, object itemTypeEnum);
+        void AddItemToCart(string amountInMls, object itemTypeEnum);
 
         IEnumerable<object> GetItemsInCart();
 
         void CreateCartItem(string itemType, int amountInMls);
 
         void AddItemToSessionCart();
+
+        event EventHandler<string> CartIsFull;
+
+        event EventHandler<string> ItemAddedToCart;
+
+        event EventHandler<string> BottleIsEmpty;
 
     }
 }

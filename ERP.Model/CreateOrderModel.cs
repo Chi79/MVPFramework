@@ -58,7 +58,10 @@ namespace ERP.Model
 
         }
 
-        public string AddItemToCart(string amountInMls , object itemTypeEnum)
+
+        public event EventHandler<string> BottleIsEmpty;
+
+        public void AddItemToCart(string amountInMls , object itemTypeEnum)
         {
             int amount = Convert.ToInt32(amountInMls);
 
@@ -68,7 +71,9 @@ namespace ERP.Model
 
             if (amount == empty)
             {
-                return "An item must contain some water! Please select the amount in mls before adding the item.";
+
+                BottleIsEmpty?.Invoke(this, "An item must contain some water! Please select the amount in mls before adding the item.");
+  
             }
             else
             {
@@ -76,9 +81,6 @@ namespace ERP.Model
                 CreateCartItem(itemType, amount);
 
                 AddItemToSessionCart();
-
-                return "One " + itemType + " bottle with " + amount.ToString() + " millileters has been added to your order.";
-
 
             }
             
@@ -124,14 +126,38 @@ namespace ERP.Model
 
         }
 
+
+        public event EventHandler<string> CartIsFull;
+
+        public event EventHandler<string> ItemAddedToCart;
+
+
         public void AddItemToSessionCart()
         {
 
             var CartList = GetItemsInCart().ToList();
 
-            CartList.Add(_cartItem);
+            int NumberOfItemsInCart = CartList.Count();
 
-            _session.ItemsInCart = CartList;
+            int MaximumNumberOfItemsPerOrder = 6;
+
+            if(NumberOfItemsInCart == MaximumNumberOfItemsPerOrder)
+            {
+
+                CartIsFull?.Invoke(this, "Cart is Full - Maximum of 6 items per order!");
+
+            }
+            else
+            {
+                CartList.Add(_cartItem);
+
+                _session.ItemsInCart = CartList;
+
+                ItemAddedToCart?.Invoke(this, "One " + _cartItem.ItemType 
+                                                     + " bottle with " 
+                                                     + _cartItem.MLs.ToString() 
+                                                     + " millileters has been added to your order.");
+            }
 
         }
 

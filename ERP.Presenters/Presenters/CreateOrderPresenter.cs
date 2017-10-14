@@ -46,6 +46,11 @@ namespace ERP.Presenters.Presenters
 
             _view.AddLargeClearClick += OnAddLargeClearClicked;
 
+            _model.CartIsFull += OnCartIsFilled;
+
+            _model.ItemAddedToCart += OnItemAddedToCart;
+
+            _model.BottleIsEmpty += OnBottleIsEmpty;
         }
 
 
@@ -64,6 +69,8 @@ namespace ERP.Presenters.Presenters
             base.FirstTimeInit();
 
             DisplayMessage();
+
+            _view.DisableCartDiv();
 
         }
 
@@ -102,7 +109,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallClearAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(amount , ItemType.Small_Clear);
+            _model.AddItemToCart(amount, ItemType.Small_Clear);
 
             _view.SmallClearAmountInMls = "0";
 
@@ -115,7 +122,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallBlackAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(amount, ItemType.Small_Black);
+            _model.AddItemToCart(amount, ItemType.Small_Black);
 
             _view.SmallBlackAmountInMls = "0";
 
@@ -129,7 +136,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallRedAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(amount , ItemType.Small_Red );
+            _model.AddItemToCart(amount, ItemType.Small_Red);
 
             _view.SmallRedAmountInMls = "0";
 
@@ -143,7 +150,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.LargeClearAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(amount, ItemType.Large_Clear);
+            _model.AddItemToCart(amount, ItemType.Large_Clear);
 
             _view.LargeClearAmountInMls = "0";
 
@@ -154,9 +161,36 @@ namespace ERP.Presenters.Presenters
         private void DisplayItemList()
         {
 
-            _view.SetDataSource = _model.GetItemsInCart();
+            if(_model.GetItemsInCart().Count() != 0)
+            {
+                _view.EnableCartDiv();
 
-            _view.BindData();
+                _view.SetDataSource = _model.GetItemsInCart();
+
+                _view.BindData();
+            }
+            
+        }
+
+
+        private void OnCartIsFilled(object sender, string e)
+        {
+
+            _view.InfoMessage = e;
+
+        }
+
+        private void OnBottleIsEmpty(object sender, string e)
+        {
+
+            _view.InfoMessage = e;
+
+        }
+
+        private void OnItemAddedToCart(object sender, string e)
+        {
+
+            _view.InfoMessage = e;
 
         }
 
