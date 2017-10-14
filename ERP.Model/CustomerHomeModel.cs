@@ -63,21 +63,14 @@ namespace ERP.Model
 
             int? orderId = _session.SelectedOrderId;
 
-            if(orderId != null)
-            {
-                return (int)orderId;
-            }
-            else
-            {
-                return -1;
-            }
+            return (int)orderId;
 
         }
 
 
         public IEnumerable<object> GetAllOrders()
         {
-
+            
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(_session.CurrentClientEmail)
                                                                    .ToList();
 

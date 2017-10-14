@@ -52,6 +52,7 @@ namespace ERP.Presenters.Presenters
 
         public override void FirstTimeInit()
         {
+
             base.FirstTimeInit();
 
             OnShowAllOrdersClicked(this, EventArgs.Empty);

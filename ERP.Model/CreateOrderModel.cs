@@ -67,8 +67,6 @@ namespace ERP.Model
 
             int empty = 0;
 
-            string itemType = ConvertItemTypeEnumToString(itemTypeEnum);
-
             if (amount == empty)
             {
 
@@ -77,6 +75,8 @@ namespace ERP.Model
             }
             else
             {
+
+                string itemType = ConvertItemTypeEnumToString(itemTypeEnum);
 
                 CreateCartItem(itemType, amount);
 
@@ -110,6 +110,13 @@ namespace ERP.Model
             _cartItem.MLs = amountInMls;
 
             _cartItem.Price = _cartItem.CalculatePrice();
+
+            AllocateCartId();
+
+        }
+
+        public void AllocateCartId()
+        {
 
             var CartList = GetItemsInCart().ToList();
 
