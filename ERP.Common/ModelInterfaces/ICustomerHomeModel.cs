@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ERP.Common.Enums;
 
 namespace ERP.Common.ModelInterfaces
 {
@@ -19,14 +20,13 @@ namespace ERP.Common.ModelInterfaces
 
         int GetSelectedOrderIdFromSession();
 
-        IEnumerable<object> GetAllOrders();
+        IEnumerable<object> FetchOrderData(OrdersToFetch ordersToFetch);
 
-        IEnumerable<object> GetAllConfirmedOrders();
+        string FetchOrderDataInfoMessage(OrdersToFetch ordersToFetch);
 
-        IEnumerable<object> GetAllOrdersInProduction();
+        IEnumerable<object> FetchItemsData(ItemsToFetch itemsToFetch);
 
-        IEnumerable<object> GetAllCompletedOrders();
+        string FetchItemDataInfoMessage(ItemsToFetch itemsToFetch);
 
-        IEnumerable<object> GetAllItemsForOrder(int orderId);
     }
 }

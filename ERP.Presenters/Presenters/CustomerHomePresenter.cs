@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ERP.Presenters.Bases;
 using ERP.Common.ViewInterfaces;
 using ERP.Common.ModelInterfaces;
+using ERP.Common.Enums;
 
 namespace ERP.Presenters.Presenters
 {
@@ -55,6 +56,8 @@ namespace ERP.Presenters.Presenters
 
             base.FirstTimeInit();
 
+            DisplaytWelcomeMessage();
+
             OnShowAllOrdersClicked(this, EventArgs.Empty);
 
         }
@@ -63,16 +66,10 @@ namespace ERP.Presenters.Presenters
         {
 
             bool? IsValid = _model.CheckLoggedInStatus();
-            if ((bool)IsValid)
+            if (!(bool)IsValid)
             {
 
-                DisplaytWelcomeMessage();
-
-            }
-            else
-            {
-
-                _view.RedirectToLoginPage();
+                _view.RedirectToLoginPage();             
 
             }
 
@@ -107,43 +104,39 @@ namespace ERP.Presenters.Presenters
         private void OnShowAllOrdersClicked(object sender, EventArgs e)
         {     
 
-            _view.SetDataSource = _model.GetAllOrders();
-
-            _view.BindData();
-
-            _view.InfoMessage = "Viewing all orders. Please click a row to view the order items.";
+            FetchCustomerOrderData(OrdersToFetch.AllOrders);
 
         }
 
         private void OnShowAllConfirmedOrdersClicked(object sender, EventArgs e)
         {
 
-            _view.SetDataSource = _model.GetAllConfirmedOrders();
-
-            _view.BindData();
-
-            _view.InfoMessage = "Viewing confirmed orders awaiting production. Please click a row to view the order items.";
+            FetchCustomerOrderData(OrdersToFetch.AllConfirmed);
 
         }
 
         private void OnShowAllOrdersInProductionClicked(object sender, EventArgs e)
         {
 
-            _view.SetDataSource = _model.GetAllOrdersInProduction();
+            FetchCustomerOrderData(OrdersToFetch.AllInProduction);
 
-            _view.BindData();
-
-            _view.InfoMessage = "Viewing orders currently in production. Please click a row to view the order items.";
         }
 
         private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
         {
-           
-            _view.SetDataSource = _model.GetAllCompletedOrders();
+
+            FetchCustomerOrderData(OrdersToFetch.AllCompleted);
+
+        }
+
+        public void FetchCustomerOrderData(OrdersToFetch ordersToFetch)
+        {
+
+            _view.SetDataSource = _model.FetchOrderData(ordersToFetch);
 
             _view.BindData();
 
-            _view.InfoMessage = "Viewing all completed orders. Please click a row to view the order items.";
+            _view.InfoMessage = _model.FetchOrderDataInfoMessage(ordersToFetch);
 
         }
 
@@ -154,21 +147,20 @@ namespace ERP.Presenters.Presenters
 
             _model.SetSelectedOrderIdToSession(orderId);
 
-            ShowItemsInSelecetedOrder();
+            ShowItemsInSelecetedOrder(ItemsToFetch.AllItemsInOrder);
 
         }
 
-        public void ShowItemsInSelecetedOrder()
+        public void ShowItemsInSelecetedOrder(ItemsToFetch itemsToFetch)
         {
-
-            int orderId = _model.GetSelectedOrderIdFromSession();
-
-            _view.SetDataSource = _model.GetAllItemsForOrder(orderId);
+       
+            _view.SetDataSource = _model.FetchItemsData(itemsToFetch);
 
             _view.BindData();
 
-            _view.InfoMessage = "Viewing all items in the selected order.";
+            _view.InfoMessage = _model.FetchItemDataInfoMessage(itemsToFetch);
 
         }
+
     }
 }

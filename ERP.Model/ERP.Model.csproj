@@ -44,6 +44,12 @@
     <Compile Include="CartObjects\CartItem.cs" />
     <Compile Include="CreateOrderModel.cs" />
     <Compile Include="CustomerHomeModel.cs" />
+    <Compile Include="Factories\FetchDataFactory.cs" />
+    <Compile Include="FetchDataServices\FetchAllCompletedCustomerOrders.cs" />
+    <Compile Include="FetchDataServices\FetchAllConfirmedCustomerOrders.cs" />
+    <Compile Include="FetchDataServices\FetchAllCustomerOrders.cs" />
+    <Compile Include="FetchDataServices\FetchAllCustomerOrdersInProduction.cs" />
+    <Compile Include="FetchDataServices\FetchAllOrderItems.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="OperatorHomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +65,7 @@
       <Name>ERP.DataTables</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

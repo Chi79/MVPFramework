@@ -19,6 +19,19 @@ namespace ERP.Common.Enums
         Complete
     }
 
+    public enum OrdersToFetch
+    {
+        AllOrders,
+        AllConfirmed,
+        AllInProduction,
+        AllCompleted
+    }
+
+    public enum ItemsToFetch
+    {
+        AllItemsInOrder
+    }
+
     public enum ItemStatus
     {
         Confirmed,

@@ -7,6 +7,7 @@ using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.ServiceInterfaces;
 using ERP.Common.Enums;
+using ERP.Common.FactoryInterfaces;
 
 namespace ERP.Model
 {
@@ -17,13 +18,17 @@ namespace ERP.Model
 
         private readonly IUnitOfWork _uOW;
 
+        private readonly IFetchDataFactory _factory;
 
-        public CustomerHomeModel(ISessionService session, IUnitOfWork uOW)
+
+        public CustomerHomeModel(ISessionService session, IUnitOfWork uOW, IFetchDataFactory factory)
         {
 
             _session = session;
 
             _uOW = uOW;
+
+            _factory = factory;
         }
 
         public string GetCurrentClientName()
@@ -67,53 +72,44 @@ namespace ERP.Model
 
         }
 
-
-        public IEnumerable<object> GetAllOrders()
+        public IEnumerable<object> FetchOrderData(OrdersToFetch ordersToFetch)
         {
-            
-            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(_session.CurrentClientEmail)
-                                                                   .ToList();
 
-            return result;
+            string customerEmail = _session.CurrentClientEmail;
+
+            var data = _factory.FetchDataForCustomer(ordersToFetch, customerEmail);
+
+            return data;
 
         }
 
-        public IEnumerable<object> GetAllConfirmedOrders()
+        public string FetchOrderDataInfoMessage(OrdersToFetch ordersToFetch)
         {
 
-            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.Confirmed)
-                                                                      .ToList();
+            var info = _factory.FetchOrderDataInfoMessage(ordersToFetch);
 
-            return result;
+            return info;
 
         }
 
-        public IEnumerable<object> GetAllOrdersInProduction()
+        public IEnumerable<object> FetchItemsData(ItemsToFetch itemsToFetch)
         {
+            int orderId = GetSelectedOrderIdFromSession();
 
-            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.InProduction)
-                                                                      .ToList();
+            var data = _factory.FetchOrderItemData(itemsToFetch, orderId);
 
-            return result;
+            return data;
 
         }
 
-        public IEnumerable<object> GetAllCompletedOrders()
+        public string FetchItemDataInfoMessage(ItemsToFetch itemsToFetch)
         {
-            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAndStatus(_session.CurrentClientEmail, (int)OrderStatus.Complete)
-                                                                      .ToList();
 
-            return result;
+            var info = _factory.FetchItemDataInfoMessage(itemsToFetch);
+
+            return info;
 
         }
 
-        public IEnumerable<object> GetAllItemsForOrder(int orderId)
-        {
-
-            var result = _uOW.ITEMs.GetAllItemsForCustomerByOrderId(orderId).ToList();
-
-            return result;
-
-        }
     }
 }

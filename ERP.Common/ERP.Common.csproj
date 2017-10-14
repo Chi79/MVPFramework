@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="CartInterfaces\ICartItem.cs" />
     <Compile Include="Enums\ClientType.cs" />
+    <Compile Include="FactoryInterfaces\IFetchDataFactory.cs" />
+    <Compile Include="FetchDataInterfaces\IFetchOrderItemData.cs" />
     <Compile Include="ModelInterfaces\IAdminHomeModel.cs" />
     <Compile Include="ModelInterfaces\ICreateOrderModel.cs" />
     <Compile Include="ModelInterfaces\ICustomerHomeModel.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="ModelInterfaces\IOperatorHomeModel.cs" />
     <Compile Include="ModelInterfaces\IWelcomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FetchDataInterfaces\IFetchCustomerOrderData.cs" />
     <Compile Include="RepositoryInterfaces\IOrdersRepository.cs" />
     <Compile Include="RepositoryInterfaces\IClientRepository.cs" />
     <Compile Include="RepositoryInterfaces\IRepository.cs" />
