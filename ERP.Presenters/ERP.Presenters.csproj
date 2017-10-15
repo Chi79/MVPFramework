@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Framework\IOC.cs" />
     <Compile Include="Presenters\AdminHomePresenter.cs" />
+    <Compile Include="Presenters\ConfirmOrderPresenter.cs" />
     <Compile Include="Presenters\CreateOrderPresenter.cs" />
     <Compile Include="Presenters\CustomerHomePresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
