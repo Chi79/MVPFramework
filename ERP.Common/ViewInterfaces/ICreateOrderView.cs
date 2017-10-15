@@ -12,6 +12,8 @@ namespace ERP.Common.ViewInterfaces
 
         bool MessageVisible { set; }
 
+        bool ConfirmOrderButtonVisible { set; }
+
         string InfoMessage { set; }
 
         string SmallClearAmountInMls { get; set; }
@@ -34,6 +36,8 @@ namespace ERP.Common.ViewInterfaces
 
         void RedirectToLoginPage();
 
+        void RedirectToConfirmOrderPage();
+
         event EventHandler<EventArgs> PageLoad;
 
         event EventHandler<EventArgs> ViewOrdersClick;
@@ -49,6 +53,8 @@ namespace ERP.Common.ViewInterfaces
         event EventHandler<EventArgs> AddLargeClearClick;
 
         event EventHandler<int> DeleteItemClick;
+
+        event EventHandler<EventArgs> ConfirmOrderClick;
 
     }
 }

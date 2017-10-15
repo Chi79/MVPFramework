@@ -48,6 +48,8 @@ namespace ERP.Presenters.Presenters
 
             _view.DeleteItemClick += OnDeleteItemClicked;
 
+            _view.ConfirmOrderClick += OnConfirmOrderClicked;
+
             _model.CartFull += OnCartIsFilled;
 
             _model.ItemAddedToCart += OnItemAddedToCart;
@@ -55,7 +57,6 @@ namespace ERP.Presenters.Presenters
             _model.ItemIsEmpty += OnBottleIsEmpty;
 
         }
-
 
 
         public void DisplayMessage()
@@ -123,7 +124,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallClearAmountInMls;
 
-            _model.AddItemToCart(amount, ItemType.Small_Clear);
+            _model.AddItemToCart(ItemSize.Small, ItemColour.Clear, amount);
 
             _view.SmallClearAmountInMls = "0";
 
@@ -136,7 +137,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallBlackAmountInMls;
 
-            _model.AddItemToCart(amount, ItemType.Small_Black);
+            _model.AddItemToCart(ItemSize.Small, ItemColour.Black, amount);
 
             _view.SmallBlackAmountInMls = "0";
 
@@ -150,7 +151,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallRedAmountInMls;
 
-            _model.AddItemToCart(amount, ItemType.Small_Red);
+            _model.AddItemToCart(ItemSize.Small, ItemColour.Red, amount);
 
             _view.SmallRedAmountInMls = "0";
 
@@ -164,7 +165,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.LargeClearAmountInMls;
 
-            _model.AddItemToCart(amount, ItemType.Large_Clear);
+            _model.AddItemToCart(ItemSize.Large, ItemColour.Clear, amount);
 
             _view.LargeClearAmountInMls = "0";
 
@@ -172,20 +173,34 @@ namespace ERP.Presenters.Presenters
 
         }
 
+        private void OnConfirmOrderClicked(object sender, EventArgs e)
+        {
+
+            _view.RedirectToConfirmOrderPage();
+
+        }
+
         private void DisplayItemList()
         {
 
-            if (_model.GetItemsInCart().Count() != 0)
+            bool CartIsEmpty = _model.GetItemsInCart().Count() == 0;
+            if (CartIsEmpty)
+            {
+
+                _view.DisableCartDiv();
+
+                _view.ConfirmOrderButtonVisible = false;   
+                     
+            }
+            else
             {
                 _view.EnableCartDiv();
+
+                _view.ConfirmOrderButtonVisible = true;
 
                 _view.SetDataSource = _model.GetItemsInCart();
 
                 _view.BindData();
-            }
-            else
-            {
-                _view.DisableCartDiv();
             }
 
         }

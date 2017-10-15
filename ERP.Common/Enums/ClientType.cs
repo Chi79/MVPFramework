@@ -40,11 +40,16 @@ namespace ERP.Common.Enums
         Failed
     }
 
-    public enum ItemType
+    public enum ItemSize
     {
-        Small_Clear,
-        Small_Black,
-        Small_Red,
-        Large_Clear
+        Small,
+        Large
+    }
+
+    public enum ItemColour
+    {
+        Clear,
+        Black,
+        Red
     }
 }

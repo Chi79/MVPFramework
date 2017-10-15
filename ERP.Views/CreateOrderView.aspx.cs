@@ -16,6 +16,8 @@ namespace ERP.Views
 
         public bool MessageVisible { set { lblMessage.Visible = value; } }
 
+        public bool ConfirmOrderButtonVisible { set {btnConfirmOrder.Visible = value; } }
+
         public string InfoMessage { set { lblInfoMessage.Text = value; } }
 
         public string SmallClearAmountInMls { get {return txtSmallClearMls.Text ; } set { txtSmallClearMls.Text = value ; }  }
@@ -58,6 +60,13 @@ namespace ERP.Views
         public void RedirectToLoginPage()
         {
             Response.Redirect("LoginView.aspx");
+        }
+
+        public void RedirectToConfirmOrderPage()
+        {
+
+            Response.Redirect("ConfirmOrderView.aspx");
+
         }
 
 
@@ -142,5 +151,22 @@ namespace ERP.Views
             DeleteItemClick?.Invoke(this, ID);
 
         }
+
+        public event EventHandler<EventArgs> ConfirmOrderClick;
+
+        protected void btnConfirmOrder_Click(object sender, EventArgs e)
+        {
+
+            ConfirmOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        protected void gvItems_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+
+            e.Row.Cells[1].Visible = false;
+
+        }
+
     }
 }

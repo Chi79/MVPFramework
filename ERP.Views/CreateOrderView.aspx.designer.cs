@@ -247,6 +247,15 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.GridView gvItems;
         
         /// <summary>
+        /// btnConfirmOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmOrder;
+        
+        /// <summary>
         /// lblInfoMessage control.
         /// </summary>
         /// <remarks>

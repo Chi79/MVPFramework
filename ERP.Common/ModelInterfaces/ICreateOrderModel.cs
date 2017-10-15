@@ -16,7 +16,7 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
-        void AddItemToCart(string amountInMls, ItemType itemType);
+        void AddItemToCart( ItemSize size, ItemColour colour, string amountInMls);
 
         void RemoveItemFromCart(int ID);
 

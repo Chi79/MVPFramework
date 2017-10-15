@@ -16,25 +16,31 @@ namespace ERP.Model.CartObjects
 
         private int _amountInMls;
 
-        private string _itemType;
-
         private double _price;
 
+        private string _size;
 
-        public CartItem(ItemType itemType, int amountInMls)
+        private string _colour;
+
+
+        public CartItem( ItemSize size, ItemColour colour, int amountInMls)
         {
 
             _amountInMls = amountInMls;
 
             CalculatePrice();
 
-            ConvertItemTypeEnumToString(itemType);
+            ConvertSizeEnumToStringProperty(size);
+
+            ConvertColourEnumToStringProperty(colour);
 
         }
 
         public int ID { get { return _ID; } set { _ID = value; } }
 
-        public string ItemType { get { return _itemType; } } 
+        public string Size { get { return _size; } }
+
+        public string Colour { get { return _colour; } }
 
         public int MLs { get { return _amountInMls; } }
 
@@ -46,10 +52,17 @@ namespace ERP.Model.CartObjects
             _price = _amountInMls * 10.5;
         }
 
-        private void ConvertItemTypeEnumToString(ItemType itemType)
+        private void ConvertSizeEnumToStringProperty(ItemSize size)
         {
 
-            _itemType = Enum.GetName(typeof(ItemType), itemType).ToString().Replace("_", " ");
+            _size = Enum.GetName(typeof(ItemSize), size).ToString();
+
+        }
+
+        private void ConvertColourEnumToStringProperty(ItemColour colour)
+        {
+
+            _colour = Enum.GetName(typeof(ItemColour), colour).ToString();
 
         }
     }

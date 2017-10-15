@@ -63,7 +63,7 @@ namespace ERP.Model
 
         public event EventHandler<string> ItemIsEmpty;
 
-        public void AddItemToCart(string amountInMls , ItemType itemType)
+        public void AddItemToCart(ItemSize size, ItemColour colour, string amountInMls)
         {
 
             int amount = Convert.ToInt32(amountInMls);
@@ -78,7 +78,7 @@ namespace ERP.Model
             else
             {
 
-                CreateCartItem(itemType, amount);
+                CreateCartItem(size, colour, amount);
 
                 AddItemToSessionCart();
 
@@ -95,10 +95,10 @@ namespace ERP.Model
 
         }
 
-        public void CreateCartItem(ItemType itemType, int amountInMls)
+        public void CreateCartItem(ItemSize size, ItemColour colour, int amountInMls)
         {
 
-            _cartItem = new CartItem(itemType, amountInMls);
+            _cartItem = new CartItem(size, colour, amountInMls);
 
             AllocateCartId();
 
@@ -144,7 +144,9 @@ namespace ERP.Model
 
                 _session.ItemsInCart = _cartList;
 
-                ItemAddedToCart?.Invoke(this, "One " + _cartItem.ItemType 
+                ItemAddedToCart?.Invoke(this, "One " + _cartItem.Size
+                                                     + " " 
+                                                     + _cartItem.Colour
                                                      + " bottle with " 
                                                      + _cartItem.MLs.ToString() 
                                                      + " millileters has been added to your order.");
@@ -160,7 +162,6 @@ namespace ERP.Model
             var itemToRemove = cartList.FirstOrDefault(c => c.ID == ID);
 
             cartList.Remove(itemToRemove);
-
 
             _session.ItemsInCart = cartList;
 

@@ -12,11 +12,12 @@ namespace ERP.Common.CartInterfaces
 
         int ID { get; set; }
 
-        string ItemType { get; }
-
         int MLs { get; }
 
         double Price { get; }
 
+        string Size { get; }
+
+        string Colour { get; }
     }
 }

@@ -107,6 +107,7 @@
     <Content Include="Config\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ConfirmOrderView.aspx" />
     <Content Include="Images\btnremove.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="AdminHomeView.aspx.designer.cs">
       <DependentUpon>AdminHomeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmOrderView.aspx.cs">
+      <DependentUpon>ConfirmOrderView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmOrderView.aspx.designer.cs">
+      <DependentUpon>ConfirmOrderView.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateOrderView.aspx.cs">
       <DependentUpon>CreateOrderView.aspx</DependentUpon>
