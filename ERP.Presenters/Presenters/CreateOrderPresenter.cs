@@ -175,7 +175,7 @@ namespace ERP.Presenters.Presenters
         private void DisplayItemList()
         {
 
-            if(_model.GetItemsInCart().Count() != 0)
+            if (_model.GetItemsInCart().Count() != 0)
             {
                 _view.EnableCartDiv();
 
@@ -187,7 +187,7 @@ namespace ERP.Presenters.Presenters
             {
                 _view.DisableCartDiv();
             }
-            
+
         }
 
 
