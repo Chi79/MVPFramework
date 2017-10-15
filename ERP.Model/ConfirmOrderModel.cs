@@ -78,9 +78,7 @@ namespace ERP.Model
         public void SaveConfirmedOrderToDB()
         {
 
-            string email = _session.CurrentClientEmail;
-
-            int orderID = GetOrderID(email);
+            int orderID = GetOrderID();
 
             List<CartItem> cartItems = ConvertCartToCartItemsList();
 
@@ -97,10 +95,10 @@ namespace ERP.Model
         }
 
 
-        private int GetOrderID(string email)
+        private int GetOrderID()
         {
 
-            List<ORDERS> myOrders = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(email).Cast<ORDERS>().ToList();
+            List<ORDERS> myOrders = _uOW.ORDERs.GetAllOrders().Cast<ORDERS>().ToList();
 
             if (myOrders.Count == 0)
             {
