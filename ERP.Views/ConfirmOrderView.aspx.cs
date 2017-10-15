@@ -19,6 +19,8 @@ namespace ERP.Views
 
         public string InfoMessage { set { lblInfoMessage.Text = value; } }
 
+        public bool PlaceOrderButtonVisible { set {btnPlaceOrder.Visible = value ; } }
+
         public IEnumerable<object> SetDataSource { set { gvItems.DataSource = value; } }
 
         public void BindData()
@@ -112,6 +114,13 @@ namespace ERP.Views
         {
 
             ViewAllOrdersClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        protected void gvItems_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+
+            e.Row.Cells[0].Visible = false;
 
         }
     }

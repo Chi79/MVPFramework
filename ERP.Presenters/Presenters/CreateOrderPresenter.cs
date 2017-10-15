@@ -75,7 +75,6 @@ namespace ERP.Presenters.Presenters
 
             DisplayMessage();
 
-            //_view.DisableCartDiv();
             DisplayItemList();
 
         }

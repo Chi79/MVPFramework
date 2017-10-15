@@ -69,6 +69,10 @@ namespace ERP.Presenters.Presenters
         private void DisplayItemList()
         {
 
+            _view.PlaceOrderButtonVisible = true;
+
+            _view.InfoMessage = string.Empty;
+
             _view.EnableCartDiv();
 
             _view.SetDataSource = _model.GetItemsInCart();
@@ -124,7 +128,9 @@ namespace ERP.Presenters.Presenters
         private void OnOrderConfirmedClicked(object sender, EventArgs e)
         {
 
+            _view.PlaceOrderButtonVisible = false;
 
+            _view.InfoMessage = "Thank you " + _model.GetCurrentClientName() + " Your Order Has Been Placed!";
 
         }
 

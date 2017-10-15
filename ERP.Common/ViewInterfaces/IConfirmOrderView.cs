@@ -14,6 +14,8 @@ namespace ERP.Common.ViewInterfaces
 
         string InfoMessage { set; }
 
+        bool PlaceOrderButtonVisible { set; }
+
         IEnumerable<object> SetDataSource { set; }
 
         void BindData();

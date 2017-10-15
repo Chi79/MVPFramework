@@ -25,11 +25,11 @@ form1{
 }
 .messageDiv{
     text-align: center;
-    margin-top: 20px;
+    margin-top: -30px;
 }
 .infoMessageDiv{
     text-align: center;
-    margin-top:35px;
+    margin-top:0px;
 }
 .message{
     font-variant: small-caps;
@@ -80,10 +80,10 @@ form1{
 }
 .divGrid{
     display:inline-block;
-    width: 360px;
+    width: 525px;
 }
 .gvItems{
-    font-size: 22px;
+    font-size: 40px;
     background: #b1bcfe;
     margin-bottom: 28px;
 }
@@ -128,7 +128,8 @@ td{
     ID="gvItems" 
     CssClass="gvItems"
     runat="server"
-    HorizontalAlign="Center">   
+    HorizontalAlign="Center"
+    OnRowCreated="gvItems_RowCreated">   
 
     <RowStyle BackColor="#e0d8d8" CssClass="Row"/>
 
