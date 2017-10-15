@@ -13,6 +13,8 @@ namespace ERP.Common.ServiceInterfaces
 
         string CurrentClientName { get; set; }
 
+        int? CurrentClientID { get; set; }
+
         bool? LoggedInStatus { get; set; }
 
         int? SelectedOrderId { get; set; }

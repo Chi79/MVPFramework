@@ -16,7 +16,7 @@ namespace ERP.DataTables.Tables
         }
 
         [Key]
-        [StringLength(4)]
+        [StringLength(20)]
         public string Size { get; set; }
 
         [StringLength(50)]

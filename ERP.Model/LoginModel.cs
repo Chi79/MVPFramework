@@ -45,12 +45,21 @@ namespace ERP.Model
 
         }
 
+        public int GetClientID()
+        {
+
+            return _uOW.CLIENTs.GetClientIDByEmail(_loginResponse.ClientEmail);
+
+        }
+
         public void InitializeSession()
         {
 
             _session.CurrentClientEmail = _loginResponse.ClientEmail;
 
             _session.CurrentClientName = _loginResponse.ClientName;
+
+            _session.CurrentClientID = GetClientID();
 
             _session.LoggedInStatus = true;
 

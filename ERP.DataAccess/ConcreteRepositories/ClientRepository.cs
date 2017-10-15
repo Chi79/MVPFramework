@@ -115,5 +115,23 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public CLIENT GetAClientByEmail(string email)
+        {
+
+            return ERPContext.CLIENT.FirstOrDefault(c => c.Email == email) as CLIENT;
+
+        }
+
+        public int GetClientIDByEmail(string email)
+        {
+
+            CLIENT client = GetAClientByEmail(email);
+
+            int ID = client.ClientID;
+
+            return ID;
+
+        } 
+
     }
 }

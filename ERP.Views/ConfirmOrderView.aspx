@@ -25,7 +25,7 @@ form1{
 }
 .messageDiv{
     text-align: center;
-    margin-top: -30px;
+    margin-top: 0px;
 }
 .infoMessageDiv{
     text-align: center;

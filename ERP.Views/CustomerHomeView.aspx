@@ -21,7 +21,7 @@ form1{
     height: 500px;
     background: cornsilk;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .messageDiv{
     text-align: center;
@@ -55,7 +55,7 @@ form1{
 .searchButtonsDiv0{
     position:fixed;
     width:100%;
-    bottom:145px;
+    bottom:135px;
 }
 .searchButtonsDiv1{
     text-align:center;
@@ -68,8 +68,15 @@ form1{
     border-bottom-width: thick;
     margin-top: 25px;
 }
+.divGrid{
+    margin-top: 20px;
+    overflow: auto;
+    width:max-content;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+}
 .gvOrders{
-    margin-top: 25px;
     font-size: 30px;
     background: #b1bcfe;
 }
@@ -107,6 +114,8 @@ form1{
     <asp:UpdatePanel runat="server"> 
     <ContentTemplate>
 
+    <div id="divGrid" class="divGrid">
+
     <asp:GridView 
     ID="gvOrders" 
     CssClass="gvOrders" 
@@ -124,6 +133,8 @@ form1{
     BackColor="#f0f0f0" />
 
     </asp:GridView>
+
+    </div>
 
     </ContentTemplate>
     </asp:UpdatePanel>

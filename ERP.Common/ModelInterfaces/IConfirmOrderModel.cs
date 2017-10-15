@@ -17,5 +17,8 @@ namespace ERP.Common.ModelInterfaces
 
         IEnumerable<object> GetItemsInCart();
 
+        void SaveConfirmedOrderToDB();
+
+        void ClearOrder();
     }
 }

@@ -17,6 +17,7 @@ namespace ERP.DataTables.Tables
 
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ItemID { get; set; }
 
         public decimal? ItemPrice { get; set; }
@@ -36,7 +37,7 @@ namespace ERP.DataTables.Tables
         public int OrderID { get; set; }
 
         [Required]
-        [StringLength(4)]
+        [StringLength(20)]
         public string Size { get; set; }
 
         public virtual ORDERS ORDERS { get; set; }

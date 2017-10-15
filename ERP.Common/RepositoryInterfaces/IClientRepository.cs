@@ -22,6 +22,10 @@ namespace ERP.Common.RepositoryInterfaces
 
         CLIENT GetAClientByName(string clientName);
 
+        CLIENT GetAClientByEmail(string emai);
+
         List<string> GetAllClientNames();
+
+        int GetClientIDByEmail(string email);
     }
 }

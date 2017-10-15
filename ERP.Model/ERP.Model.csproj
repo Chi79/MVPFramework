@@ -45,6 +45,7 @@
     <Compile Include="ConfirmOrderModel.cs" />
     <Compile Include="CreateOrderModel.cs" />
     <Compile Include="CustomerHomeModel.cs" />
+    <Compile Include="DataMappers\CartItemToItemMapper.cs" />
     <Compile Include="Factories\FetchDataFactory.cs" />
     <Compile Include="FetchDataServices\FetchAllCompletedCustomerOrders.cs" />
     <Compile Include="FetchDataServices\FetchAllConfirmedCustomerOrders.cs" />

@@ -78,7 +78,7 @@ namespace ERP.DataTables.Tables
 
             modelBuilder.Entity<ITEM>()
                 .Property(e => e.ItemPrice)
-                .HasPrecision(4, 0);
+                .HasPrecision(8, 2);
 
             modelBuilder.Entity<ITEM>()
                 .Property(e => e.ItemColour)
@@ -118,7 +118,7 @@ namespace ERP.DataTables.Tables
 
             modelBuilder.Entity<ORDERS>()
                 .Property(e => e.OrderPrice)
-                .HasPrecision(4, 0);
+                .HasPrecision(8, 2);
 
             modelBuilder.Entity<ORDERS>()
                 .HasMany(e => e.ITEM)

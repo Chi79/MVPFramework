@@ -47,6 +47,24 @@ namespace ERP.HTTP.Services
             { HttpContext.Current.Session["CurrentClientName"] = value; }
         }
 
+        public int? CurrentClientID
+        {
+            get
+            {
+                var clientID = HttpContext.Current.Session["CurrentClientID"];
+                if (clientID != null)
+                {
+                    return (int?)clientID;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            { HttpContext.Current.Session["CurrentClientID"] = value; }
+        }
+
         public bool? LoggedInStatus
         {
             get

@@ -7,8 +7,9 @@ using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.ServiceInterfaces;
 using ERP.Model.CartObjects;
-using ERP.Common.CartInterfaces;
-using ERP.Common.Enums;
+using ERP.DataTables.Tables;
+using ERP.Model.DataMappers;
+
 
 namespace ERP.Model
 {
@@ -58,6 +59,13 @@ namespace ERP.Model
 
         }
 
+        public void ClearOrder()
+        {
+
+            _session.ItemsInCart = null;
+
+        }
+
         public IEnumerable<object> GetItemsInCart()
         {
 
@@ -67,5 +75,128 @@ namespace ERP.Model
 
         }
 
+        public void SaveConfirmedOrderToDB()
+        {
+
+            string email = _session.CurrentClientEmail;
+
+            int orderID = GetOrderID(email);
+
+            List<CartItem> cartItems = ConvertCartToCartItemsList();
+
+            List<ITEM> orderItems = ConvertCartItemsToItems(cartItems, orderID);
+
+            decimal orderPrice = CalculateOrderPrice(orderItems);
+
+            CreateNewOrder(orderPrice, orderID);
+
+            UpdateDBWithItemsAddedToOrder(orderItems);
+
+            ClearOrder();
+
+        }
+
+
+        private int GetOrderID(string email)
+        {
+
+            List<ORDERS> myOrders = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(email).Cast<ORDERS>().ToList();
+
+            if (myOrders.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                ORDERS lastOrder = myOrders.Last();
+
+                return lastOrder.OrderID + 1;
+            }
+
+        }
+
+        private List<CartItem> ConvertCartToCartItemsList()
+        {
+
+            return GetItemsInCart().Cast<CartItem>().ToList();
+
+        }
+
+        private List<ITEM> ConvertCartItemsToItems(List<CartItem> cartItems, int orderID)
+        {
+
+            List<ITEM> myItems = new List<ITEM>();
+
+            foreach (CartItem item in cartItems)
+            {
+                ITEM newItem = CartItemToItemMapper.ConvertCartItemToItemMapper(item, orderID);
+
+                myItems.Add(newItem);
+            }
+            return myItems;
+
+        }
+
+        private decimal CalculateOrderPrice(List<ITEM> orderItems)
+        {
+            decimal price = 0;
+
+            foreach (ITEM item in orderItems)
+            {
+                price += (decimal)item.ItemPrice;
+            }
+            return price;
+        }
+
+        private void CreateNewOrder(decimal orderPrice, int orderID)
+        {
+
+            ORDERS myOrder = new ORDERS() { ClientID = (int)_session.CurrentClientID, OrderPrice = orderPrice };
+
+            _uOW.ORDERs.Add(myOrder);
+
+            _uOW.Complete();
+
+            UpdateOrderTracker(orderID);
+
+        }
+
+        private void UpdateOrderTracker(int orderID)
+        {
+
+            ORDERTRACKER trackingInfo = new ORDERTRACKER()
+            { OrderID = orderID, OrderStatusID = 0, TimeStamp = DateTime.Now };
+
+            _uOW.ORDERs.UpdateOrderTracker(trackingInfo);
+
+            _uOW.Complete();
+
+        }
+
+        private void UpdateDBWithItemsAddedToOrder(List<ITEM> orderItems)
+        {
+
+            _uOW.ITEMs.InsertAllItemsToDB(orderItems);
+
+            _uOW.Complete();
+
+            UpdateItemTracker(orderItems);
+
+        }
+
+
+        private void UpdateItemTracker(List<ITEM> orderItems)
+        {
+            foreach(ITEM item in orderItems)
+            {
+                ITEMTRACKER trackingInfo = new ITEMTRACKER()
+                { ItemID = item.ItemID, OrderID = item.OrderID, ItemStatusID = 0, TimeStamp = DateTime.Now };
+
+                _uOW.ORDERs.UpdateItemTracker(trackingInfo);
+
+                _uOW.Complete();
+            }
+
+        }
     }
 }

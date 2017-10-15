@@ -135,6 +135,13 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public void InsertAllItemsToDB(IEnumerable<ITEM> allItems)
+        {
+
+            ERPContext.ITEM.AddRange(allItems);
+
+        }
+
         public ITEM GetAnItemByItemId(int itemId)
         {
 
@@ -142,5 +149,18 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public void UpdateOrderTracker(ORDERTRACKER trackingInfo)
+        {
+
+            ERPContext.ORDERTRACKER.Add(trackingInfo);
+
+        }
+
+        public void UpdateItemTracker(ITEMTRACKER trackingInfo)
+        {
+
+            ERPContext.ITEMTRACKER.Add(trackingInfo);
+
+        }
     }
 }

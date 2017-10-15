@@ -18,7 +18,7 @@ namespace ERP.Common.RepositoryInterfaces
 
         ORDERS GetAnOrderByOrderId(int orderId);
 
-
+        void InsertAllItemsToDB(IEnumerable<ITEM> allItems);
 
         IEnumerable<ITEM> GetAllItems();
 
@@ -37,6 +37,10 @@ namespace ERP.Common.RepositoryInterfaces
         IEnumerable<ITEM> GetAllItemsFailed();
 
         ITEM GetAnItemByItemId(int itemId);
+
+        void UpdateOrderTracker(ORDERTRACKER trackingInfo);
+
+        void UpdateItemTracker(ITEMTRACKER trackingInfo);
 
     }
 }
