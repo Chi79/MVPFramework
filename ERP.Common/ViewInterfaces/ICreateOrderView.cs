@@ -48,5 +48,7 @@ namespace ERP.Common.ViewInterfaces
 
         event EventHandler<EventArgs> AddLargeClearClick;
 
+        event EventHandler<int> DeleteItemClick;
+
     }
 }

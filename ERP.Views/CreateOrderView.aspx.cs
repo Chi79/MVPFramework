@@ -131,5 +131,16 @@ namespace ERP.Views
             AddLargeClearClick?.Invoke(this, EventArgs.Empty);
 
         }
+
+        public event EventHandler<int> DeleteItemClick;
+
+        protected void gvItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+            int ID = (int)e.Keys[0];
+
+            DeleteItemClick?.Invoke(this, ID);
+
+        }
     }
 }

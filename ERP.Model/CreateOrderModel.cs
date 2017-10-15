@@ -30,7 +30,7 @@ namespace ERP.Model
             _session = session;
 
             _uOW = uOW;
-
+        
             _cartList = GetItemsInCart().ToList();
 
         }
@@ -149,6 +149,20 @@ namespace ERP.Model
                                                      + _cartItem.MLs.ToString() 
                                                      + " millileters has been added to your order.");
             }
+
+        }
+
+        public void RemoveItemFromCart(int ID)
+        {
+
+            var cartList = _cartList.Cast<CartItem>().ToList();
+
+            var itemToRemove = cartList.FirstOrDefault(c => c.ID == ID);
+
+            cartList.Remove(itemToRemove);
+
+
+            _session.ItemsInCart = cartList;
 
         }
 

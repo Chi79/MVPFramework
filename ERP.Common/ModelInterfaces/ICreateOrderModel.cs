@@ -18,6 +18,8 @@ namespace ERP.Common.ModelInterfaces
 
         void AddItemToCart(string amountInMls, ItemType itemType);
 
+        void RemoveItemFromCart(int ID);
+
         IEnumerable<object> GetItemsInCart();
 
         event EventHandler<string> CartFull;

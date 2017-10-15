@@ -46,6 +46,8 @@ namespace ERP.Presenters.Presenters
 
             _view.AddLargeClearClick += OnAddLargeClearClicked;
 
+            _view.DeleteItemClick += OnDeleteItemClicked;
+
             _model.CartFull += OnCartIsFilled;
 
             _model.ItemAddedToCart += OnItemAddedToCart;
@@ -53,6 +55,7 @@ namespace ERP.Presenters.Presenters
             _model.ItemIsEmpty += OnBottleIsEmpty;
 
         }
+
 
 
         public void DisplayMessage()
@@ -104,6 +107,16 @@ namespace ERP.Presenters.Presenters
 
         }
 
+        private void OnDeleteItemClicked(object sender, int e)
+        {
+
+            int ID = e;
+
+            _model.RemoveItemFromCart(ID);
+
+            DisplayItemList();
+
+        }
 
         private void OnAddSmallClearClicked(object sender, EventArgs e)
         {
@@ -169,6 +182,10 @@ namespace ERP.Presenters.Presenters
                 _view.SetDataSource = _model.GetItemsInCart();
 
                 _view.BindData();
+            }
+            else
+            {
+                _view.DisableCartDiv();
             }
             
         }
