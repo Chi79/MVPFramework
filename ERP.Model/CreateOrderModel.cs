@@ -67,9 +67,8 @@ namespace ERP.Model
 
         }
 
-        public event EventHandler<string> ItemIsEmpty;
 
-        public void AddItemToCart(ItemSize size, ItemColour colour, string amountInMls)
+        public string AddItemToCart(ItemSize size, ItemColour colour, string amountInMls)
         {
 
             int amount = Convert.ToInt32(amountInMls);
@@ -78,7 +77,7 @@ namespace ERP.Model
             if (BottleIsEmpty)
             {
 
-                ItemIsEmpty?.Invoke(this, "An item must contain some water! Please select the amount in mls before adding the item.");
+                return "An item must contain some water! Please select the amount in mls before adding the item.";
   
             }
             else
@@ -86,7 +85,7 @@ namespace ERP.Model
 
                 CreateCartItem(size, colour, amount);
 
-                AddItemToSessionCart();
+                return AddItemToSessionCart();
 
             }
             
@@ -127,12 +126,7 @@ namespace ERP.Model
         }
 
 
-        public event EventHandler<string> CartFull;
-
-        public event EventHandler<string> ItemAddedToCart;
-
-
-        public void AddItemToSessionCart()
+        private string AddItemToSessionCart()
         {
 
             int NumberOfItemsInCart = _cartList.Count;
@@ -141,7 +135,7 @@ namespace ERP.Model
             if(CartIsFull)
             {
 
-                CartFull?.Invoke(this, "Cart is Full - Maximum of 6 items per order!");
+                return "Cart is Full - Maximum of 6 items per order!";
 
             }
             else
@@ -150,17 +144,15 @@ namespace ERP.Model
 
                 _session.ItemsInCart = _cartList;
 
-                ItemAddedToCart?.Invoke(this, "One " + _cartItem.Size
-                                                     + " " 
-                                                     + _cartItem.Colour
+                return "One " + _cartItem.Size + " " + _cartItem.Colour
                                                      + " bottle with " 
                                                      + _cartItem.MLs.ToString() 
-                                                     + " millileters has been added to your order.");
+                                                     + " millileters has been added to your order.";
             }
 
         }
 
-        public void RemoveItemFromCart(int ID)
+        public string RemoveItemFromCart(int ID)
         {
 
             var cartList = _cartList.Cast<CartItem>().ToList();
@@ -171,6 +163,7 @@ namespace ERP.Model
 
             _session.ItemsInCart = cartList;
 
+            return "Item Removed From Cart";
         }
 
     }

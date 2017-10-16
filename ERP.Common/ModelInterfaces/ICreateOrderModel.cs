@@ -16,19 +16,13 @@ namespace ERP.Common.ModelInterfaces
 
         bool? CheckLoggedInStatus();
 
-        void AddItemToCart( ItemSize size, ItemColour colour, string amountInMls);
+        string AddItemToCart( ItemSize size, ItemColour colour, string amountInMls);
 
-        void RemoveItemFromCart(int ID);
+        string RemoveItemFromCart(int ID);
 
         void SetNewOrderToProcess();
 
         IEnumerable<object> GetItemsInCart();
-
-        event EventHandler<string> CartFull;
-
-        event EventHandler<string> ItemAddedToCart;
-
-        event EventHandler<string> ItemIsEmpty;
 
     }
 }

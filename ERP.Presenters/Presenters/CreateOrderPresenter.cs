@@ -50,12 +50,6 @@ namespace ERP.Presenters.Presenters
 
             _view.ConfirmOrderClick += OnConfirmOrderClicked;
 
-            _model.CartFull += OnCartIsFilled;
-
-            _model.ItemAddedToCart += OnItemAddedToCart;
-
-            _model.ItemIsEmpty += OnBottleIsEmpty;
-
         }
 
 
@@ -113,7 +107,7 @@ namespace ERP.Presenters.Presenters
 
             int ID = e;
 
-            _model.RemoveItemFromCart(ID);
+            _view.InfoMessage = _model.RemoveItemFromCart(ID);
 
             DisplayItemList();
 
@@ -124,7 +118,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallClearAmountInMls;
 
-            _model.AddItemToCart(ItemSize.Small, ItemColour.Clear, amount);
+            _view.InfoMessage = _model.AddItemToCart(ItemSize.Small, ItemColour.Clear, amount);
 
             _view.SmallClearAmountInMls = "0";
 
@@ -137,7 +131,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallBlackAmountInMls;
 
-            _model.AddItemToCart(ItemSize.Small, ItemColour.Black, amount);
+            _view.InfoMessage = _model.AddItemToCart(ItemSize.Small, ItemColour.Black, amount);
 
             _view.SmallBlackAmountInMls = "0";
 
@@ -151,7 +145,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.SmallRedAmountInMls;
 
-            _model.AddItemToCart(ItemSize.Small, ItemColour.Red, amount);
+            _view.InfoMessage = _model.AddItemToCart(ItemSize.Small, ItemColour.Red, amount);
 
             _view.SmallRedAmountInMls = "0";
 
@@ -165,7 +159,7 @@ namespace ERP.Presenters.Presenters
 
             string amount = _view.LargeClearAmountInMls;
 
-            _model.AddItemToCart(ItemSize.Large, ItemColour.Clear, amount);
+            _view.InfoMessage = _model.AddItemToCart(ItemSize.Large, ItemColour.Clear, amount);
 
             _view.LargeClearAmountInMls = "0";
 
@@ -204,28 +198,6 @@ namespace ERP.Presenters.Presenters
 
                 _view.BindData();
             }
-
-        }
-
-
-        private void OnCartIsFilled(object sender, string e)
-        {
-
-            _view.InfoMessage = e;
-
-        }
-
-        private void OnBottleIsEmpty(object sender, string e)
-        {
-
-            _view.InfoMessage = e;
-
-        }
-
-        private void OnItemAddedToCart(object sender, string e)
-        {
-
-            _view.InfoMessage = e;
 
         }
 
