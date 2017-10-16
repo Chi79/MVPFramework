@@ -75,25 +75,43 @@ namespace ERP.Model
 
         }
 
-        public void SaveConfirmedOrderToDB()
+        public string SaveConfirmedOrderToDB()
         {
+            bool OrderIsEmpty = CheckForEmptyOrder();
+            if(OrderIsEmpty)
+            {
 
-            int orderID = GetOrderID();
+                return "Order failed! The order is empty.";
 
-            List<CartItem> cartItems = ConvertCartToCartItemsList();
+            }
+            else
+            {
 
-            List<ITEM> orderItems = ConvertCartItemsToItems(cartItems, orderID);
+                int orderID = GetOrderID();
 
-            decimal orderPrice = CalculateOrderPrice(orderItems);
+                List<CartItem> cartItems = ConvertCartToCartItemsList();
 
-            CreateNewOrder(orderPrice, orderID);
+                List<ITEM> orderItems = ConvertCartItemsToItems(cartItems, orderID);
 
-            UpdateDBWithItemsAddedToOrder(orderItems);
+                decimal orderPrice = CalculateOrderPrice(orderItems);
 
-            ClearOrder();
+                CreateNewOrder(orderPrice, orderID);
+
+                UpdateDBWithItemsAddedToOrder(orderItems);
+
+                ClearOrder();
+
+                return "Thank you " + GetCurrentClientName() + " Your Order Has Been Placed!";
+            }         
 
         }
 
+        private bool CheckForEmptyOrder()
+        {
+
+            return _session.ItemsInCart.Count() == 0;
+
+        }
 
         private int GetOrderID()
         {

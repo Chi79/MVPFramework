@@ -130,9 +130,7 @@ namespace ERP.Presenters.Presenters
 
             _view.PlaceOrderButtonVisible = false;
 
-            _view.InfoMessage = "Thank you " + _model.GetCurrentClientName() + " Your Order Has Been Placed!";
-
-            _model.SaveConfirmedOrderToDB();
+            _view.InfoMessage = _model.SaveConfirmedOrderToDB();         
 
         }
 
