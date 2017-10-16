@@ -84,8 +84,8 @@ namespace ERP.Presenters.Presenters
         private void OnPageLoaded(object sender, EventArgs e)
         {
 
-            bool? IsValid = _model.CheckLoggedInStatus();
-            if (!(bool)IsValid)
+            bool IsValid = (bool)_model.CheckLoggedInStatus();
+            if (!IsValid)
             {
 
                 _view.RedirectToLoginPage();
@@ -133,6 +133,7 @@ namespace ERP.Presenters.Presenters
             _view.InfoMessage = _model.SaveConfirmedOrderToDB();         
 
         }
+
 
     }
 }

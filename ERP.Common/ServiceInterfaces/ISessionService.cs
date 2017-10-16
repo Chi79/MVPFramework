@@ -19,6 +19,8 @@ namespace ERP.Common.ServiceInterfaces
 
         int? SelectedOrderId { get; set; }
 
+        bool? OrderHasNotBeenSubmitted { get; set; }
+
         IEnumerable<object> ItemsInCart { get; set; }
 
     }

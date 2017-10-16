@@ -141,7 +141,8 @@ td{
 
     </asp:GridView>
 
-    <asp:Button ID="btnPlaceOrder" CssClass="navButton" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click"  />
+    <asp:Button ID="btnPlaceOrder" CssClass="navButton" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';"  />
 
     </div>
 
@@ -152,13 +153,12 @@ td{
     <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
 
     </div>
-
+ 
 
     </ContentTemplate>
     </asp:UpdatePanel>
 
     </div>
-
 
 
     <div id="childDiv" class="childDiv0">

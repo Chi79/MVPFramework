@@ -176,6 +176,8 @@ namespace ERP.Presenters.Presenters
         private void OnConfirmOrderClicked(object sender, EventArgs e)
         {
 
+            _model.SetNewOrderToProcess();
+
             _view.RedirectToConfirmOrderPage();
 
         }

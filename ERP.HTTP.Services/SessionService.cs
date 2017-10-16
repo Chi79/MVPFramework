@@ -125,6 +125,25 @@ namespace ERP.HTTP.Services
 
         }
 
+
+        public bool? OrderHasNotBeenSubmitted
+        {
+            get
+            {
+                var status = HttpContext.Current.Session["OrderIsNewSinceLastSubmission"];
+                if (status != null)
+                {
+
+                    return (bool)status;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set { HttpContext.Current.Session["OrderIsNewSinceLastSubmission"] = value; }
+        }
     }
 
 }

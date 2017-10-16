@@ -20,6 +20,8 @@ namespace ERP.Common.ModelInterfaces
 
         void RemoveItemFromCart(int ID);
 
+        void SetNewOrderToProcess();
+
         IEnumerable<object> GetItemsInCart();
 
         event EventHandler<string> CartFull;

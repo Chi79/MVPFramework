@@ -20,5 +20,6 @@ namespace ERP.Common.ModelInterfaces
         string SaveConfirmedOrderToDB();
 
         void ClearOrder();
+
     }
 }

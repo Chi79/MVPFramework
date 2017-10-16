@@ -77,32 +77,38 @@ namespace ERP.Model
 
         public string SaveConfirmedOrderToDB()
         {
-            bool OrderIsEmpty = CheckForEmptyOrder();
-            if(OrderIsEmpty)
+
+            bool IsFirstSubmission = (bool)_session.OrderHasNotBeenSubmitted;
+            if(IsFirstSubmission)
             {
 
-                return "Order failed! The order is empty.";
-
-            }
-            else
-            {
+                FlagOrderAsProcessed();
 
                 int orderID = GetOrderID();
 
-                List<CartItem> cartItems = ConvertCartToCartItemsList();
+                List <ITEM> orderItems = ConvertCartToItems(orderID);
 
-                List<ITEM> orderItems = ConvertCartItemsToItems(cartItems, orderID);
+                decimal orderPrice = SumItemPrice(orderItems);
 
-                decimal orderPrice = CalculateOrderPrice(orderItems);
+                AddOrderToDB(orderPrice, orderID);
 
-                CreateNewOrder(orderPrice, orderID);
-
-                UpdateDBWithItemsAddedToOrder(orderItems);
+                AddItemsToDB(orderItems);
 
                 ClearOrder();
 
                 return "Thank you " + GetCurrentClientName() + " Your Order Has Been Placed!";
-            }         
+            }
+            else
+            {
+                return "Failed To Submit! Order is Empty.";
+            }    
+
+        }
+
+        private void FlagOrderAsProcessed()
+        {
+
+            _session.OrderHasNotBeenSubmitted = false;
 
         }
 
@@ -131,12 +137,15 @@ namespace ERP.Model
 
         }
 
-        private List<CartItem> ConvertCartToCartItemsList()
+        private List<ITEM> ConvertCartToItems(int orderID)
         {
 
-            return GetItemsInCart().Cast<CartItem>().ToList();
+            List<CartItem> cartItems = GetItemsInCart().Cast<CartItem>().ToList();
+
+            return ConvertCartItemsToItems(cartItems, orderID);
 
         }
+
 
         private List<ITEM> ConvertCartItemsToItems(List<CartItem> cartItems, int orderID)
         {
@@ -153,7 +162,7 @@ namespace ERP.Model
 
         }
 
-        private decimal CalculateOrderPrice(List<ITEM> orderItems)
+        private decimal SumItemPrice(List<ITEM> orderItems)
         {
             decimal price = 0;
 
@@ -164,7 +173,7 @@ namespace ERP.Model
             return price;
         }
 
-        private void CreateNewOrder(decimal orderPrice, int orderID)
+        private void AddOrderToDB(decimal orderPrice, int orderID)
         {
 
             ORDERS myOrder = new ORDERS() { ClientID = (int)_session.CurrentClientID, OrderPrice = orderPrice };
@@ -189,7 +198,7 @@ namespace ERP.Model
 
         }
 
-        private void UpdateDBWithItemsAddedToOrder(List<ITEM> orderItems)
+        private void AddItemsToDB(List<ITEM> orderItems)
         {
 
             _uOW.ITEMs.InsertAllItemsToDB(orderItems);

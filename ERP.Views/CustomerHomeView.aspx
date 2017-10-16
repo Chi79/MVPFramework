@@ -152,13 +152,17 @@ form1{
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">
 
-    <asp:Button ID="btnShowAllOrders" CssClass="searchButtons" runat="server" Text="Show All Orders" OnClick="btnShowAllOrders_Click"/>
+    <asp:Button ID="btnShowAllOrders" CssClass="searchButtons" runat="server" Text="Show All Orders" OnClick="btnShowAllOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';"/>
 
-    <asp:Button ID="btnShowAllConfirmedOrders" CssClass="searchButtons" runat="server" Text="Confirmed Orders" OnClick="btnShowAllConfirmedOrders_Click" />
+    <asp:Button ID="btnShowAllConfirmedOrders" CssClass="searchButtons" runat="server" Text="Confirmed Orders" OnClick="btnShowAllConfirmedOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
-    <asp:Button ID="btnShowAllOrdersInProduction" CssClass="searchButtons" runat="server" Text="Orders In Production" OnClick="btnShowAllOrdersInProduction_Click" />
+    <asp:Button ID="btnShowAllOrdersInProduction" CssClass="searchButtons" runat="server" Text="Orders In Production" OnClick="btnShowAllOrdersInProduction_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
-    <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click" />
+    <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
     </div>
 

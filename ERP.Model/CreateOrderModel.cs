@@ -60,6 +60,12 @@ namespace ERP.Model
 
         }
 
+        public void SetNewOrderToProcess()
+        {
+
+            _session.OrderHasNotBeenSubmitted = true;
+
+        }
 
         public event EventHandler<string> ItemIsEmpty;
 
