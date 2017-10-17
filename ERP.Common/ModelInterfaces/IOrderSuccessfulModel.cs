@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Common.ModelInterfaces
 {
-    public interface IConfirmOrderModel
+    public interface IOrderSuccessfulModel
     {
 
         string GetCurrentClientName();
@@ -15,13 +15,8 @@ namespace ERP.Common.ModelInterfaces
 
         bool CheckLoggedInStatus();
 
-        bool CheckIsNavigationValid();
+        IEnumerable<object> GetLastOrder();
 
-        IEnumerable<object> GetItemsInCart();
-
-        string SaveConfirmedOrderToDB();
-
-        void ClearOrder();
 
     }
 }

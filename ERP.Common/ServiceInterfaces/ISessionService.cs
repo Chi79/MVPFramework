@@ -21,6 +21,8 @@ namespace ERP.Common.ServiceInterfaces
 
         bool? OrderHasNotBeenSubmitted { get; set; }
 
+        bool? PreventNavigationToOrderConfirmationPage { get; set; }
+
         IEnumerable<object> ItemsInCart { get; set; }
 
     }

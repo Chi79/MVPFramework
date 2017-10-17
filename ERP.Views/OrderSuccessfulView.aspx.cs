@@ -11,15 +11,13 @@ using ERP.Presenters.Presenters;
 
 namespace ERP.Views
 {
-    public partial class ConfirmOrderView : ViewBase<ConfirmOrderPresenter> , IConfirmOrderView
+    public partial class OrderSuccessfulView : ViewBase<OrderSuccessfulPresenter> , IOrderSuccessfulView
     {
         public string Message { set { lblMessage.Text = value; } }
 
         public bool MessageVisible { set { lblMessage.Visible = value; } }
 
         public string InfoMessage { set { lblInfoMessage.Text = value; } }
-
-        public bool PlaceOrderButtonVisible { set {btnPlaceOrder.Visible = value ; } }
 
         public IEnumerable<object> SetDataSource { set { gvItems.DataSource = value; } }
 
@@ -66,13 +64,6 @@ namespace ERP.Views
 
         }
 
-        public void RedirectToOrderSuccessfulPage()
-        {
-
-            Response.Redirect("OrderSuccessfulView.aspx");
-
-        }
-
 
         public event EventHandler<EventArgs> PageLoad;
 
@@ -82,16 +73,6 @@ namespace ERP.Views
             base.OnLoadComplete(e);
 
             PageLoad?.Invoke(this, EventArgs.Empty);
-
-        }
-
-
-        public event EventHandler<EventArgs> EditOrderClick;
-
-        protected void btnEditOrder_Click(object sender, EventArgs e)
-        {
-
-            EditOrderClick?.Invoke(this, EventArgs.Empty);
 
         }
 
@@ -124,11 +105,22 @@ namespace ERP.Views
 
         }
 
+        public event EventHandler<EventArgs> CreateNewOrderClick;
+
+        protected void btnCreateNewOrder_Click(object sender, EventArgs e)
+        {
+
+            CreateNewOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
         protected void gvItems_RowCreated(object sender, GridViewRowEventArgs e)
         {
 
             e.Row.Cells[0].Visible = false;
 
         }
+
+
     }
 }

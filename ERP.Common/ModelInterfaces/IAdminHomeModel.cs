@@ -13,7 +13,7 @@ namespace ERP.Common.ModelInterfaces
 
         void ResetSession();
 
-        bool? CheckLoggedInStatus();
+        bool CheckLoggedInStatus();
 
     }
 }

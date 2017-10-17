@@ -68,7 +68,6 @@ form1{
 }
 .LoginButton{
     font-size: 45px;
-    width: 222px;
     font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
@@ -102,7 +101,7 @@ form1{
 
     <div id="loginDiv1" class="loginDiv">
 
-    <asp:TextBox ID="txtEmail" CssClass="EmailBox" runat="server"></asp:TextBox>
+    <input type="email"  id="txtEmail" class="EmailBox" required="required" runat="server" />
 
     </div>
 
@@ -120,7 +119,8 @@ form1{
 
     <div id="loginDiv4" class="loginDiv">
 
-    <asp:Button ID="btnLoginButton" CssClass="LoginButton" Text="Login" runat="server" OnClick="btnLoginButton_Click" />
+    <asp:Button ID="btnLoginButton" CssClass="LoginButton" Text="Login" runat="server" OnClick="btnLoginButton_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
     </div>
 

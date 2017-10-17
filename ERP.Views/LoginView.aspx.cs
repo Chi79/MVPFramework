@@ -13,7 +13,7 @@ namespace ERP.Views
     public partial class LoginView : ViewBase<LoginPresenter> , ILoginView
     {
 
-        public string Email { get { return txtEmail.Text; } }
+        public string Email { get { return txtEmail.Value; } }
 
         public string Password { get { return txtPassword.Text; } }
 

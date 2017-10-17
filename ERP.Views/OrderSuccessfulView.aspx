@@ -1,7 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConfirmOrderView.aspx.cs" Inherits="ERP.Views.ConfirmOrderView"  MasterPageFile="~/MasterView.Master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderSuccessfulView.aspx.cs" Inherits="ERP.Views.OrderSuccessfulView" MasterPageFile="~/MasterView.Master"%>
+    
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
-
+    
+    
     <title></title>
 
     <style type="text/css">
@@ -77,10 +79,9 @@ form1{
 }
 .divGrid{
     display:inline-block;
-    width: 525px;
 }
 .gvItems{
-    font-size: 40px;
+    font-size: 30px;
     background: #b1bcfe;
     margin-bottom: 28px;
 }
@@ -143,8 +144,6 @@ td{
 
     </asp:GridView>
 
-    <asp:Button ID="btnPlaceOrder" CssClass="navButton" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click"
-                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';"  />
 
     </div>
 
@@ -152,7 +151,7 @@ td{
 
     <div id="infoMessageDiv" class="infoMessageDiv">
 
-    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
+    <asp:Label ID="lblInfoMessage" CssClass="infoMessage" runat="server"></asp:Label>
 
     </div>
  
@@ -169,15 +168,14 @@ td{
 
     <asp:Button ID="btnLogoutButton" CssClass="navButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
 
-    <asp:Button ID="btnEditOrder" CssClass="navButton" runat="server" Text="Edit Order" OnClick="btnEditOrder_Click" />
-
     <asp:Button ID="btnViewAllOrders" CssClass="navButton" runat="server" Text="View All Orders" OnClick="btnViewAllOrders_Click" />
 
-    </div>
+    <asp:Button ID="btnCreateNewOrder" CssClass="navButton" runat="server" Text="Create New Order" OnClick="btnCreateNewOrder_Click" />
 
     </div>
 
     </div>
-    
-   
+
+    </div>
+     
 </asp:Content>

@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateOrderView.aspx.cs" Inherits="ERP.Views.CreateOrderView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateOrderView.aspx.cs" Inherits="ERP.Views.CreateOrderView" MasterPageFile="~/MasterView.Master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+
+<asp:Content ContentPlaceHolderID="head" runat="server">
+
+
     <title></title>
-</head>
-<body>
+
 
     <style type="text/css">
 
@@ -102,11 +102,12 @@ form1{
     font-size: 20px;
     width: 143px;
 }
-.inc_decSmallAmount{
+.inc_decAmount{
     text-align: center;
     font-size: 20px;
     width: 143px;
 }
+
 .divGrid{
     display:inline-block;
     width: 360px;
@@ -129,7 +130,11 @@ a{
 
 
 </style>
-    <form id="form1" runat="server">
+
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div id="parentDiv" class="parent" runat="server">
 
     <asp:ScriptManager
@@ -166,7 +171,7 @@ a{
 
     <asp:Label ID="lblAmount" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <asp:TextBox ID="txtSmallClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+    <input type="number" runat="server" id="txtSmallClearMls" class="inc_decAmount" min="0" max="100" step="5" value="0" required="required" /> 
 
     <asp:Button ID="btnAddSmallClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallClear_Click" />
 
@@ -181,7 +186,7 @@ a{
 
     <asp:Label ID="lblAmount2" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <asp:TextBox ID="txtSmallBlackMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+    <input type="number" runat="server" id="txtSmallBlackMls" class="inc_decAmount" min="0" max="100" step="5" value="0" required="required" /> 
 
     <asp:Button ID="btnAddSmallBlack" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallBlack_Click" />
 
@@ -196,7 +201,7 @@ a{
 
     <asp:Label ID="lblAmount3" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <asp:TextBox ID="txtSmallRedMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="100" step="5" Text="0"/>
+    <input type="number" runat="server" id="txtSmallRedMls" class="inc_decAmount" min="0" max="100" step="5" value="0" required="required" /> 
 
     <asp:Button ID="btnAddSmallRed" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallRed_Click" />
 
@@ -211,11 +216,12 @@ a{
 
     <asp:Label ID="lblAmount4" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <asp:TextBox ID="txtLargeClearMls" CssClass="inc_decSmallAmount"  TextMode="Number" runat="server" min="0" max="200" step="5" Text="0"/>
+    <input type="number" runat="server" id="txtLargeClearMls" class="inc_decAmount" min="0" max="200" step="5" value="0" required="required" /> 
 
-    <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddLargeClear_Click" />
+    <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" ValidationGroup="largeIncDec1" Text="Add Item" OnClick="btnAddLargeClear_Click" />
 
     </div>
+
 
     <div id="divCartList" class="divGrid" runat="server">
 
@@ -247,7 +253,7 @@ a{
 
     <div id="infoMessageDiv" class="infoMessageDiv">
 
-    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
+    <asp:Label ID="lblInfoMessage" CssClass="infoMessage" runat="server"></asp:Label>
 
     </div>
 
@@ -275,7 +281,5 @@ a{
     </div>
     
    
-    </form>
-</body>
-</html>
+</asp:Content>
 

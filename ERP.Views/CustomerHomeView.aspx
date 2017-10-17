@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerHomeView.aspx.cs" EnableEventValidation="false" Inherits="ERP.Views.CustomerHomeView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerHomeView.aspx.cs" EnableEventValidation="false" Inherits="ERP.Views.CustomerHomeView"  MasterPageFile="~/MasterView.Master"%>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content  ContentPlaceHolderID="head" runat="server">
+
+<title></title>
+
 <style type="text/css">
 
 body{
@@ -95,8 +93,11 @@ form1{
 
 </style>
 
+</asp:Content>
 
-    <form id="form1" runat="server">
+<asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        
+
 
     <div id="parentDiv" class="parent" runat="server">
 
@@ -186,8 +187,6 @@ form1{
     </div>
 
     </div>
-    
-   
-    </form>
-</body>
-</html>
+
+</asp:Content>
+

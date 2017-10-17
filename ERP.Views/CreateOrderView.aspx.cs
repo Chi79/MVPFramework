@@ -20,13 +20,13 @@ namespace ERP.Views
 
         public string InfoMessage { set { lblInfoMessage.Text = value; } }
 
-        public string SmallClearAmountInMls { get {return txtSmallClearMls.Text ; } set { txtSmallClearMls.Text = value ; }  }
+        public string SmallClearAmountInMls { get {return txtSmallClearMls.Value ; } set { txtSmallClearMls.Value = value ; }  }
 
-        public string SmallBlackAmountInMls { get { return txtSmallBlackMls.Text; } set { txtSmallBlackMls.Text = value; } }
+        public string SmallBlackAmountInMls { get { return txtSmallBlackMls.Value; } set { txtSmallBlackMls.Value = value; } }
 
-        public string SmallRedAmountInMls { get { return txtSmallRedMls.Text; } set { txtSmallRedMls.Text = value; } }
+        public string SmallRedAmountInMls { get { return txtSmallRedMls.Value; } set { txtSmallRedMls.Value = value; } }
 
-        public string LargeClearAmountInMls { get { return txtLargeClearMls.Text; } set { txtLargeClearMls.Text = value; } }
+        public string LargeClearAmountInMls { get { return txtLargeClearMls.Value; } set { txtLargeClearMls.Value = value; } }
 
         public IEnumerable<object> SetDataSource { set { gvItems.DataSource = value; } }
 

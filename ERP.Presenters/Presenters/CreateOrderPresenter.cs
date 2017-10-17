@@ -65,6 +65,8 @@ namespace ERP.Presenters.Presenters
         public override void FirstTimeInit()
         {
 
+            OnPageLoaded(this, EventArgs.Empty);
+
             base.FirstTimeInit();
 
             DisplayMessage();
@@ -76,8 +78,8 @@ namespace ERP.Presenters.Presenters
         private void OnPageLoaded(object sender, EventArgs e)
         {
 
-            bool? IsValid = _model.CheckLoggedInStatus();
-            if (!(bool)IsValid)
+            bool IsValid = _model.CheckLoggedInStatus();
+            if (!IsValid)
             {
 
                 _view.RedirectToLoginPage();
@@ -157,13 +159,13 @@ namespace ERP.Presenters.Presenters
         private void OnAddLargeClearClicked(object sender, EventArgs e)
         {
 
-            string amount = _view.LargeClearAmountInMls;
+                string amount = _view.LargeClearAmountInMls;
 
-            _view.InfoMessage = _model.AddItemToCart(ItemSize.Large, ItemColour.Clear, amount);
+                _view.InfoMessage = _model.AddItemToCart(ItemSize.Large, ItemColour.Clear, amount);
 
-            _view.LargeClearAmountInMls = "0";
+                _view.LargeClearAmountInMls = "0";
 
-            DisplayItemList();
+                DisplayItemList();
 
         }
 

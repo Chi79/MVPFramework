@@ -41,10 +41,17 @@ namespace ERP.Model
 
         }
 
-        public bool? CheckLoggedInStatus()
+        public bool CheckLoggedInStatus()
         {
 
-            return _session.LoggedInStatus;
+            return (bool)_session.LoggedInStatus;
+
+        }
+
+        public bool CheckIsNavigationValid()
+        {
+
+            return (bool)_session.PreventNavigationToOrderConfirmationPage;
 
         }
 
@@ -97,6 +104,7 @@ namespace ERP.Model
                 ClearOrder();
 
                 return "Thank you " + GetCurrentClientName() + " Your Order Has Been Placed!";
+
             }
             else
             {

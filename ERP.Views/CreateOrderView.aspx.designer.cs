@@ -13,15 +13,6 @@ namespace ERP.Views {
     public partial class CreateOrderView {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// parentDiv control.
         /// </summary>
         /// <remarks>
@@ -82,7 +73,7 @@ namespace ERP.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSmallClearMls;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtSmallClearMls;
         
         /// <summary>
         /// btnAddSmallClear control.
@@ -127,7 +118,7 @@ namespace ERP.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSmallBlackMls;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtSmallBlackMls;
         
         /// <summary>
         /// btnAddSmallBlack control.
@@ -172,7 +163,7 @@ namespace ERP.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSmallRedMls;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtSmallRedMls;
         
         /// <summary>
         /// btnAddSmallRed control.
@@ -217,7 +208,7 @@ namespace ERP.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLargeClearMls;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtLargeClearMls;
         
         /// <summary>
         /// btnAddLargeClear control.

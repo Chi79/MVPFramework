@@ -64,14 +64,14 @@ namespace ERP.Presenters.Presenters
 
         private void OnPageLoaded(object sender, EventArgs e)
         {
-
-            bool? IsValid = _model.CheckLoggedInStatus();
-            if (!(bool)IsValid)
+            bool IsValid = _model.CheckLoggedInStatus();
+            if (!IsValid)
             {
 
-                _view.RedirectToLoginPage();             
+                _view.RedirectToLoginPage();
 
             }
+
 
         }
 

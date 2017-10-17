@@ -107,9 +107,11 @@
     <Content Include="Config\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="OrderSuccessfulView.aspx" />
     <Content Include="ConfirmOrderView.aspx" />
     <Content Include="Images\btnremove.png" />
     <Content Include="packages.config" />
+    <Content Include="MasterView.Master" />
     <None Include="Properties\PublishProfiles\FestoERP - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -138,6 +140,20 @@
     </Compile>
     <Compile Include="AdminHomeView.aspx.designer.cs">
       <DependentUpon>AdminHomeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterView.Master.cs">
+      <DependentUpon>MasterView.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterView.Master.designer.cs">
+      <DependentUpon>MasterView.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OrderSuccessfulView.aspx.cs">
+      <DependentUpon>OrderSuccessfulView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderSuccessfulView.aspx.designer.cs">
+      <DependentUpon>OrderSuccessfulView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfirmOrderView.aspx.cs">
       <DependentUpon>ConfirmOrderView.aspx</DependentUpon>

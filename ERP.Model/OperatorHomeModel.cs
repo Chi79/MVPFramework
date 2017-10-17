@@ -32,10 +32,10 @@ namespace ERP.Model
 
         }
 
-        public bool? CheckLoggedInStatus()
+        public bool CheckLoggedInStatus()
         {
 
-            return _session.LoggedInStatus;
+            return (bool)_session.LoggedInStatus;
 
         }
 

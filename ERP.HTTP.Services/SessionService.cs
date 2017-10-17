@@ -144,6 +144,26 @@ namespace ERP.HTTP.Services
             }
             set { HttpContext.Current.Session["OrderIsNewSinceLastSubmission"] = value; }
         }
+
+
+        public bool? PreventNavigationToOrderConfirmationPage
+        {
+            get
+            {
+                var status = HttpContext.Current.Session["PreventNavigationToOrderConfirmationPage"];
+                if (status != null)
+                {
+
+                    return (bool)status;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set { HttpContext.Current.Session["PreventNavigationToOrderConfirmationPage"] = value; }
+        }
     }
 
 }

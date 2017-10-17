@@ -45,6 +45,7 @@
     <Compile Include="FactoryInterfaces\IFetchDataFactory.cs" />
     <Compile Include="FetchDataInterfaces\IFetchOrderItemData.cs" />
     <Compile Include="ModelInterfaces\IAdminHomeModel.cs" />
+    <Compile Include="ModelInterfaces\IOrderSuccessfulModel.cs" />
     <Compile Include="ModelInterfaces\IConfirmOrderModel.cs" />
     <Compile Include="ModelInterfaces\ICreateOrderModel.cs" />
     <Compile Include="ModelInterfaces\ICustomerHomeModel.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="ServiceInterfaces\ISessionService.cs" />
     <Compile Include="Structs\Structs.cs" />
     <Compile Include="ViewInterfaces\IAdminHomeView.cs" />
+    <Compile Include="ViewInterfaces\IOrderSuccessfulView.cs" />
     <Compile Include="ViewInterfaces\IConfirmOrderView.cs" />
     <Compile Include="ViewInterfaces\ICreateOrderView.cs" />
     <Compile Include="ViewInterfaces\ICustomerHomeView.cs" />

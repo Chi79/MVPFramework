@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace ERP.Common.ViewInterfaces
 {
-    public interface IConfirmOrderView
+    public interface IOrderSuccessfulView
     {
         string Message { set; }
 
         bool MessageVisible { set; }
 
         string InfoMessage { set; }
-
-        bool PlaceOrderButtonVisible { set; }
 
         IEnumerable<object> SetDataSource { set; }
 
@@ -30,17 +28,13 @@ namespace ERP.Common.ViewInterfaces
 
         void RedirectToCreateOrderPage();
 
-        void RedirectToOrderSuccessfulPage();
-
         event EventHandler<EventArgs> PageLoad;
-
-        event EventHandler<EventArgs> EditOrderClick;
 
         event EventHandler<EventArgs> LogoutClick;
 
-        event EventHandler<EventArgs> OrderConfirmedClick;
-
         event EventHandler<EventArgs> ViewAllOrdersClick;
+
+        event EventHandler<EventArgs> CreateNewOrderClick;
 
     }
 }

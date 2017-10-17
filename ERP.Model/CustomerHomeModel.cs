@@ -16,19 +16,16 @@ namespace ERP.Model
 
         private readonly ISessionService _session;
 
-        private readonly IUnitOfWork _uOW;
-
         private readonly IFetchDataFactory _factory;
 
 
-        public CustomerHomeModel(ISessionService session, IUnitOfWork uOW, IFetchDataFactory factory)
+        public CustomerHomeModel(ISessionService session,  IFetchDataFactory factory)
         {
 
             _session = session;
 
-            _uOW = uOW;
-
             _factory = factory;
+
         }
 
         public string GetCurrentClientName()
@@ -38,10 +35,10 @@ namespace ERP.Model
 
         }
 
-        public bool? CheckLoggedInStatus()
+        public bool CheckLoggedInStatus()
         {
 
-            return _session.LoggedInStatus;
+            return (bool)_session.LoggedInStatus;
 
         }
 

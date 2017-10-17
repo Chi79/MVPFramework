@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ERP.Common.ModelInterfaces;
 using ERP.Common.ServiceInterfaces;
-using ERP.Common.RepositoryInterfaces;
 using ERP.Common.Enums;
 using ERP.Model.CartObjects;
 using ERP.Common.CartInterfaces;
@@ -17,19 +16,15 @@ namespace ERP.Model
 
         private readonly ISessionService _session;
 
-        private readonly IUnitOfWork _uOW;
-
         private ICartItem _cartItem;
 
         private IList<object> _cartList;
 
 
-        public CreateOrderModel(ISessionService session, IUnitOfWork uOW)
+        public CreateOrderModel(ISessionService session)
         {
 
             _session = session;
-
-            _uOW = uOW;
         
             _cartList = GetItemsInCart().ToList();
 
@@ -42,10 +37,10 @@ namespace ERP.Model
 
         }
 
-        public bool? CheckLoggedInStatus()
+        public bool CheckLoggedInStatus()
         {
 
-            return _session.LoggedInStatus;
+            return (bool)_session.LoggedInStatus;
 
         }
 
@@ -65,6 +60,8 @@ namespace ERP.Model
 
             _session.OrderHasNotBeenSubmitted = true;
 
+            _session.PreventNavigationToOrderConfirmationPage = false;
+
         }
 
 
@@ -78,7 +75,7 @@ namespace ERP.Model
             {
 
                 return "An item must contain some water! Please select the amount in mls before adding the item.";
-  
+
             }
             else
             {
@@ -88,7 +85,7 @@ namespace ERP.Model
                 return AddItemToSessionCart();
 
             }
-            
+
         }
 
         public IEnumerable<object> GetItemsInCart()

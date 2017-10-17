@@ -11,15 +11,15 @@ using ERP.Presenters.Bases;
 
 namespace ERP.Presenters.Presenters
 {
-    public class ConfirmOrderPresenter : PresenterBase
+    public class OrderSuccessfulPresenter : PresenterBase
     {
 
-        private IConfirmOrderView _view;
+        private IOrderSuccessfulView _view;
 
-        private IConfirmOrderModel _model;
+        private IOrderSuccessfulModel _model;
 
 
-        public ConfirmOrderPresenter(IConfirmOrderView view, IConfirmOrderModel model)
+        public OrderSuccessfulPresenter(IOrderSuccessfulView view, IOrderSuccessfulModel model)
         {
 
             _view = view;
@@ -37,9 +37,7 @@ namespace ERP.Presenters.Presenters
 
             _view.LogoutClick += OnLogoutClicked;
 
-            _view.EditOrderClick += OnEditOrderClicked;
-
-            _view.OrderConfirmedClick += OnOrderConfirmedClicked;
+            _view.CreateNewOrderClick += OnCreateNewOrderClick;
 
             _view.ViewAllOrdersClick += OnViewAllOrdersClicked;
 
@@ -51,16 +49,16 @@ namespace ERP.Presenters.Presenters
 
             _view.MessageVisible = true;
 
-            _view.Message = "Order Confirmation Page For " + _model.GetCurrentClientName();
+            _view.Message = "Thank you " + _model.GetCurrentClientName() + " For Your Order!";
 
         }
 
         public override void FirstTimeInit()
         {
 
-            base.FirstTimeInit();
+            OnPageLoaded(this, EventArgs.Empty);
 
-            CheckIsNavigationValid();
+            base.FirstTimeInit();
 
             DisplayMessage();
 
@@ -68,29 +66,14 @@ namespace ERP.Presenters.Presenters
 
         }
 
-        private void CheckIsNavigationValid()
-        {
-
-            bool IsNotValid = _model.CheckIsNavigationValid();
-            if(IsNotValid)
-            {
-
-                _view.RedirectToHomePage();
-
-            }
-
-        }
-
         private void DisplayItemList()
         {
 
-            _view.PlaceOrderButtonVisible = true;
-
-            _view.InfoMessage = string.Empty;
+            _view.InfoMessage = "Your Order Has Been Placed And Will Be Delivered Shortly!";
 
             _view.EnableCartDiv();
 
-            _view.SetDataSource = _model.GetItemsInCart();
+            _view.SetDataSource = _model.GetLastOrder();
 
             _view.BindData();
 
@@ -99,7 +82,7 @@ namespace ERP.Presenters.Presenters
         private void OnPageLoaded(object sender, EventArgs e)
         {
 
-            bool IsValid = _model.CheckLoggedInStatus();
+            bool IsValid = (bool)_model.CheckLoggedInStatus();
             if (!IsValid)
             {
 
@@ -132,22 +115,10 @@ namespace ERP.Presenters.Presenters
 
         }
 
-
-        private void OnEditOrderClicked(object sender, EventArgs e)
+        private void OnCreateNewOrderClick(object sender, EventArgs e)
         {
 
             _view.RedirectToCreateOrderPage();
-
-        }
-
-        private void OnOrderConfirmedClicked(object sender, EventArgs e)
-        {
-
-            _view.PlaceOrderButtonVisible = false;
-
-            _view.InfoMessage = _model.SaveConfirmedOrderToDB();
-
-            _view.RedirectToOrderSuccessfulPage();
 
         }
 

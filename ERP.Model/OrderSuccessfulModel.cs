@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 using ERP.Common.ModelInterfaces;
 using ERP.Common.RepositoryInterfaces;
 using ERP.Common.ServiceInterfaces;
+using ERP.Model.CartObjects;
+using ERP.DataTables.Tables;
+using ERP.Model.DataMappers;
+
 
 namespace ERP.Model
 {
-    public class AdminHomeModel : IAdminHomeModel
+    public class OrderSuccessfulModel : IOrderSuccessfulModel
     {
 
         private readonly ISessionService _session;
@@ -17,12 +21,15 @@ namespace ERP.Model
         private readonly IUnitOfWork _uOW;
 
 
-        public AdminHomeModel(ISessionService session, IUnitOfWork uOW)
+        public OrderSuccessfulModel(ISessionService session, IUnitOfWork uOW)
         {
 
             _session = session;
 
             _uOW = uOW;
+
+            PreventNavigationToOrderConfirmationPage();
+
         }
 
         public string GetCurrentClientName()
@@ -47,6 +54,27 @@ namespace ERP.Model
             _session.CurrentClientName = string.Empty;
 
             _session.LoggedInStatus = false;
+
+        }
+
+        public void PreventNavigationToOrderConfirmationPage()
+        {
+
+            _session.PreventNavigationToOrderConfirmationPage = true;
+
+        }
+
+
+        public IEnumerable<object> GetLastOrder()
+        {
+
+            var LastOrder = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(_session.CurrentClientEmail).Last();
+
+            int lastOrderID = LastOrder.OrderID;
+
+            var ItemsInLastOrder = _uOW.ITEMs.GetAllItemsForCustomerByOrderId(lastOrderID);
+
+            return ItemsInLastOrder.ToList();
 
         }
 

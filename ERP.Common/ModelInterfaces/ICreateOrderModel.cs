@@ -14,7 +14,7 @@ namespace ERP.Common.ModelInterfaces
 
         void ResetSession();
 
-        bool? CheckLoggedInStatus();
+        bool CheckLoggedInStatus();
 
         string AddItemToCart( ItemSize size, ItemColour colour, string amountInMls);
 
