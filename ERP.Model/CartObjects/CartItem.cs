@@ -49,7 +49,7 @@ namespace ERP.Model.CartObjects
 
         private void CalculatePrice()
         {
-            _price = _amountInMls * 10.5;
+            _price = _amountInMls * 10;
         }
 
         private void ConvertSizeEnumToStringProperty(ItemSize size)
