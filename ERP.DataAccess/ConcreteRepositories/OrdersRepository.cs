@@ -44,11 +44,11 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus)
         {
 
-            var orders = GetAllOrdersForCustomerByEmail(email).ToList()
-                        .Where(o => o.ORDERTRACKER.Any(ot => ot.OrderStatusID == orderStatus));
+            var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
+            IEnumerable<ORDERS> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatusID == orderStatus));
 
-            return orders;
+            return ordersList;
 
         }
 
@@ -79,60 +79,66 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<ITEM> GetAllItemsInProductionForCustomerByOrderId(int orderId)
         {
 
-            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+
+            return itemList;
 
         }
 
         public IEnumerable<ITEM> GetAllItemsCompletedForCustomerByOrderId(int orderId)
         {
 
-            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+
+            return itemList;
 
         }
 
         public IEnumerable<ITEM> GetAllItemsFailedForCustomerByOrderId(int orderId)
         {
 
-            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+
+            return itemList;
 
         }
 
         public IEnumerable<ITEM> GetAllItemsInProduction()
         {
 
-            var items = ERPContext.ITEM.ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+            var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+
+            return itemList;
 
         }
 
         public IEnumerable<ITEM> GetAllItemsCompleted()
         {
 
-            var items = ERPContext.ITEM.ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+            var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+
+            return itemList;
 
         }
 
         public IEnumerable<ITEM> GetAllItemsFailed()
         {
 
-            var items = ERPContext.ITEM.ToList()
-                                       .Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+            var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            return items;
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+
+            return itemList;
 
         }
 
