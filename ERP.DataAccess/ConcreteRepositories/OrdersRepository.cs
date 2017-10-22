@@ -44,6 +44,8 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus)
         {
 
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);   view as SQL in output window!
+
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<ORDERS> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatusID == orderStatus));
