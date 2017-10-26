@@ -148,7 +148,7 @@ form1{
 
     <div id="datanMessageDiv" class="messageDiv">
 
-    <asp:Label ID="lblInfoMessage" class="infoMessage" runat="server"></asp:Label>
+    <asp:Label ID="lblInfoMessage" CssClass="infoMessage" runat="server"></asp:Label>
 
 
     <div id="searchButtonsDiv1" class="searchButtonsDiv1">

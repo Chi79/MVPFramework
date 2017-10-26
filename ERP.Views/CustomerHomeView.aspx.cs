@@ -133,7 +133,9 @@ namespace ERP.Views
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvOrders, "Select$" + e.Row.RowIndex);
+
             }
         }
 

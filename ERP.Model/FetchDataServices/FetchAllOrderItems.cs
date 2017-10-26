@@ -25,7 +25,9 @@ namespace ERP.Model.FetchDataServices
         public IEnumerable<object> FetchItemDataForOrder(int orderId)
         {
 
-            var result = _uOW.ITEMs.GetAllItemsForCustomerByOrderId(orderId).ToList();
+            //var result = _uOW.ITEMs.GetAllItemsForCustomerByOrderId(orderId).ToList();
+
+            var result = _uOW.ITEMs.GetAllItemsForCustomerByOrderIdWithHiddenFields(orderId).ToList();
 
             return result;
 

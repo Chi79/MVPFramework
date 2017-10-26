@@ -163,6 +163,15 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public IEnumerable<object> GetAllOrdersForCustomerByEmailWithHiddenFields(string email)
+        {
+
+            var orders = ERPContext.ORDERS.Where(o => o.CLIENT.Email == email).OrderBy(o => o.OrderID).Select(or => new { or.OrderID, or.OrderPrice });
+
+            return orders;
+
+        }
+
         public IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus)
         {
 
@@ -171,6 +180,20 @@ namespace ERP.DataAccess.ConcreteRepositories
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<ORDERS> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus == orderStatus));
+
+            return ordersList;
+
+        }
+
+        public IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusWithHiddenFields(string email, int orderStatus)
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);   view as SQL in output window!
+
+            var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
+
+            IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus == orderStatus))
+                                                   .Select(otr => new { otr.OrderID, otr.OrderPrice});
 
             return ordersList;
 
@@ -196,6 +219,16 @@ namespace ERP.DataAccess.ConcreteRepositories
         {
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID);
+
+            return items;
+
+        }
+
+        public IEnumerable<object> GetAllItemsForCustomerByOrderIdWithHiddenFields(int orderId)
+        {
+
+            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID)
+                                       .Select(it => new { it.ItemID, it.ItemPrice, it.Size, it.ItemColour, it.ItemWeight, it.OrderID});
 
             return items;
 
