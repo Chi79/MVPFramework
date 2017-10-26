@@ -12,15 +12,39 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ORDERS> GetAllOrders();
 
+        IEnumerable<ORDERS> GetAllOrdersNotCompleted();
+
+        IEnumerable<ORDERS> GetAllOrdersInProductionButNotCompleted();
+
+        IEnumerable<ORDERS> GetAllOrdersNotInProductionAndNotCompleted();
+
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmail(string email);
 
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus);
 
         ORDERS GetAnOrderByOrderId(int orderId);
 
+        ORDERS GetFirstOrderNotInProductionAndNotCompleted();
+
+        ORDERS GetFirstOrderInProductionAndNotCompleted();
+
+        IEnumerable<ORDERS> GetFirstOrderNotInProductionAndNotCompletedAsEnumerable();
+
+        IEnumerable<ORDERS> GetFirstOrderInProductionAndNotCompletedAsEnumerable();
+
+        IEnumerable<ORDERS> GetCurrentOrderToBeCompleted();
+
         void InsertAllItemsToDB(IEnumerable<ITEM> allItems);
 
         IEnumerable<ITEM> GetAllItems();
+
+        IEnumerable<ITEM> GetAllItemsFromFirstOrderNotInProductionAndNotCompleted();
+
+        IEnumerable<ITEM> GetAllItemsInProductionButNotCompletedFromFirstOrderInProductionAndNotCompleted();
+
+        IEnumerable<ITEM> GetFirstItemInProductionButNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
+
+        IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
 
         IEnumerable<ITEM> GetAllItemsForCustomerByOrderId(int orderId);
 

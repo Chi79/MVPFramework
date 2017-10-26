@@ -32,6 +32,128 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public IEnumerable<ORDERS> GetAllOrdersInProductionButNotCompleted()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete 
+                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction)));
+
+            return ordersList;
+
+        }
+
+        public IEnumerable<ORDERS> GetAllOrdersNotCompleted()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete));
+
+            return ordersList;
+
+        }
+
+        public IEnumerable<ORDERS> GetAllOrdersNotInProductionAndNotCompleted()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction));
+
+            return ordersList;
+
+        }
+
+        public ORDERS GetFirstOrderNotInProductionAndNotCompleted()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction)).First();
+
+            return firstOrder;
+
+        }
+
+        public ORDERS GetFirstOrderInProductionAndNotCompleted()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete
+                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction))).FirstOrDefault();
+
+            return firstOrder;
+
+        }
+
+        public IEnumerable<ORDERS> GetFirstOrderNotInProductionAndNotCompletedAsEnumerable()
+        {
+
+            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction)).First();
+
+            return new[] { firstOrder };
+
+        }
+
+        public IEnumerable<ORDERS> GetFirstOrderInProductionAndNotCompletedAsEnumerable()
+        {
+
+            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete
+                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction)))
+                                                .FirstOrDefault();
+
+            if(firstOrder == null)
+            {
+                return null;
+            }
+            else
+            {
+                return new[] { firstOrder };
+            }
+                     
+        }
+
+        public IEnumerable<ORDERS> GetCurrentOrderToBeCompleted()
+        {
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete
+                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction)))
+                                                .FirstOrDefault();
+
+            if (firstOrder == null)
+            {
+                return null;
+            }
+            else
+            {
+                return new[] { firstOrder };
+            }
+
+        }
+
         public IEnumerable<ORDERS> GetAllOrdersForCustomerByEmail(string email)
         {
 
@@ -48,7 +170,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
-            IEnumerable<ORDERS> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatusID == orderStatus));
+            IEnumerable<ORDERS> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus == orderStatus));
 
             return ordersList;
 
@@ -72,9 +194,98 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         public IEnumerable<ITEM> GetAllItemsForCustomerByOrderId(int orderId)
         {
+
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID);
 
             return items;
+
+        }
+
+        public IEnumerable<ITEM> GetAllItemsFromFirstOrderNotInProductionAndNotCompleted()
+        {
+            //CheckThis Query!!
+
+            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var firstOrder = GetFirstOrderNotInProductionAndNotCompleted();
+
+            var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID).OrderBy(i => i.ItemID);
+
+            var itemsList = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus != (int)ItemStatus.Confirmed 
+                                                            && it.ItemStatus != (int)ItemStatus.InProduction)).ToList();
+
+            return itemsList;
+
+        }
+
+        public IEnumerable<ITEM> GetAllItemsInProductionButNotCompletedFromFirstOrderInProductionAndNotCompleted()
+        {
+
+            var firstOrder = GetFirstOrderInProductionAndNotCompleted();     
+
+            if(firstOrder != null)
+            {
+
+                ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+                var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+                IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus != (int)ItemStatus.Complete)
+                                                           && i.ITEMTRACKER.Any(it2 => it2.ItemStatus == (int)ItemStatus.InProduction)).ToList();
+                return itemList;
+
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public IEnumerable<ITEM> GetFirstItemInProductionButNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable()
+        {
+
+            var firstOrder = GetFirstOrderInProductionAndNotCompleted();
+
+            if (firstOrder != null)
+            {
+
+                ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+                var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+                var firstItem = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus != (int)ItemStatus.Complete)
+                                                           && i.ITEMTRACKER.Any(it2 => it2.ItemStatus == (int)ItemStatus.InProduction)).FirstOrDefault();
+                return new[] { firstItem };
+
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable()
+        {
+
+            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+            var firstOrder = GetFirstOrderInProductionAndNotCompleted();
+
+            var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+            var firstItem = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus != (int)ItemStatus.Complete)
+                                                           && i.ITEMTRACKER.Any(it2 => it2.ItemStatus != (int)ItemStatus.InProduction)).FirstOrDefault();
+
+            if(firstItem != null)
+            {
+                return new[] { firstItem };
+            }
+            else
+            {
+                return null;
+            }
 
         }
 
@@ -83,7 +294,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.InProduction));
 
             return itemList;
 
@@ -94,7 +305,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Complete));
 
             return itemList;
 
@@ -105,7 +316,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId) as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Failed));
 
             return itemList;
 
@@ -116,7 +327,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.InProduction));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.InProduction));
 
             return itemList;
 
@@ -127,7 +338,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Complete));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Complete));
 
             return itemList;
 
@@ -138,7 +349,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatusID == (int)ItemStatus.Failed));
+            IEnumerable<ITEM> itemList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Failed));
 
             return itemList;
 

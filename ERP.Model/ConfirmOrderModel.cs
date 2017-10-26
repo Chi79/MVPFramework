@@ -198,7 +198,7 @@ namespace ERP.Model
         {
 
             ORDERTRACKER trackingInfo = new ORDERTRACKER()
-            { OrderID = orderID, OrderStatusID = 0, TimeStamp = DateTime.Now };
+            { OrderID = orderID, OrderStatus = 0 };
 
             _uOW.ORDERs.UpdateOrderTracker(trackingInfo);
 
@@ -223,7 +223,7 @@ namespace ERP.Model
             foreach(ITEM item in orderItems)
             {
                 ITEMTRACKER trackingInfo = new ITEMTRACKER()
-                { ItemID = item.ItemID, OrderID = item.OrderID, ItemStatusID = 0, TimeStamp = DateTime.Now };
+                { ItemID = item.ItemID, OrderID = item.OrderID, ItemStatus = 0};
 
                 _uOW.ORDERs.UpdateItemTracker(trackingInfo);
 
