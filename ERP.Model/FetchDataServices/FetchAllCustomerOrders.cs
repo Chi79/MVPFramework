@@ -25,15 +25,13 @@ namespace ERP.Model.FetchDataServices
         public IEnumerable<object> FetchDataForCustomer(string customerEmail)
         {
 
-            //var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmail(customerEmail).ToList();
-
             var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailWithHiddenFields(customerEmail).ToList();
 
             //return result;
 
             //var result = _uOW.ORDERs.GetFirstOrderInProductionAndNotCompleted();
 
-            //var result = _uOW.ORDERs.GetFirstOrderNotInProductionAndNotCompleted();
+            //var result = _uOW.ORDERs.GetFirstOrderNotInProductionAndNotCompletedAsEnumerable();
 
             //var result = _uOW.ORDERs.GetAllItemsFromFirstOrderNotInProductionAndNotCompleted();
 
@@ -46,6 +44,12 @@ namespace ERP.Model.FetchDataServices
             //var result = _uOW.ORDERs.GetAllItemsFromFirstOrderNotInProductionAndNotCompleted();
 
             //var result = _uOW.ORDERs.GetFirstOrderInProductionAndNotCompletedAsEnumerable();
+
+            //var result = _uOW.ORDERs.GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
+
+            //var result = _uOW.ORDERs.IsOrderCompleteByOrderId(4);
+
+            //var result = _uOW.ORDERs.GetAllItemsFromFirstOrderFailedOrNotInProductionAndNotCompleted();
 
             return result;
 

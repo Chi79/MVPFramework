@@ -26,7 +26,13 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusWithHiddenFields(string email, int orderStatus);
 
+        IEnumerable<object> GetAllOrdersForCustomerInProductionWithHiddenFields(string email);
+
+        IEnumerable<object> GetAllConfirmedOrdersForCustomerWithHiddenFields(string email);
+
         ORDERS GetAnOrderByOrderId(int orderId);
+
+        bool IsOrderCompleteByOrderId(int orderId);
 
         ORDERS GetFirstOrderNotInProductionAndNotCompleted();
 
@@ -44,11 +50,15 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ITEM> GetAllItemsFromFirstOrderNotInProductionAndNotCompleted();
 
+        IEnumerable<ITEM> GetAllItemsFromFirstOrderFailedOrNotInProductionAndNotCompleted();
+
         IEnumerable<ITEM> GetAllItemsInProductionButNotCompletedFromFirstOrderInProductionAndNotCompleted();
 
         IEnumerable<ITEM> GetFirstItemInProductionButNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
 
         IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
+
+        IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
 
         IEnumerable<ITEM> GetAllItemsForCustomerByOrderId(int orderId);
 
