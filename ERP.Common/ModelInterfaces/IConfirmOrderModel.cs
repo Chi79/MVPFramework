@@ -17,6 +17,8 @@ namespace ERP.Common.ModelInterfaces
 
         bool CheckIsNavigationValid();
 
+        bool CheckForEmptyOrder();
+
         IEnumerable<object> GetItemsInCart();
 
         string SaveConfirmedOrderToDB();

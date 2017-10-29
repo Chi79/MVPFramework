@@ -145,6 +145,18 @@ form1{
     margin-right: auto;
     height: 300px;
 }
+.divGrid::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+.divGrid::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.divGrid::-webkit-scrollbar-thumb {
+    background-color: #504e4e;
+    outline: 1px solid #2d3135;
+}
 .gvOrders{
     font-size: 40px;
     background: #b1bcfe;

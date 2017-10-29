@@ -85,7 +85,7 @@ namespace ERP.Model
         public string SaveConfirmedOrderToDB()
         {
 
-            bool IsFirstSubmission = (bool)_session.OrderHasNotBeenSubmitted;
+            bool IsFirstSubmission = (bool)_session.OrderHasNotBeenSubmitted || CheckForEmptyOrder();
             if(IsFirstSubmission)
             {
 
@@ -120,7 +120,7 @@ namespace ERP.Model
 
         }
 
-        private bool CheckForEmptyOrder()
+        public bool CheckForEmptyOrder()
         {
 
             return _session.ItemsInCart.Count() == 0;

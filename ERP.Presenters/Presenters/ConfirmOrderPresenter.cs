@@ -71,7 +71,7 @@ namespace ERP.Presenters.Presenters
         private void CheckIsNavigationValid()
         {
 
-            bool IsNotValid = _model.CheckIsNavigationValid();
+            bool IsNotValid = _model.CheckIsNavigationValid() || _model.CheckForEmptyOrder();
             if(IsNotValid)
             {
 
