@@ -91,11 +91,11 @@ form1{
 }
 .navButton:hover {
     background: #A8B1BF;
-    background-image: -webkit-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -moz-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -ms-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -o-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: linear-gradient(to bottom, #A8B1BF, #CAB0D4);
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
 .searchButtonsDiv0{
@@ -141,11 +141,11 @@ form1{
 }
 .searchButtons:hover {
     background: #A8B1BF;
-    background-image: -webkit-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -moz-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -ms-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -o-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: linear-gradient(to bottom, #A8B1BF, #CAB0D4);
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
 .smallBottleImg{
@@ -196,11 +196,11 @@ form1{
 }
 .addButtons:hover{
     background: #A8B1BF;
-    background-image: -webkit-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -moz-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -ms-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -o-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: linear-gradient(to bottom, #A8B1BF, #CAB0D4);
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
 .quantityTextBox{
