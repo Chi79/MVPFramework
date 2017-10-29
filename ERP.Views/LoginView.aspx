@@ -12,16 +12,22 @@
 
 
 body{
-    color: darkslategray;
-    background: cornsilk;
+    color: #253131;
+    /*background: cornsilk;*/
+    background: #E6DADA; 
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 form1{
-    color:darkslategrey;
+    color:#253131;
 }
 .parent{
     width: 100%;
     height: 500px;
-    background: cornsilk;
+    /*background: cornsilk;*/
+    background: #E6DADA; 
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: auto;
     margin-top: 75px;
 }
@@ -53,6 +59,7 @@ form1{
 .EmailBox{
     font-size: 32px;
     border-radius: 10px;
+    background:honeydew;
 }
 .PasswordLabel{
     font-variant: small-caps;
@@ -62,6 +69,7 @@ form1{
 .PasswordBox{
     font-size: 32px;
     border-radius: 10px;
+    background:honeydew;
 }
 .Message{
     font-variant: small-caps;
@@ -69,13 +77,45 @@ form1{
     color: #312b2b;
 }
 .LoginButton{
-    font-size: 45px;
+    /*font-size: 45px;
     font-variant: small-caps;
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 35px;
-    cursor:pointer
+    cursor:pointer*/
+    background: #BACFE0;
+    background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -ms-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -o-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: linear-gradient(to bottom, #BACFE0, #6E6E70);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #000000;
+    font-variant: small-caps;
+    font-size: 50px;
+    font-weight: 200;
+    padding: 26px;
+    box-shadow: 1px 1px 25px 0px #FFFFFF;
+    -webkit-box-shadow: 1px 1px 25px 0px #FFFFFF;
+    -moz-box-shadow: 1px 1px 25px 0px #FFFFFF;
+    text-shadow: 8px 0px 43px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.LoginButton:hover {
+    background: #A8B1BF;
+    background-image: -webkit-linear-gradient(top, #A8B1BF, #CAB0D4);
+    background-image: -moz-linear-gradient(top, #A8B1BF, #CAB0D4);
+    background-image: -ms-linear-gradient(top, #A8B1BF, #CAB0D4);
+    background-image: -o-linear-gradient(top, #A8B1BF, #CAB0D4);
+    background-image: linear-gradient(to bottom, #A8B1BF, #CAB0D4);
+    text-decoration: none;
 }
 </style>
 
