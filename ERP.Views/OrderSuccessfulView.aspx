@@ -56,6 +56,7 @@ form1{
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
+    cursor:pointer
 }
 .searchButtonsDiv0{
     position:fixed;
@@ -72,6 +73,7 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 25px;
+    cursor:pointer
 }
 .div1{
     display: inline-block;
@@ -81,9 +83,11 @@ form1{
     display:inline-block;
 }
 .gvItems{
-    font-size: 30px;
+    font-size: 40px;
     background: #b1bcfe;
     margin-bottom: 28px;
+    border-radius: 16px;
+    border: white;
 }
 td{
     text-align:center;

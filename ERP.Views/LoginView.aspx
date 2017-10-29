@@ -52,6 +52,7 @@ form1{
 }
 .EmailBox{
     font-size: 32px;
+    border-radius: 10px;
 }
 .PasswordLabel{
     font-variant: small-caps;
@@ -60,6 +61,7 @@ form1{
 }
 .PasswordBox{
     font-size: 32px;
+    border-radius: 10px;
 }
 .Message{
     font-variant: small-caps;
@@ -73,6 +75,7 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 35px;
+    cursor:pointer
 }
 </style>
 

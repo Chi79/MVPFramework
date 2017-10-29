@@ -58,6 +58,7 @@ form1{
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
+    cursor:pointer
 }
 .searchButtonsDiv0{
     position:fixed;
@@ -74,6 +75,7 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 25px;
+    cursor:pointer
 }
 .smallBottleImg{
     height: 130px;
@@ -96,6 +98,7 @@ form1{
     font-size: 25px;
     border-radius: 20px;
     background: honeydew;
+    cursor:pointer
 }
 .quantityTextBox{
     text-align: center;
@@ -116,6 +119,8 @@ form1{
     font-size: 22px;
     background: #b1bcfe;
     margin-bottom: 28px;
+    border-radius: 16px;
+    border: white;
 }
 td{
     text-align:center;
@@ -125,7 +130,7 @@ a{
     font-variant: small-caps;
 }
 .removeButton{
-
+    cursor:pointer
 }
 
 

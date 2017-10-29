@@ -49,6 +49,7 @@ form1{
     background: honeydew;
     border-radius: 14px;
     border-bottom-width: thick;
+    cursor:pointer
 }
 .searchButtonsDiv0{
     position:fixed;
@@ -65,6 +66,7 @@ form1{
     border-radius: 14px;
     border-bottom-width: thick;
     margin-top: 25px;
+    cursor:pointer
 }
 .divGrid{
     margin-top: 20px;
@@ -75,20 +77,26 @@ form1{
     height: 300px;
 }
 .gvOrders{
-    font-size: 30px;
+    font-size: 40px;
     background: #b1bcfe;
+    border-radius: 16px;
+    border: white;
 }
 .Row td{
     text-align:center;
+    cursor:pointer
 }
 .AltRow td{
     text-align:center;
+    cursor:pointer
 }
 .Row:hover{
-      border-color:white;
+      border-color:#b1bcfe;
+      cursor:pointer
 }
 .AltRow:hover{  
-      border-color:white;
+      border-color:#b1bcfe;
+      cursor:pointer
 }
 
 </style>
