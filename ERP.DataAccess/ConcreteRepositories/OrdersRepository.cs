@@ -49,8 +49,6 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<ORDERS> GetAllOrdersNotCompleted()
         {
 
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
             var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete));
@@ -62,11 +60,10 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<ORDERS> GetAllOrdersNotInProductionAndNotCompleted()
         {
 
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
-            var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction));
+            var ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus 
+                                                                                       != (int)OrderStatus.InProduction));
 
             return ordersList;
 
@@ -75,11 +72,10 @@ namespace ERP.DataAccess.ConcreteRepositories
         public ORDERS GetFirstOrderNotInProductionAndNotCompleted()
         {
 
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
-            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction)).First();
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus 
+                                                                                       != (int)OrderStatus.InProduction)).First();
 
             return firstOrder;
 
@@ -87,8 +83,6 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         public ORDERS GetFirstOrderInProductionAndNotCompleted()
         {
-
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
@@ -106,16 +100,17 @@ namespace ERP.DataAccess.ConcreteRepositories
                                                          o.ORDERTRACKER.Any(ot => ot.OrderStatus == (int)OrderStatus.Complete));
 
             return IsComplete;
+
         }
+
 
         public IEnumerable<ORDERS> GetFirstOrderNotInProductionAndNotCompletedAsEnumerable()
         {
 
-            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
-            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus != (int)OrderStatus.InProduction)).First();
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete && ot.OrderStatus 
+                                                                                       != (int)OrderStatus.InProduction)).First();
 
             return new[] { firstOrder };
 
@@ -123,8 +118,6 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         public IEnumerable<ORDERS> GetFirstOrderInProductionAndNotCompletedAsEnumerable()
         {
-
-            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
             var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
 
@@ -175,7 +168,8 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<object> GetAllOrdersForCustomerByEmailWithHiddenFields(string email)
         {
 
-            var orders = ERPContext.ORDERS.Where(o => o.CLIENT.Email == email).OrderBy(o => o.OrderID).Select(or => new { or.OrderID, or.OrderPrice });
+            var orders = ERPContext.ORDERS.Where(o => o.CLIENT.Email == email).OrderBy(o => o.OrderID)
+                                                                              .Select(or => new { or.OrderID, or.OrderPrice });
 
             return orders;
 
@@ -183,8 +177,6 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         public IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus)
         {
-
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);   view as SQL in output window!
 
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
@@ -197,12 +189,10 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusWithHiddenFields(string email, int orderStatus)
         {
 
-            //ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);   view as SQL in output window!
-
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.Any(ot => ot.OrderStatus == orderStatus))
-                                                   .Select(otr => new { otr.OrderID, otr.OrderPrice});
+                                                                          .Select(otr => new { otr.OrderID, otr.OrderPrice});
 
             return ordersList;
 
@@ -214,8 +204,8 @@ namespace ERP.DataAccess.ConcreteRepositories
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;      
 
             IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete)
-                                                           && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction))
-                                                            .Select(otr => new { otr.OrderID, otr.OrderPrice }).ToList();
+                                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction))
+                                                                .Select(otr => new { otr.OrderID, otr.OrderPrice }).ToList();
 
             return ordersList;
 
@@ -227,8 +217,8 @@ namespace ERP.DataAccess.ConcreteRepositories
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus == (int)OrderStatus.Confirmed)
-                                                           && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus != (int)OrderStatus.InProduction))
-                                                            .Select(otr => new { otr.OrderID, otr.OrderPrice }).ToList();
+                                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus != (int)OrderStatus.InProduction))
+                                                                .Select(otr => new { otr.OrderID, otr.OrderPrice }).ToList();
 
             return ordersList;
 
@@ -272,16 +262,13 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         public IEnumerable<ITEM> GetAllItemsFromFirstOrderNotInProductionAndNotCompleted()
         {
-            //CheckThis Query!!
-
-            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
             var firstOrder = GetFirstOrderNotInProductionAndNotCompleted();
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID).OrderBy(i => i.ItemID);
 
             var itemsList = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus != (int)ItemStatus.Complete
-                                                            && it.ItemStatus != (int)ItemStatus.InProduction)).ToList();
+                                                                  && it.ItemStatus != (int)ItemStatus.InProduction)).ToList();
 
             return itemsList;
 
