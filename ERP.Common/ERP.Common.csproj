@@ -60,6 +60,8 @@
     <Compile Include="RepositoryInterfaces\IUnitOfWork.cs" />
     <Compile Include="ServiceInterfaces\ISessionService.cs" />
     <Compile Include="Structs\Structs.cs" />
+    <Compile Include="ValidatorInterfaces\IValidate.cs" />
+    <Compile Include="ValidatorInterfaces\IValidateCartItems.cs" />
     <Compile Include="ViewInterfaces\IAdminHomeView.cs" />
     <Compile Include="ViewInterfaces\IOrderSuccessfulView.cs" />
     <Compile Include="ViewInterfaces\IConfirmOrderView.cs" />

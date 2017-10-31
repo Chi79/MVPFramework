@@ -2,6 +2,15 @@
 
 <!DOCTYPE html>
 
+<%--<meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
+
+<%--<style>
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+</style>--%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 

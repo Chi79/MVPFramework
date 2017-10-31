@@ -7,15 +7,40 @@
 
     <title></title>
 
-
     <style type="text/css">
+
+
+     /*@media only screen and (min-device-width: 500px) and (max-device-width: 600px) and (orientation : landscape) 
+     {
+         .searchButtonsDiv1{
+                          text-align:center;
+                          width:20%
+                          }
+         .parent{
+             height:20px;
+             width:20%;
+         }
+         .searchButtonsDiv1{
+             display:inline-block
+         }
+         .searchButtonsDiv0{
+             display:inline-block
+         }
+         .childDiv0{
+             display:inline-block
+         }
+         .childDiv1{
+             display:inline-block
+         }
+         
+     }*/
+
 
 body{
     color: #253131;
-    /*background: cornsilk;*/
     background: #E6DADA; 
-    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA); 
+    background: linear-gradient(to right, #274046, #E6DADA);
 }
 form1{
     color:#253131;
@@ -23,10 +48,9 @@ form1{
 .parent{
     width: 100%;
     height: 500px;
-    /*background: cornsilk;*/
     background: #E6DADA; 
-    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA); 
+    background: linear-gradient(to right, #274046, #E6DADA); 
     margin: auto;
     margin-top: 5px;
 }
@@ -50,21 +74,16 @@ form1{
     color: #000000;
 }
 .childDiv0{
-    position: fixed;
+    /*position: fixed;*/
+    display:inline-block;
     width: 100%;
     bottom:15px;
+    margin-top:55px;
 }
 .childDiv1{
     text-align: center;
 }
 .navButton{
-    /*position:relative;
-    font-size: 30px;
-    font-variant: small-caps;
-    background: honeydew;
-    border-radius: 14px;
-    border-bottom-width: thick;
-    cursor:pointer*/
     background: #BACFE0;
     background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
     background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
@@ -99,21 +118,16 @@ form1{
     text-decoration: none;
 }
 .searchButtonsDiv0{
-    position:fixed;
+    display:inline-block;
+    /*position:fixed;*/
     width:100%;
     top:130px;
 }
 .searchButtonsDiv1{
     text-align:center;
+    margin-top: 20px;
 }
 .searchButtons{
-    /*font-size: 32px;
-    font-variant: small-caps;
-    background: honeydew;
-    border-radius: 14px;
-    border-bottom-width: thick;
-    margin-top: 25px;
-    cursor:pointer*/
     background: #BACFE0;
     background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
     background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
@@ -156,6 +170,7 @@ form1{
 }
 .imgText{
     display: grid;
+    display:-ms-inline-grid;
     font-variant: small-caps;
     font-size: 24px;
     color: #000000;
@@ -165,11 +180,6 @@ form1{
     width: 200px;
 }
 .addButtons{
-    /*font-variant: small-caps;
-    font-size: 25px;
-    border-radius: 20px;
-    background: honeydew;
-    cursor:pointer*/
     background: #BACFE0;
     background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
     background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
@@ -220,6 +230,7 @@ form1{
 .divGrid{
     display:inline-block;
     width: 360px;
+    margin-top: 25px;
 }
 .gvItems{
     font-size: 22px;
@@ -253,6 +264,26 @@ a{
     runat="server">
     </asp:ScriptManager> 
 
+        <script type="text/javascript" > 
+
+            $("#txtSmallClearMls").keyup(function () {
+                $("#txtSmallClearMls").val(this.value.match(/[0-9]*/));
+            });
+
+            $("#txtSmallBlackMls").keyup(function () {
+                $("#txtSmallBlackrMls").val(this.value.match(/[0-9]*/));
+            });
+
+            $("#txtSmallRedrMls").keyup(function () {
+                $("#txtSmallRedMls").val(this.value.match(/[0-9]*/));
+            });
+
+            $("#txtLargeClearMls").keyup(function () {
+                $("#txtLargeClearMls").val(this.value.match(/[0-9]*/));
+            });
+
+    </script>
+
     <asp:UpdatePanel runat="server"><ContentTemplate>
 
     <div id="messageDiv" class="messageDiv">
@@ -282,7 +313,7 @@ a{
 
     <asp:Label ID="lblAmount" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallClearMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" /> 
+    <input type="number" runat="server" id="txtSmallClearMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})" /> 
 
     <asp:Button ID="btnAddSmallClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallClear_Click" />
 
@@ -297,7 +328,7 @@ a{
 
     <asp:Label ID="lblAmount2" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallBlackMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" /> 
+    <input type="number" runat="server" id="txtSmallBlackMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddSmallBlack" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallBlack_Click" />
 
@@ -312,7 +343,7 @@ a{
 
     <asp:Label ID="lblAmount3" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallRedMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" /> 
+    <input type="number" runat="server" id="txtSmallRedMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddSmallRed" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallRed_Click" />
 
@@ -327,7 +358,7 @@ a{
 
     <asp:Label ID="lblAmount4" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtLargeClearMls" class="inc_decAmount" min="0" max="50" step="1" value="0" required="required" /> 
+    <input type="number" runat="server" id="txtLargeClearMls" class="inc_decAmount" min="0" max="50" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" ValidationGroup="largeIncDec1" Text="Add Item" OnClick="btnAddLargeClear_Click" />
 

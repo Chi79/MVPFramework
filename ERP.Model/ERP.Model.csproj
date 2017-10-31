@@ -56,6 +56,9 @@
     <Compile Include="LoginModel.cs" />
     <Compile Include="OperatorHomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilites\PropertiesToStringListConverter.cs" />
+    <Compile Include="Validators\Validate.cs" />
+    <Compile Include="Validators\ValidateCartItems.cs" />
     <Compile Include="WelcomeModel.cs" />
   </ItemGroup>
   <ItemGroup>

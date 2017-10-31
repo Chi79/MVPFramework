@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ERP.Common.CartInterfaces;
 using ERP.Common.Enums;
-
+using ERP.Model.Validators;
 
 namespace ERP.Model.CartObjects
 {
-    public class CartItem : ICartItem
+    public class CartItem : ValidateCartItems , ICartItem
     {
 
         private int _ID;
@@ -63,6 +63,13 @@ namespace ERP.Model.CartObjects
         {
 
             _colour = Enum.GetName(typeof(ItemColour), colour).ToString();
+
+        }
+
+        public override void CheckForBrokenRules(ICartItem cartItem)
+        {
+
+            base.CheckForBrokenRules(this);
 
         }
     }

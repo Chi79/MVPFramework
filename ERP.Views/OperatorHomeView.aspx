@@ -13,10 +13,9 @@
 
 body{
     color: #253131;
-    /*background: cornsilk;*/
     background: #E6DADA; 
-    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA); 
+    background: linear-gradient(to right, #274046, #E6DADA); 
 }
 form1{
     color:#253131;
@@ -24,10 +23,9 @@ form1{
 .parent{
     width: 100%;
     height: 500px;
-    /*background: cornsilk;*/
     background: #E6DADA; 
-    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #274046, #E6DADA);  
+    background: linear-gradient(to right, #274046, #E6DADA); 
     margin: auto;
     margin-top: 75px;
 }
@@ -43,14 +41,6 @@ form1{
     text-align: center;
 }
 .logoutButton{
-    /*font-size: 45px;
-    width: 222px;
-    font-variant: small-caps;
-    background: honeydew;
-    border-radius: 14px;
-    border-bottom-width: thick;
-    margin-top: 210px;
-    cursor:pointer*/
     background: #BACFE0;
     background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
     background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);

@@ -67,22 +67,21 @@ namespace ERP.Model
 
         public string AddItemToCart(ItemSize size, ItemColour colour, string amountInMls)
         {
-
             int amount = Convert.ToInt32(amountInMls);
 
-            bool BottleIsEmpty = amount == 0;
-            if (BottleIsEmpty)
+            var item = CreateCartItem(size, colour, amount);
+
+            bool CartItemIsValid = item.IsValid(item);
+            if(CartItemIsValid)
             {
 
-                return "An item must contain some water! Please select the amount in mls before adding the item.";
+                return AddItemToSessionCart();
 
             }
             else
             {
 
-                CreateCartItem(size, colour, amount);
-
-                return AddItemToSessionCart();
+                return item.GetBrokenBusinessRules().First();
 
             }
 
@@ -97,12 +96,14 @@ namespace ERP.Model
 
         }
 
-        public void CreateCartItem(ItemSize size, ItemColour colour, int amountInMls)
+        private CartItem CreateCartItem(ItemSize size, ItemColour colour, int amountInMls)
         {
 
             _cartItem = new CartItem(size, colour, amountInMls);
 
             AllocateCartId();
+
+            return _cartItem as CartItem;
 
         }
 
