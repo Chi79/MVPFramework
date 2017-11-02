@@ -27,10 +27,6 @@ namespace ERP.DataTables.Tables
 
         public double? ItemWeight { get; set; }
 
-        public double? MeasuredWeight { get; set; }
-
-        public double? MeasuredDeviation { get; set; }
-
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

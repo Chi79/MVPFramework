@@ -223,7 +223,7 @@ namespace ERP.Model
             foreach(ITEM item in orderItems)
             {
                 ITEMTRACKER trackingInfo = new ITEMTRACKER()
-                { ItemID = item.ItemID, OrderID = item.OrderID, ItemStatus = 0};
+                { ItemID = item.ItemID, OrderID = item.OrderID, ItemStatus = 0, MeasuredWeight= null};
 
                 _uOW.ORDERs.UpdateItemTracker(trackingInfo);
 

@@ -192,7 +192,7 @@ namespace ERP.DataAccess.ConcreteRepositories
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.Any(ot => ot.OrderStatus == orderStatus))
-                                                                          .Select(otr => new { otr.OrderID, otr.OrderPrice});
+                                                                          .Select(otr => new { otr.OrderID, otr.OrderPrice });
 
             return ordersList;
 
@@ -201,12 +201,11 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<object> GetAllOrdersForCustomerInProductionWithHiddenFields(string email)
         {
 
-            var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;      
+            var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
 
             IEnumerable<object> ordersList = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete)
                                                             && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction))
                                                                 .Select(otr => new { otr.OrderID, otr.OrderPrice }).ToList();
-
             return ordersList;
 
         }
@@ -253,9 +252,11 @@ namespace ERP.DataAccess.ConcreteRepositories
         public IEnumerable<object> GetAllItemsForCustomerByOrderIdWithHiddenFields(int orderId)
         {
 
-            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID)
-                                       .Select(it => new { it.ItemID, it.ItemPrice, it.Size, it.ItemColour, it.ItemWeight, it.OrderID});
+            //var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID)
+            //                           .Select(it => new { it.ItemID, it.ItemPrice, it.Size, it.ItemColour, it.ItemWeight, it.OrderID});
 
+            var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID);
+                         
             return items;
 
         }

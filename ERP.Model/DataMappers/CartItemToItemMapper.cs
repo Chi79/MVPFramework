@@ -14,11 +14,12 @@ namespace ERP.Model.DataMappers
         {
             ITEM Item = new ITEM()
             {
-                Size = cartItem.Size,
+                Size = cartItem.Size,               
                 ItemColour = cartItem.Colour,
                 ItemPrice = Convert.ToDecimal(cartItem.Price),
                 ItemWeight = cartItem.MLs,
-                OrderID = orderID           
+                OrderID = orderID    
+                     
             };
  
             return Item;
