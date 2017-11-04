@@ -78,7 +78,7 @@ form1{
     display:inline-block;
     width: 100%;
     bottom:15px;
-    margin-top:55px;
+    margin-top:40px;
 }
 .childDiv1{
     text-align: center;
@@ -191,9 +191,9 @@ form1{
     border-radius: 20px;
     color: #000000;
     font-variant: small-caps;
-    font-size: 33px;
+    font-size: 28px;
     font-weight: 200;
-    padding: 5px;
+    padding: 18px;
     box-shadow: 7px 1px 34px -6px #FFFFFF;
     -webkit-box-shadow: 7px 1px 34px -6px #FFFFFF;
     -moz-box-shadow:7px 1px 34px -6px #FFFFFF;

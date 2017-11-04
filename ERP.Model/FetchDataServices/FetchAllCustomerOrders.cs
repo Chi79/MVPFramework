@@ -25,7 +25,7 @@ namespace ERP.Model.FetchDataServices
         public IEnumerable<object> FetchDataForCustomer(string customerEmail)
         {
 
-            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailWithHiddenFields(customerEmail).ToList();
+            var result = _uOW.ORDERs.GetAllOrdersForCustomerByEmailAsObject(customerEmail).ToList();
 
             //return result;
 

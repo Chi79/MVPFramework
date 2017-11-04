@@ -20,15 +20,15 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmail(string email);
 
-        IEnumerable<object> GetAllOrdersForCustomerByEmailWithHiddenFields(string email);
+        IEnumerable<object> GetAllOrdersForCustomerByEmailAsObject(string email);
 
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus);
 
-        IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusWithHiddenFields(string email, int orderStatus);
+        IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusAsObject(string email, int orderStatus);
 
-        IEnumerable<object> GetAllOrdersForCustomerInProductionWithHiddenFields(string email);
+        IEnumerable<object> GetAllOrdersForCustomerInProductionAsObject(string email);
 
-        IEnumerable<object> GetAllConfirmedOrdersForCustomerWithHiddenFields(string email);
+        IEnumerable<object> GetAllConfirmedOrdersForCustomerAsObject(string email);
 
         ORDERS GetAnOrderByOrderId(int orderId);
 
@@ -58,11 +58,13 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
 
-        IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
+        //IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
+
+        IEnumerable<object> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
 
         IEnumerable<ITEM> GetAllItemsForCustomerByOrderId(int orderId);
 
-        IEnumerable<object> GetAllItemsForCustomerByOrderIdWithHiddenFields(int orderId);
+        IEnumerable<object> GetAllItemsForCustomerByOrderIdAsObject(int orderId);
 
         IEnumerable<ITEM> GetAllItemsInProductionForCustomerByOrderId(int orderId);
 

@@ -72,7 +72,7 @@ namespace ERP.Model
 
             int lastOrderID = LastOrder.OrderID;
 
-            var ItemsInLastOrder = _uOW.ITEMs.GetAllItemsForCustomerByOrderIdWithHiddenFields(lastOrderID);
+            var ItemsInLastOrder = _uOW.ITEMs.GetAllItemsForCustomerByOrderIdAsObject(lastOrderID);
 
             return ItemsInLastOrder.ToList();
 

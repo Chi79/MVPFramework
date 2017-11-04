@@ -165,7 +165,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<object> GetAllOrdersForCustomerByEmailWithHiddenFields(string email)
+        public IEnumerable<object> GetAllOrdersForCustomerByEmailAsObject(string email)
         {
 
             var orders = ERPContext.ORDERS.Where(o => o.CLIENT.Email == email).OrderBy(o => o.OrderID)
@@ -186,7 +186,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusWithHiddenFields(string email, int orderStatus)
+        public IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusAsObject(string email, int orderStatus)
         {
 
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
@@ -198,7 +198,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<object> GetAllOrdersForCustomerInProductionWithHiddenFields(string email)
+        public IEnumerable<object> GetAllOrdersForCustomerInProductionAsObject(string email)
         {
 
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
@@ -210,7 +210,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<object> GetAllConfirmedOrdersForCustomerWithHiddenFields(string email)
+        public IEnumerable<object> GetAllConfirmedOrdersForCustomerAsObject(string email)
         {
 
             var orders = GetAllOrdersForCustomerByEmail(email) as IQueryable<ORDERS>;
@@ -249,11 +249,8 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<object> GetAllItemsForCustomerByOrderIdWithHiddenFields(int orderId)
+        public IEnumerable<object> GetAllItemsForCustomerByOrderIdAsObject(int orderId)
         {
-
-            //var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID)
-            //                           .Select(it => new { it.ItemID, it.ItemPrice, it.Size, it.ItemColour, it.ItemWeight, it.OrderID});
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == orderId).OrderBy(i => i.ItemID);
                          
@@ -346,21 +343,38 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable()
-        {
+        //public IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable()
+        //{
 
-            ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        //    var firstOrder = GetFirstOrderInProductionAndNotCompleted();
+
+        //    var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+        //    var firstItem = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Failed)
+        //                                                   || i.ITEMTRACKER.All(it2 => it2.ItemStatus != (int)ItemStatus.InProduction)
+        //                                                   && i.ITEMTRACKER.Any(it3 => it3.ItemStatus != (int)ItemStatus.Complete))
+
+        //                                                   .FirstOrDefault();
+        //    if (firstItem != null)
+        //    {
+        //        return new[] { firstItem };
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+
+        public IEnumerable<object> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable()
+        {
 
             var firstOrder = GetFirstOrderInProductionAndNotCompleted();
 
-            var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+            var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID);
 
-            var firstItem = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus == (int)ItemStatus.Failed)
-                                                           || i.ITEMTRACKER.All(it2 => it2.ItemStatus != (int)ItemStatus.InProduction)
-                                                           && i.ITEMTRACKER.Any(it3 => it3.ItemStatus != (int)ItemStatus.Complete))
-                                                              .FirstOrDefault();
+            var firstItem = CheckStatusOfItems(items);
 
-            if (firstItem != null)
+            if(firstItem != null)
             {
                 return new[] { firstItem };
             }
@@ -368,8 +382,84 @@ namespace ERP.DataAccess.ConcreteRepositories
             {
                 return null;
             }
-
         }
+
+        private ITEM CheckStatusOfItems(IQueryable<ITEM> items)
+        {
+            var nextItem =
+
+                from item in items
+
+                from lastStatusOfItem in ERPContext.ITEMTRACKER
+
+                    .Where(it => it.ItemID == item.ItemID)
+                    .OrderByDescending(it => it.ItemTrackerID)
+                    .Take(1)
+
+                where (lastStatusOfItem.ItemStatus == (int)ItemStatus.Failed || lastStatusOfItem.ItemStatus == (int)ItemStatus.Confirmed)
+
+                select item;
+
+            return nextItem.FirstOrDefault();
+        }
+
+        //private List<object> CheckStatusOfItems(IQueryable<ITEM> items)
+        //{
+        //    List<object> listOfItemsToProduce = new List<object>();
+
+        //    foreach (ITEM item in items.ToList())
+        //    {
+
+        //        var lastStatusOfItem = ERPContext.ITEMTRACKER.Where(it => it.ItemID == item.ItemID).OrderByDescending(it => it.ItemTrackerID).FirstOrDefault();
+
+        //        if (lastStatusOfItem.ItemStatus == (int)ItemStatus.Failed || lastStatusOfItem.ItemStatus == (int)ItemStatus.Confirmed)
+        //        {
+        //            listOfItemsToProduce.Add(item);
+        //        }
+        //    }
+        //    return listOfItemsToProduce;
+
+        //}
+
+        //public ITEM GetFirstItemFailedOrNotInProductionFromCurrentOrder()
+        //{
+
+        //    var firstOrder = GetFirstOrderInProductionAndNotCompleted();
+
+        //    var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+        //    if (CheckStatusOfItems(items) != null)
+        //    {
+        //        var nextItem = CheckStatusOfItems(items);
+
+        //        return nextItem ;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+
+        //private ITEM CheckStatusOfItems(IQueryable<ITEM> items)
+        //{
+        //    List<ITEM> listOfItemsToProduce = new List<ITEM>();
+
+        //    foreach (ITEM item in items.ToList())
+        //    {
+
+        //        var lastStatusOfItem = ERPContext.ITEMTRACKER.Where(it => it.ItemID == item.ItemID)
+        //                                                     .OrderByDescending(it => it.ItemTrackerID).FirstOrDefault();
+
+        //        if (lastStatusOfItem.ItemStatus == (int)ItemStatus.Failed || lastStatusOfItem.ItemStatus == (int)ItemStatus.Confirmed)
+        //        {
+        //            listOfItemsToProduce.Add(item);
+        //        }
+        //    }
+        //    return listOfItemsToProduce.FirstOrDefault();
+
+        //}
+
+
 
         public IEnumerable<ITEM> GetAllItemsFromFirstOrderFailedOrNotInProductionAndNotCompleted()
         {
@@ -380,7 +470,7 @@ namespace ERP.DataAccess.ConcreteRepositories
 
             var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
 
-            IEnumerable<ITEM> ItemsList = items.Where(i => i.ITEMTRACKER.All(it => it.ItemStatus == (int)ItemStatus.Failed)
+            IEnumerable<ITEM> ItemsList = items.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Failed)
                                                            || i.ITEMTRACKER.All(it2 => it2.ItemStatus != (int)ItemStatus.InProduction)
                                                            && i.ITEMTRACKER.Any(it3 => it3.ItemStatus != (int)ItemStatus.Complete)).ToList();
 
