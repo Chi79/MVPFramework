@@ -42,6 +42,14 @@
   <ItemGroup>
     <Compile Include="AdminHomeModel.cs" />
     <Compile Include="CartObjects\CartItem.cs" />
+    <Compile Include="FetchDataServices\FetchAllCompletedOrders.cs" />
+    <Compile Include="FetchDataServices\FetchAllConfirmedOrders.cs" />
+    <Compile Include="FetchDataServices\FetchNumberOfCompleteItems.cs" />
+    <Compile Include="FetchDataServices\FetchAvgTimeToProduceAntem.cs" />
+    <Compile Include="FetchDataServices\FetchNumberOfFailedItems.cs" />
+    <Compile Include="FetchDataServices\FetchNumberOfCompleteOrders.cs" />
+    <Compile Include="FetchDataServices\FetchAllOrdersInProduction.cs" />
+    <Compile Include="FetchDataServices\FetchAllOrders.cs" />
     <Compile Include="OrderSuccessfulModel.cs" />
     <Compile Include="ConfirmOrderModel.cs" />
     <Compile Include="CreateOrderModel.cs" />

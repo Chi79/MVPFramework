@@ -12,9 +12,17 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ORDERS> GetAllOrders();
 
+        IEnumerable<object> GetAllOrdersAsObject();
+
         IEnumerable<ORDERS> GetAllOrdersNotCompleted();
 
+        IEnumerable<ORDERS> GetAllOrdersCompleted();
+
         IEnumerable<ORDERS> GetAllOrdersInProductionButNotCompleted();
+
+        IEnumerable<object> GetAllOrdersInProductionAsObject();
+
+        IEnumerable<object> GetAllConfirmedOrdersAsObject();
 
         IEnumerable<ORDERS> GetAllOrdersNotInProductionAndNotCompleted();
 
@@ -25,6 +33,8 @@ namespace ERP.Common.RepositoryInterfaces
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmailAndStatus(string email, int orderStatus);
 
         IEnumerable<object> GetAllOrdersForCustomerByEmailAndStatusAsObject(string email, int orderStatus);
+
+        IEnumerable<object> GetAllOrdersByStatusAsObject(int orderStatus);
 
         IEnumerable<object> GetAllOrdersForCustomerInProductionAsObject(string email);
 
@@ -58,8 +68,6 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
 
-        //IEnumerable<ITEM> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
-
         IEnumerable<object> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
 
         IEnumerable<ITEM> GetAllItemsForCustomerByOrderId(int orderId);
@@ -83,6 +91,14 @@ namespace ERP.Common.RepositoryInterfaces
         void UpdateOrderTracker(ORDERTRACKER trackingInfo);
 
         void UpdateItemTracker(ITEMTRACKER trackingInfo);
+
+        string GetNumberOfCompleteOrders();
+
+        string GetAvgTimeToProduceAnItem();
+
+        string GetNumberOfFailedItems();
+
+        string GetNumberOfCompleteItems();
 
     }
 }

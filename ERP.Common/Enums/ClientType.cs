@@ -52,4 +52,14 @@ namespace ERP.Common.Enums
         Black,
         Red
     }
+
+    public enum DataToFetch
+    {
+
+        NumberOfItemsCompleted,
+        NumberOfOrdersCompleted,
+        NumberOfItemsFailed,
+        AvgTimeToProduceAnItem
+
+    }
 }

@@ -12,11 +12,17 @@ namespace ERP.Common.FactoryInterfaces
 
         IEnumerable<object> FetchDataForCustomer(OrdersToFetch ordersToFetch , string customerEmail);
 
+        string FetchAdminOrderDataInfoMessage(OrdersToFetch ordersToFetch);
+
+        IEnumerable<object> FetchDataForAdmin(OrdersToFetch ordersToFetch);
+
         string FetchOrderDataInfoMessage(OrdersToFetch ordersToFetch);
 
         IEnumerable<object> FetchOrderItemData(ItemsToFetch itemsToFetch, int orderId);
 
         string FetchItemDataInfoMessage(ItemsToFetch ordersToFetch);
+
+        string FetchProductionData(DataToFetch dataToFetch);
 
     }
 }

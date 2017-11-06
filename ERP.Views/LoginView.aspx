@@ -58,6 +58,7 @@ form1{
     font-size: 32px;
     border-radius: 10px;
     background:honeydew;
+    text-align:center;
 }
 .PasswordLabel{
     font-variant: small-caps;
@@ -68,6 +69,7 @@ form1{
     font-size: 32px;
     border-radius: 10px;
     background:honeydew;
+    text-align:center;
 }
 .Message{
     font-variant: small-caps;

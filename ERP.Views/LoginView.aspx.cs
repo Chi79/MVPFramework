@@ -48,8 +48,8 @@ namespace ERP.Views
         public void RedirectToAdminHomePage()
         {
 
-            lblMessage.Text = "Admin Home Page Coming Soon...";
-
+            Response.Redirect("AdminHomeView.aspx");
+                
         }
 
     }

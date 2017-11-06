@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ERP.Presenters.Bases;
 using ERP.Common.ViewInterfaces;
 using ERP.Common.ModelInterfaces;
+using ERP.Common.Enums;
 
 namespace ERP.Presenters.Presenters
 {
@@ -31,9 +32,33 @@ namespace ERP.Presenters.Presenters
         private void WireUpEvents()
         {
 
+            _view.PageLoad += OnPageLoaded;
+
             _view.LogoutClick += OnLogoutClicked;
 
-            _view.PageLoad += OnPageLoaded;
+            _view.ShowAllOrdersClick += OnShowAllOrdersClicked;
+
+            _view.ShowAllConfirmedOrdersClick += OnShowAllConfirmedOrdersClicked;
+
+            _view.ShowAllOrdersInProductionClick += OnShowAllOrdersInProductionClicked;
+
+            _view.ShowAllCompletedOrdersClick += OnShowAllCompletedOrdersClicked;
+
+            _view.RowSelected += OnRowSelected;
+
+            //_view.CreateNewOrderClick += OnCreateNewOrderClicked;
+
+        }
+
+
+        public override void FirstTimeInit()
+        {
+
+            base.FirstTimeInit();
+
+            DisplaytWelcomeMessage();
+
+            OnShowAllOrdersClicked(this, EventArgs.Empty);
 
         }
 
@@ -41,13 +66,7 @@ namespace ERP.Presenters.Presenters
         {
 
             bool IsValid = _model.CheckLoggedInStatus();
-            if (IsValid)
-            {
-
-                DisplaytWelcomeMessage();
-
-            }
-            else
+            if (!IsValid)
             {
 
                 _view.RedirectToLoginPage();
@@ -61,9 +80,23 @@ namespace ERP.Presenters.Presenters
 
             _view.MessageVisible = true;
 
-            _view.Message = "Welcome " + _model.GetCurrentClientName();
+            _view.Message = "Welcome " + _model.GetCurrentClientName();       
 
         }
+
+        private void SetProductionStats()
+        {
+
+            _view.AvgTimeToProduceAnItem = _model.GetAvgTimeToProduceAnItem();
+
+            _view.NumberOfItemsFailed = _model.GetNumberOfFailedItems();
+
+            _view.NumberOfItemsProduced = _model.GetNumberOfCompleteItems();
+
+            _view.NumberOfOrdersCompleted = _model.GetNumberOfCompleteOrders();
+
+        }
+
 
         private void OnLogoutClicked(object sender, EventArgs e)
         {
@@ -73,5 +106,80 @@ namespace ERP.Presenters.Presenters
             _view.RedirectToLoginPage();
 
         }
+
+        //private void OnCreateNewOrderClicked(object sender, EventArgs e)
+        //{
+
+        //    _view.RedirectToOrderPage();
+
+        //}
+
+        private void OnShowAllOrdersClicked(object sender, EventArgs e)
+        {
+
+            FetchCustomerOrderData(OrdersToFetch.AllOrders);
+
+
+        }
+
+        private void OnShowAllConfirmedOrdersClicked(object sender, EventArgs e)
+        {
+
+            FetchCustomerOrderData(OrdersToFetch.AllConfirmed);
+
+
+        }
+
+        private void OnShowAllOrdersInProductionClicked(object sender, EventArgs e)
+        {
+
+            FetchCustomerOrderData(OrdersToFetch.AllInProduction);
+
+
+        }
+
+        private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
+        {
+
+            FetchCustomerOrderData(OrdersToFetch.AllCompleted);
+
+        }
+
+        public void FetchCustomerOrderData(OrdersToFetch ordersToFetch)
+        {
+
+            _view.SetDataSource = _model.FetchOrderData(ordersToFetch);
+
+            _view.BindData();
+
+            _view.InfoMessage = _model.FetchOrderDataInfoMessage(ordersToFetch);
+
+            SetProductionStats();
+
+        }
+
+        private void OnRowSelected(object sender, EventArgs e)
+        {
+
+            int orderId = (int)_view.SelectedRowValueDataKey;
+
+            _model.SetSelectedOrderIdToSession(orderId);
+
+            ShowItemsInSelecetedOrder(ItemsToFetch.AllItemsInOrder);
+
+        }
+
+        public void ShowItemsInSelecetedOrder(ItemsToFetch itemsToFetch)
+        {
+
+            _view.SetDataSource = _model.FetchItemsData(itemsToFetch);
+
+            _view.BindData();
+
+            _view.InfoMessage = _model.FetchItemDataInfoMessage(itemsToFetch);
+
+        }
+
     }
 }
+

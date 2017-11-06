@@ -20,12 +20,71 @@ namespace ERP.Model.Factories
 
         private Dictionary<ItemsToFetch, IFetchOrderItemData> OrderItemData;
 
+        private Dictionary<OrdersToFetch, IFetchAdminOrderData> AdminOrderData;
+
+        private Dictionary<DataToFetch, IFetchProductionData> ProductionData;
+
         public FetchDataFactory(IUnitOfWork uOW)
         {
 
             _uOW = uOW;
 
         }
+
+        public void LoadProductionDataDictionary(IUnitOfWork uOW)
+        {
+
+            if (ProductionData == null)
+            {
+
+                ProductionData = new Dictionary<DataToFetch, IFetchProductionData>();
+
+                ProductionData.Add(DataToFetch.NumberOfItemsCompleted, new FetchNumberOfCompleteItems(uOW));
+                ProductionData.Add(DataToFetch.NumberOfOrdersCompleted, new FetchNumberOfCompleteOrders(uOW));
+                ProductionData.Add(DataToFetch.NumberOfItemsFailed, new FetchNumberOfFailedItems(uOW));
+                ProductionData.Add(DataToFetch.AvgTimeToProduceAnItem, new FetchAvgTimeToProduceAnItem(uOW));
+
+            }
+        }
+
+        public void LoadAdminOrderDictionary(IUnitOfWork uOW)
+        {
+
+            if (AdminOrderData == null)
+            {
+
+                AdminOrderData = new Dictionary<OrdersToFetch, IFetchAdminOrderData>();
+
+                AdminOrderData.Add(OrdersToFetch.AllOrders, new FetchAllOrders(uOW));
+                AdminOrderData.Add(OrdersToFetch.AllConfirmed, new FetchAllConfirmedOrders(uOW));
+                AdminOrderData.Add(OrdersToFetch.AllInProduction, new FetchAllOrdersInProduction(uOW));
+                AdminOrderData.Add(OrdersToFetch.AllCompleted, new FetchAllCompletedOrders(uOW));
+
+            }
+        }
+
+        public IEnumerable<object> FetchDataForAdmin(OrdersToFetch ordersToFetch)
+        {
+
+            LoadAdminOrderDictionary(_uOW);
+
+            var data = AdminOrderData[ordersToFetch].FetchDataForAdmin();
+
+            return data;
+
+        }
+
+        public string FetchAdminOrderDataInfoMessage(OrdersToFetch ordersToFetch)
+        {
+
+            LoadAdminOrderDictionary(_uOW);
+
+            var info = AdminOrderData[ordersToFetch].InfoMessage;
+
+            return info;
+
+        }
+
 
         public void LoadCustomerOrderDictionary(IUnitOfWork uOW)
         {
@@ -101,6 +160,16 @@ namespace ERP.Model.Factories
 
             return info;
 
+        }
+
+        public string FetchProductionData(DataToFetch dataToFetch)
+        {
+            LoadProductionDataDictionary(_uOW);
+
+            var data = ProductionData[dataToFetch].FetchProductionData();
+
+            return data;
+         
         }
 
     }

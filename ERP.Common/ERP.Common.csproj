@@ -43,7 +43,9 @@
     <Compile Include="CartInterfaces\ICartItem.cs" />
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="FactoryInterfaces\IFetchDataFactory.cs" />
+    <Compile Include="FetchDataInterfaces\IFetchAdminOrderData.cs" />
     <Compile Include="FetchDataInterfaces\IFetchOrderItemData.cs" />
+    <Compile Include="FetchDataInterfaces\IFetchProductionData.cs" />
     <Compile Include="ModelInterfaces\IAdminHomeModel.cs" />
     <Compile Include="ModelInterfaces\IOrderSuccessfulModel.cs" />
     <Compile Include="ModelInterfaces\IConfirmOrderModel.cs" />

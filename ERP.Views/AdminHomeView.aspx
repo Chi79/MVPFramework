@@ -1,19 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminHomeView.aspx.cs" Inherits="ERP.Views.AdminHomeView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminHomeView.aspx.cs" EnableEventValidation="false" Inherits="ERP.Views.AdminHomeView" MasterPageFile="~/MasterView.Master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content  ContentPlaceHolderID="head" runat="server">
+
+<title></title>
+
 <style type="text/css">
 
 body{
     color: #253131;
     background: #E6DADA; 
     background: -webkit-linear-gradient(to right, #274046, #E6DADA); 
-    background: linear-gradient(to right, #274046, #E6DADA);
+    background: linear-gradient(to right, #274046, #E6DADA); 
 }
 form1{
     color:#253131;
@@ -25,7 +23,7 @@ form1{
     background: -webkit-linear-gradient(to right, #274046, #E6DADA); 
     background: linear-gradient(to right, #274046, #E6DADA); 
     margin: auto;
-    margin-top: 75px;
+    margin-top: 10px;
 }
 .messageDiv{
     text-align: center;
@@ -35,10 +33,22 @@ form1{
     font-size: 40px;
     color: #000000;
 }
-.childDiv{
+.infoMessage{
+    font-variant: small-caps;
+    font-size: 30px;
+    color: #000000;
+}
+.childDiv0{
+    /*position: fixed;*/
+    display:inline-block;
+    width: 100%;
+    bottom:15px;
+    margin-top:20px;
+}
+.childDiv1{
     text-align: center;
 }
-.logoutButton{
+.navButton{
     background: #BACFE0;
     background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
     background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
@@ -52,7 +62,7 @@ form1{
     font-variant: small-caps;
     font-size: 32px;
     font-weight: 200;
-    padding: 11px;
+    padding: 20px;
     box-shadow: 7px 1px 34px -6px #FFFFFF;
     -webkit-box-shadow: 7px 1px 34px -6px #FFFFFF;
     -moz-box-shadow: 7px 1px 34px -6px #FFFFFF;
@@ -64,18 +74,129 @@ form1{
 }
 .navButton:hover {
     background: #A8B1BF;
-    background-image: -webkit-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -moz-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -ms-linear-gradient(top, #A8B1BF, #CAB0D4);
-    background-image: -o-linear-gradient(top, #A8B1BF, #CAB0D4);
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
     background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
+.searchButtonsDiv0{
+    display:inline-block;
+    /*position:fixed;*/
+    width:100%;
+    top:130px;
+}
+.searchButtonsDiv1{
+    text-align:center;
+    margin-top: 20px;
+}
+.searchButtons{
+    background: #BACFE0;
+    background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -ms-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -o-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: linear-gradient(to bottom, #BACFE0, #6E6E70);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #000000;
+    font-variant: small-caps;
+    font-size: 33px;
+    font-weight: 200;
+    padding: 5px;
+    box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -webkit-box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -moz-box-shadow:7px 1px 34px -6px #FFFFFF;
+    text-shadow: 8px 0px 43px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top:6px;
+}
+.searchButtons:hover {
+    background: #A8B1BF;
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
+    text-decoration: none;
+}
+.divGrid{
+    margin-top: 20px;
+    overflow: auto;
+    width:max-content;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+}
+.divGrid::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+.divGrid::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.divGrid::-webkit-scrollbar-thumb {
+    background-color: #504e4e;
+    outline: 1px solid #2d3135;
+}
+.gvOrders{
+    font-size: 40px;
+    background: #b1bcfe;
+    border-radius: 16px;
+    border:hidden;
+}
+.Row td{
+    text-align:center;
+    cursor:pointer
+}
+.AltRow td{
+    text-align:center;
+    cursor:pointer
+}
+.Row:hover{
+      border-color:#b1bcfe;
+      cursor:pointer
+}
+.AltRow:hover{  
+      border-color:#b1bcfe;
+      cursor:pointer
+}
+.TextBox{
+    font-size: 27px;
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+    border-radius: 12px;
+}
+.Label{
+    font-size: 21px;
+    color: black;
+    font-variant: small-caps;
+}
+.DivTextBoxes{
+    text-align: center;
+    margin-top: 11px;
+    margin-bottom: 10px;
+}
+
+.CentralDiv{
+
+}
+
 
 </style>
 
+</asp:Content>
 
-    <form id="form1" runat="server">
+<asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        
+
 
     <div id="parentDiv" class="parent" runat="server">
 
@@ -85,15 +206,125 @@ form1{
 
     </div>
 
-    <div id="childDiv" class="childDiv">
+    <asp:ScriptManager
+    ID="ScriptManager1"
+    runat="server">
+    </asp:ScriptManager> 
 
-    <asp:Button ID="btnLogoutButton" CssClass="logoutButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+    <asp:UpdatePanel runat="server"> 
+    <ContentTemplate>
+
+    <div id="divGrid" class="divGrid">
+
+    <asp:GridView 
+    ID="gvOrders" 
+    CssClass="gvOrders" 
+    runat="server"
+    HorizontalAlign="Center"
+    DataKeyNames="OrderID"
+    OnSelectedIndexChanged="gvOrders_SelectedIndexChanged"
+    OnRowDataBound="gvOrders_RowDataBound">
+    <RowStyle BackColor="#e0d8d8" CssClass="Row"/>
+
+    <AlternatingRowStyle
+    CssClass="AltRow"
+    VerticalAlign="Middle" 
+    Wrap="True"
+    BackColor="#f0f0f0" />
+
+    </asp:GridView>
 
     </div>
 
-    </div>
+    <div id="centralDiv" class="CentralDiv ">
+
+    <div id="textboxesLeft" class="DivTextBoxes">
+
+    <asp:label ID="lblNumberOfCompletedItems" runat="server" CssClass="Label" Text="Number of Completed Items:">
+
+        <input id="txtNumberOfCompletedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
+
+    </asp:label>
+
     
-   
-    </form>
-</body>
-</html>
+
+    <asp:label ID="lblNumberOfCompletedOrders" runat="server" CssClass="Label" Text="Number of Completed Orders:">
+
+         <input id="txtNumberOfCompletedOrders" runat="server" class="TextBox" type="number" disabled="disabled"/>
+
+    </asp:label>
+
+    
+
+    <asp:label ID="lblNumberOfFailedItems" runat="server" CssClass="Label" Text="Number of Failed Items:">
+
+    <input id="txtNumberOfFailedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
+
+    </asp:label>
+
+    
+
+    <asp:label ID="lblAvgItemProductionTime" runat="server" CssClass="Label" Text="Avg item production time (sec):">
+
+    <input id="txtAvgItemProductionTime" runat="server" class="TextBox" type="number" disabled="disabled"/>
+
+    </asp:label>
+  
+
+    </div>
+
+    </div>
+
+
+    </ContentTemplate>
+    </asp:UpdatePanel>
+      
+
+    <div id="searchButtonsDiv" class="searchButtonsDiv0">
+
+    <asp:UpdatePanel runat="server">
+    <ContentTemplate>
+
+    <div id="datanMessageDiv" class="messageDiv">
+
+    <asp:Label ID="lblInfoMessage" CssClass="infoMessage" runat="server"></asp:Label>
+
+
+    <div id="searchButtonsDiv1" class="searchButtonsDiv1">
+
+    <asp:Button ID="btnShowAllOrders" CssClass="searchButtons" runat="server" Text="Show All Orders" OnClick="btnShowAllOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';"/>
+
+    <asp:Button ID="btnShowAllConfirmedOrders" CssClass="searchButtons" runat="server" Text="Confirmed Orders" OnClick="btnShowAllConfirmedOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+    <asp:Button ID="btnShowAllOrdersInProduction" CssClass="searchButtons" runat="server" Text="Orders In Production" OnClick="btnShowAllOrdersInProduction_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+    <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click"
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+    </div>
+
+    </div>
+
+    </ContentTemplate>
+    </asp:UpdatePanel>
+
+    </div>
+
+    <div id="childDiv" class="childDiv0">
+
+    <div id="childDiv1" class="childDiv1">
+
+    <asp:Button ID="btnLogoutButton" CssClass="navButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+
+    <%--<asp:Button ID="btnCreateNewOrder" CssClass="navButton" runat="server" Text="Create New Order" OnClick="btnCreateNewOrder_Click" />--%>
+
+    </div>
+
+    </div>
+
+    </div>
+
+</asp:Content>
