@@ -32,11 +32,14 @@ form1{
     font-variant: small-caps;
     font-size: 40px;
     color: #000000;
+    font-weight:900;
 }
 .infoMessage{
     font-variant: small-caps;
     font-size: 30px;
     color: #000000;
+    background: whitesmoke;
+    border-radius: 11px;
 }
 .childDiv0{
     /*position: fixed;*/
@@ -125,13 +128,47 @@ form1{
     background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
+.statButtons{
+    background: #BACFE0;
+    background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -ms-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -o-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: linear-gradient(to bottom, #BACFE0, #6E6E70);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #000000;
+    font-variant: small-caps;
+    font-size: 33px;
+    font-weight: 200;
+    padding: 5px;
+    box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -webkit-box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -moz-box-shadow:7px 1px 34px -6px #FFFFFF;
+    text-shadow: 8px 0px 43px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top:6px;
+}
+.statButtons :hover{
+    background: #A8B1BF;
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
+    text-decoration: none;
+}
 .divGrid{
     margin-top: 20px;
     overflow: auto;
     width:max-content;
     margin-left: auto;
     margin-right: auto;
-    height: 300px;
+    height: 250px;
 }
 .divGrid::-webkit-scrollbar {
     width: 1em;
@@ -173,20 +210,28 @@ form1{
     text-align: center;
     width: 60px;
     border-radius: 12px;
+    color: black;
 }
 .Label{
-    font-size: 21px;
+    font-size: 22px;
     color: black;
     font-variant: small-caps;
+    font-weight: 900;
 }
 .DivTextBoxes{
     text-align: center;
-    margin-top: 11px;
-    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-bottom: 0px;
 }
 
-.CentralDiv{
-
+.bottomButtons{
+    display:inline-block;
+}
+.divLeft{
+    margin-left: -70px;
+}
+.divRight{
+    margin-left: -24px;
 }
 
 
@@ -200,11 +245,11 @@ form1{
 
     <div id="parentDiv" class="parent" runat="server">
 
-    <div id="messageDiv" class="messageDiv">
+<%--    <div id="messageDiv" class="messageDiv">
 
     <asp:Label ID="lblMessage" CssClass="message" runat="server" Visible="false"></asp:Label>
 
-    </div>
+    </div>--%>
 
     <asp:ScriptManager
     ID="ScriptManager1"
@@ -212,7 +257,14 @@ form1{
     </asp:ScriptManager> 
 
     <asp:UpdatePanel runat="server"> 
+
     <ContentTemplate>
+
+    <div id="messageDiv" class="messageDiv">
+
+    <asp:Label ID="lblMessage" CssClass="message" runat="server" Visible="false"></asp:Label>
+
+    </div>
 
     <div id="divGrid" class="divGrid">
 
@@ -240,7 +292,9 @@ form1{
 
     <div id="textboxesLeft" class="DivTextBoxes">
 
-    <asp:label ID="lblNumberOfCompletedItems" runat="server" CssClass="Label" Text="Number of Completed Items:">
+    <div class="divLeft">
+
+    <asp:label ID="lblNumberOfCompletedItems" runat="server" CssClass="Label" Text="Completed Items:">
 
         <input id="txtNumberOfCompletedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
@@ -248,15 +302,17 @@ form1{
 
     
 
-    <asp:label ID="lblNumberOfCompletedOrders" runat="server" CssClass="Label" Text="Number of Completed Orders:">
+    <asp:label ID="lblNumberOfCompletedOrders" runat="server" CssClass="Label" Text="Completed Orders:">
 
          <input id="txtNumberOfCompletedOrders" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
     </asp:label>
 
-    
+    </div>
 
-    <asp:label ID="lblNumberOfFailedItems" runat="server" CssClass="Label" Text="Number of Failed Items:">
+    <div class="divRight">
+
+    <asp:label ID="lblNumberOfFailedItems" runat="server" CssClass="Label" Text="Failed Items:">
 
     <input id="txtNumberOfFailedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
@@ -264,12 +320,14 @@ form1{
 
     
 
-    <asp:label ID="lblAvgItemProductionTime" runat="server" CssClass="Label" Text="Avg item production time (sec):">
+    <asp:label ID="lblAvgItemProductionTime" runat="server" CssClass="Label" Text="Avg Unit Time (sec):">
 
     <input id="txtAvgItemProductionTime" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
     </asp:label>
   
+
+    </div>
 
     </div>
 
@@ -304,6 +362,12 @@ form1{
     <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click"
                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
+<%--    <asp:Button ID="btnCurrentOrder" CssClass="statButtons" runat="server" Text="Current Order In Production" OnClick="btnCurrentOrder_Click" 
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+    <asp:Button ID="btnCurrentItem" CssClass="statButtons" runat="server" Text="Current Item In Production" OnClick="btnCurrentItem_Click" 
+                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />--%>
+
     </div>
 
     </div>
@@ -317,7 +381,25 @@ form1{
 
     <div id="childDiv1" class="childDiv1">
 
+    <asp:UpdatePanel runat="server" RenderMode="Inline">
+        <ContentTemplate>
+
+            <asp:Button ID="btnCurrentOrder" CssClass="navButton" runat="server" Text="Current Order" OnClick="btnCurrentOrder_Click" 
+                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <asp:Button ID="btnLogoutButton" CssClass="navButton" runat="server" Text="Logout" OnClick="btnLogoutButton_Click" />
+
+    <asp:UpdatePanel runat="server" RenderMode="Inline">
+        <ContentTemplate>
+
+    <asp:Button ID="btnCurrentItem" CssClass="navButton" runat="server" Text="Current Items" OnClick="btnCurrentItem_Click" 
+                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+      </ContentTemplate>
+    </asp:UpdatePanel>
 
     <%--<asp:Button ID="btnCreateNewOrder" CssClass="navButton" runat="server" Text="Create New Order" OnClick="btnCreateNewOrder_Click" />--%>
 

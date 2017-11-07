@@ -21,7 +21,7 @@ namespace ERP.Model.FetchDataServices
 
         }
 
-        public string InfoMessage { get { return "Viewing all completed orders. Please click a row to view the order items."; } }
+        public string InfoMessage { get { return "Viewing all completed orders.</br> Please click a row to view the order items."; } }
 
         public IEnumerable<object> FetchDataForAdmin()
         {

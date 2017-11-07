@@ -50,6 +50,10 @@ namespace ERP.Common.ViewInterfaces
 
         event EventHandler<EventArgs> ShowAllCompletedOrdersClick;
 
+        event EventHandler<EventArgs> ShowCurrentOrderClick;
+
+        event EventHandler<EventArgs> ShowCurrentItemClick;
+
         //event EventHandler<EventArgs> CreateNewOrderClick;
 
     }

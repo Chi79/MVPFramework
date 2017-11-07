@@ -30,6 +30,5 @@ namespace ERP.Model.FetchDataServices
             return result;
 
         }
-
     }
 }

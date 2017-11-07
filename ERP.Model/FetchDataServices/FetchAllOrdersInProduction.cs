@@ -21,7 +21,7 @@ namespace ERP.Model.FetchDataServices
 
         }
 
-        public string InfoMessage { get { return "Viewing orders currently in production.Please click a row to view the order items."; } }
+        public string InfoMessage { get { return "Viewing orders currently in production.</br> Please click a row to view the order items."; } }
 
         public IEnumerable<object> FetchDataForAdmin()
         {

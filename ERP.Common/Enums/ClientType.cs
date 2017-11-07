@@ -24,12 +24,15 @@ namespace ERP.Common.Enums
         AllOrders,
         AllConfirmed,
         AllInProduction,
-        AllCompleted
+        AllCompleted,
+        CurrentOrder,
+        CurrentItem
     }
 
     public enum ItemsToFetch
     {
-        AllItemsInOrder
+        AllItemsInOrder,
+        AllItemsInOrderAdmin
     }
 
     public enum ItemStatus

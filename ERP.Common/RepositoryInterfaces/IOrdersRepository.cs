@@ -48,6 +48,8 @@ namespace ERP.Common.RepositoryInterfaces
 
         ORDERS GetFirstOrderInProductionAndNotCompleted();
 
+        IEnumerable<object> GetCurrentOrderInProduction();
+
         IEnumerable<ORDERS> GetFirstOrderNotInProductionAndNotCompletedAsEnumerable();
 
         IEnumerable<ORDERS> GetFirstOrderInProductionAndNotCompletedAsEnumerable();
@@ -65,6 +67,8 @@ namespace ERP.Common.RepositoryInterfaces
         IEnumerable<ITEM> GetAllItemsInProductionButNotCompletedFromFirstOrderInProductionAndNotCompleted();
 
         IEnumerable<ITEM> GetFirstItemInProductionButNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
+
+        IEnumerable<object> GetCurrentItemInProduction();
 
         IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
 
@@ -95,6 +99,8 @@ namespace ERP.Common.RepositoryInterfaces
         string GetNumberOfCompleteOrders();
 
         string GetAvgTimeToProduceAnItem();
+
+        IEnumerable<object> GetAvgTimeToProduceAnItemAsList();
 
         string GetNumberOfFailedItems();
 

@@ -46,7 +46,10 @@ namespace ERP.Presenters.Presenters
 
             _view.RowSelected += OnRowSelected;
 
-            //_view.CreateNewOrderClick += OnCreateNewOrderClicked;
+            _view.ShowCurrentItemClick += OnShowCurrentItemClicked;
+
+            _view.ShowCurrentOrderClick += OnShowCurrentOrderClicked;
+
 
         }
 
@@ -58,7 +61,7 @@ namespace ERP.Presenters.Presenters
 
             DisplaytWelcomeMessage();
 
-            OnShowAllOrdersClicked(this, EventArgs.Empty);
+            OnShowCurrentItemClicked(this, EventArgs.Empty);
 
         }
 
@@ -107,17 +110,26 @@ namespace ERP.Presenters.Presenters
 
         }
 
-        //private void OnCreateNewOrderClicked(object sender, EventArgs e)
-        //{
 
-        //    _view.RedirectToOrderPage();
+        private void OnShowCurrentOrderClicked(object sender, EventArgs e)
+        {
 
-        //}
+            FetchOrderData(OrdersToFetch.CurrentOrder);
+
+        }
+
+
+        private void OnShowCurrentItemClicked(object sender, EventArgs e)
+        {
+
+            FetchOrderData(OrdersToFetch.CurrentItem);
+
+        }
 
         private void OnShowAllOrdersClicked(object sender, EventArgs e)
         {
 
-            FetchCustomerOrderData(OrdersToFetch.AllOrders);
+            FetchOrderData(OrdersToFetch.AllOrders);
 
 
         }
@@ -125,7 +137,7 @@ namespace ERP.Presenters.Presenters
         private void OnShowAllConfirmedOrdersClicked(object sender, EventArgs e)
         {
 
-            FetchCustomerOrderData(OrdersToFetch.AllConfirmed);
+            FetchOrderData(OrdersToFetch.AllConfirmed);
 
 
         }
@@ -133,7 +145,7 @@ namespace ERP.Presenters.Presenters
         private void OnShowAllOrdersInProductionClicked(object sender, EventArgs e)
         {
 
-            FetchCustomerOrderData(OrdersToFetch.AllInProduction);
+            FetchOrderData(OrdersToFetch.AllInProduction);
 
 
         }
@@ -141,18 +153,18 @@ namespace ERP.Presenters.Presenters
         private void OnShowAllCompletedOrdersClicked(object sender, EventArgs e)
         {
 
-            FetchCustomerOrderData(OrdersToFetch.AllCompleted);
+            FetchOrderData(OrdersToFetch.AllCompleted);
 
         }
 
-        public void FetchCustomerOrderData(OrdersToFetch ordersToFetch)
+        public void FetchOrderData(OrdersToFetch ordersToFetch)
         {
 
             _view.SetDataSource = _model.FetchOrderData(ordersToFetch);
 
             _view.BindData();
 
-            _view.InfoMessage = _model.FetchOrderDataInfoMessage(ordersToFetch);
+            _view.Message = _model.FetchOrderDataInfoMessage(ordersToFetch);
 
             SetProductionStats();
 
@@ -165,7 +177,7 @@ namespace ERP.Presenters.Presenters
 
             _model.SetSelectedOrderIdToSession(orderId);
 
-            ShowItemsInSelecetedOrder(ItemsToFetch.AllItemsInOrder);
+            ShowItemsInSelecetedOrder(ItemsToFetch.AllItemsInOrderAdmin);
 
         }
 
@@ -176,7 +188,7 @@ namespace ERP.Presenters.Presenters
 
             _view.BindData();
 
-            _view.InfoMessage = _model.FetchItemDataInfoMessage(itemsToFetch);
+            _view.Message = _model.FetchItemDataInfoMessage(itemsToFetch);
 
         }
 

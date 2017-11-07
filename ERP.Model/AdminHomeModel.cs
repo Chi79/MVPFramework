@@ -138,7 +138,9 @@ namespace ERP.Model
 
             var data = _factory.FetchProductionData(DataToFetch.AvgTimeToProduceAnItem);
 
-            return data;
+            //return data;
+
+            return  "11";
 
         }
     }

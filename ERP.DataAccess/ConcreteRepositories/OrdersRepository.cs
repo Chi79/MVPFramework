@@ -150,6 +150,27 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+        public IEnumerable<object> GetCurrentOrderInProduction()
+        {
+
+            var orders = ERPContext.ORDERS.OrderBy(o => o.OrderID) as IQueryable<ORDERS>;
+
+            var firstOrder = orders.Where(o => o.ORDERTRACKER.All(ot => ot.OrderStatus != (int)OrderStatus.Complete
+                                            && o.ORDERTRACKER.Any(ot2 => ot2.OrderStatus == (int)OrderStatus.InProduction))).FirstOrDefault();
+
+            if (firstOrder != null)
+            {
+
+                return new[] { firstOrder };
+
+            }
+            else
+            {
+                return null;
+            }            
+
+        }
+
         public bool IsOrderCompleteByOrderId(int orderId)
         {
 
@@ -377,6 +398,30 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
+
+        public IEnumerable<object> GetCurrentItemInProduction()
+        {
+
+            var firstOrder = GetFirstOrderInProductionAndNotCompleted();
+
+            if (firstOrder != null)
+            {
+
+                ERPContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+                var items = ERPContext.ITEM.Where(i => i.OrderID == firstOrder.OrderID) as IQueryable<ITEM>;
+
+                var currentItems = items.Where(i => i.ITEMTRACKER.OrderByDescending(it => it.ItemID).All(it => it.ItemStatus != (int)ItemStatus.Complete)
+                                                           && i.ITEMTRACKER.Any(it2 => it2.ItemStatus == (int)ItemStatus.InProduction));
+                return currentItems.ToList() ;
+
+            }
+            else
+            {
+                return null;
+            }
+
+        }
         public IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable()
         {
 
@@ -436,6 +481,57 @@ namespace ERP.DataAccess.ConcreteRepositories
                 select item;
 
             return nextItem.FirstOrDefault();
+        }
+
+        public string GetAvgTimeToProduceAnItem()
+        {
+            //TODO 
+
+            //return "10";
+
+            var allItems = ERPContext.ITEM as IQueryable<ITEM>;
+
+            var completedItems = allItems.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Complete));
+
+            var completedItemsEnteredProduction =    
+                                                  from completed in completedItems
+                                                  from itemEnteredProduction in ERPContext.ITEMTRACKER
+                                                  .Where(it => it.ItemID == completed.ItemID)
+                                                  .OrderBy(it => it.ItemID)
+                                                  where (itemEnteredProduction.ItemStatus == (int)ItemStatus.InProduction)
+                                            
+                                                  select itemEnteredProduction;
+
+            var result = completedItemsEnteredProduction.ToList();
+
+            return result.ToString();
+        }
+
+
+        public IEnumerable<object> GetAvgTimeToProduceAnItemAsList()
+        {
+            //TODO 
+
+            //return "10";
+
+            var allItems = ERPContext.ITEM as IQueryable<ITEM>;
+
+            var completedItems = allItems.Where(i => i.ITEMTRACKER.Any(it => it.ItemStatus == (int)ItemStatus.Complete));
+
+            var completedItemsEnteredProduction =
+                                                  from completed in completedItems
+                                                  from itemEnteredProduction in ERPContext.ITEMTRACKER
+                                                  .Where(it => it.ItemID == completed.ItemID)
+                                                  .OrderBy(it => it.ItemID)
+                                                  where (itemEnteredProduction.ItemStatus == (int)ItemStatus.InProduction)
+
+                                                  select itemEnteredProduction;
+
+            var result = completedItemsEnteredProduction;
+
+            var resultList = result.ToList();
+
+            return resultList;
         }
 
 
@@ -564,13 +660,6 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-        public string GetAvgTimeToProduceAnItem()
-        {
-            //TODO 
-
-            return "10";
-
-        }
 
         public string GetNumberOfFailedItems()
         {

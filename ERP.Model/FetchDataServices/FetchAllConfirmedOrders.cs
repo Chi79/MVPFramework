@@ -22,7 +22,7 @@ namespace ERP.Model.FetchDataServices
 
         }
 
-        public string InfoMessage { get { return "Viewing confirmed orders awaiting production. Please click a row to view the order items."; } }
+        public string InfoMessage { get { return "Viewing confirmed orders awaiting production. </br> Please click a row to view the order items."; } }
 
         public IEnumerable<object> FetchDataForAdmin()
         {

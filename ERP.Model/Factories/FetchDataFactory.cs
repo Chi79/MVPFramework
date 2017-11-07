@@ -59,6 +59,8 @@ namespace ERP.Model.Factories
                 AdminOrderData.Add(OrdersToFetch.AllConfirmed, new FetchAllConfirmedOrders(uOW));
                 AdminOrderData.Add(OrdersToFetch.AllInProduction, new FetchAllOrdersInProduction(uOW));
                 AdminOrderData.Add(OrdersToFetch.AllCompleted, new FetchAllCompletedOrders(uOW));
+                AdminOrderData.Add(OrdersToFetch.CurrentItem, new FetchCurrentItem(uOW));
+                AdminOrderData.Add(OrdersToFetch.CurrentOrder, new FetchCurrentOrder(uOW));
 
             }
         }
@@ -135,6 +137,7 @@ namespace ERP.Model.Factories
                 OrderItemData = new Dictionary<ItemsToFetch, IFetchOrderItemData>();
 
                 OrderItemData.Add(ItemsToFetch.AllItemsInOrder, new FetchAllOrderItems(uOW));
+                OrderItemData.Add(ItemsToFetch.AllItemsInOrderAdmin, new FetchAllOrderItemsAdmin(uOW));
 
             }
         }

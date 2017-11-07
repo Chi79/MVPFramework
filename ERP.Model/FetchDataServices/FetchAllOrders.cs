@@ -20,7 +20,7 @@ namespace ERP.Model.FetchDataServices
 
         }
 
-        public string InfoMessage { get { return "Viewing all orders. Please click a row to view the order items."; } }
+        public string InfoMessage { get { return "Viewing all orders. </br> Please click a row to view the order items."; } }
 
         public IEnumerable<object> FetchDataForAdmin()
         {
@@ -50,6 +50,8 @@ namespace ERP.Model.FetchDataServices
             //var result = _uOW.ORDERs.IsOrderCompleteByOrderId(4);
 
             //var result = _uOW.ORDERs.GetAllItemsFromFirstOrderFailedOrNotInProductionAndNotCompleted();
+
+            //var result = _uOW.ORDERs.GetAvgTimeToProduceAnItemAsList();
 
             return result;
 

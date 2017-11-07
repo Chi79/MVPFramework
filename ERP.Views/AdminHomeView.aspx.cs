@@ -147,5 +147,23 @@ namespace ERP.Views
             }
         }
 
+        public event EventHandler<EventArgs> ShowCurrentItemClick;
+
+        protected void btnCurrentItem_Click(object sender, EventArgs e)
+        {
+
+            ShowCurrentItemClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+
+        public event EventHandler<EventArgs> ShowCurrentOrderClick;
+
+        protected void btnCurrentOrder_Click(object sender, EventArgs e)
+        {
+
+            ShowCurrentOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 }
