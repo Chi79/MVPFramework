@@ -25,5 +25,9 @@ namespace ERP.Common.ServiceInterfaces
 
         IEnumerable<object> ItemsInCart { get; set; }
 
+        int ButtonLastPressed { get; set; }
+
+        byte[] file { get; set; }
+
     }
 }

@@ -72,7 +72,6 @@ namespace ERP.DataAccess.ConcreteRepositories
 
         }
 
-
         public IEnumerable<CLIENT> GetAllCustomers()
         {
 

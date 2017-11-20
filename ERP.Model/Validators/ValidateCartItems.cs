@@ -28,21 +28,21 @@ namespace ERP.Model.Validators
             if(cartItem.MLs == 0)
             {
 
-                AddBrokenRule("An item must contain some water! Please select the amount in mls before adding the item.");
+                AddBrokenRule("An item must contain some liquid! Please select the amount in mls before adding the item.");
 
             }
 
-            if (cartItem.Size == "Large" && (cartItem.MLs < 0 || cartItem.MLs > 50))
+            if (cartItem.Size == "Large" && (cartItem.MLs < 0 || cartItem.MLs > 45))
             {
 
-                AddBrokenRule("A Large item must contain between 0 to 50ml of water!");
+                AddBrokenRule("A Large item must contain between 0 to 45ml of liquid!");
 
             }
 
-            if (cartItem.Size == "Small" && (cartItem.MLs < 0 || cartItem.MLs > 15))
+            if (cartItem.Size == "Small" && (cartItem.MLs < 0 || cartItem.MLs > 12))
             {
 
-                AddBrokenRule("A Small item must contain between 0 to 15ml of water!");
+                AddBrokenRule("A Small item must contain between 0 to 12ml of liquid!");
 
             }
 

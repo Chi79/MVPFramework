@@ -13,7 +13,7 @@ namespace ERP.DataTables.Tables
 
         public int OrderStatus { get; set; }
 
-        public DateTime TimeStamp { get; /*set;*/ }
+        public DateTime TimeStamp { get; set; }
 
         public int OrderTrackerID { get; set; }
 

@@ -1,0 +1,1242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="54977746-7692-4c89-b0a4-dfea8133c653"
+  name="Common"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="802eafc6-9508-40c4-a9f5-8b274499b7a3"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DERP.Common"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="89ffd7ac-9b32-4c95-8767-fd080ab97ce4"
+        LastKnownName="ViewInterfaces"
+        LastKnownLocation="Package2_2211.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="af0106e0-208d-4fe8-b530-14ff67bb0406"
+        LastKnownName="ModelInterfaces"
+        LastKnownLocation="Package_2239.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="3dff713c-1a69-4166-bcef-5a343b8aaeba"
+        name="ILoginModel"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="ee994311-2ff0-4e50-a684-fc0cad347d9b"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7d009ab3-4352-48b9-a0cd-12bffd7376e6"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8df8ff87-13d0-41b8-a88d-a333f1f48db9">
+                <propertyInstance
+                  Id="636a762b-7e43-485d-a9f4-88daa558a276"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="287cf046-0b05-498a-b70d-db72b2d9fa89">
+                <propertyInstance
+                  Id="296f06d9-13df-40a1-be91-ef25afd6f15d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f2e988b0-bacb-41e7-a6a4-304d35f20a4e">
+                <propertyInstance
+                  Id="fd56db8c-d97e-4e6e-9649-58eb1f5845c9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c2da4785-2c61-473c-af05-32309c52df1f">
+                <propertyInstance
+                  Id="157ea2c3-3fc7-47ce-9b3c-c0f0c35bd5c2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="747b6c09-7201-4835-90d1-a48c70f18e65"
+            name="CheckClientExists"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c4e1bf3a-c7be-49e5-904f-ea1d985663a7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel Member%3D(Name%3DCheckClientExists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0291e45a-864e-4466-aff8-5ff36c6ba179"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b12bc42-f5f2-40f3-b1ed-0e510c4e1218">
+                    <propertyInstance
+                      Id="8e9071ea-2335-4d4c-8a4c-d12fabf6d9e4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bec01fb-f014-4c41-983a-b37a37e9e81b">
+                    <propertyInstance
+                      Id="24b3c34a-8e64-4f36-8131-54ade11a9b59"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eaca14c8-edc2-4974-8da8-830bfbc6c67f">
+                    <propertyInstance
+                      Id="f49a38bb-6cc2-496d-a386-f146fdb68f35"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5a02399c-b61b-45b3-bc9b-03086a71539d">
+                    <propertyInstance
+                      Id="6d998097-1e89-4c04-bc0b-f4effdc5caec"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a20da598-eef7-41fe-9695-365ffbe0af30">
+                    <propertyInstance
+                      Id="f4e7353e-1416-41ef-b1c1-e0cd446dae54"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b03bde53-8d0b-4bb1-944e-fda47ad5dd43">
+                    <propertyInstance
+                      Id="9a620fc6-be21-405d-b606-076fe082d00d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3f14185e-1925-4e31-9fc4-b785487d12f7"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="70722674-03ab-4fc7-a13a-5c36c81712f7"
+                  name="username"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="23af1540-3360-4bfc-80ee-cd7cd516a9ae"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel Member%3D(Name%3DCheckClientExists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dusername"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ff44b2a6-0a0f-4e59-9749-5ea4ef20c48c"
+                  name="password"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="796c48df-f3ca-47d5-a3dc-106458f68f10"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel Member%3D(Name%3DCheckClientExists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.2%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpassword"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0a355892-8707-4dad-b382-60d30064f948"
+            name="GetClientType"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c207e888-ead9-4833-b200-a13a2ff4a6d7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel Member%3DGetClientType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="03c42533-9b76-406b-8d2b-6f6b3b33720b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3c0abdb-f498-41e0-bb8b-61d90e57b7fe">
+                    <propertyInstance
+                      Id="e6e6a837-f02a-44c6-9a8f-aa05cd505e74"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c037049-0408-4f54-8f7f-8cdb86f49447">
+                    <propertyInstance
+                      Id="028213f2-f640-4575-a8cd-0edde1ae2252"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a9a361e-40e5-43d8-9a4b-f46986d0a1f4">
+                    <propertyInstance
+                      Id="127bb533-dc38-4f9f-a07b-769655dcc196"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a1250b1-2209-45c0-9cde-239d329c4569">
+                    <propertyInstance
+                      Id="c5b08815-efe4-4c77-a5ac-6ddc8ad9a294"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78e28f45-e18c-42ea-9fc5-c30d19f83eb1">
+                    <propertyInstance
+                      Id="b7be7b1e-61a7-4224-87f0-2f13e7c01360"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c26c83ac-9879-4701-a19b-b9f27d3fee57">
+                    <propertyInstance
+                      Id="c2e0561a-683e-4f27-b107-f844516145df"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d150842a-1a3e-4b70-8f20-f47be33a1d35"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="67708fdf-ccc5-4d24-8a43-9594d7bd5897"
+            name="InitializeSession"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1952a921-7272-406e-a690-c5cbe43aede7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DILoginModel Member%3DInitializeSession"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="68bde7f8-5e52-42ec-ad7b-a75653bb210b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8e13a4f-d353-4fa3-8216-dbf46964e059">
+                    <propertyInstance
+                      Id="a41f08f7-2b0d-4bc3-bd75-ba9ea557f2ce"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ddc4b33-8297-458b-a70a-7a49e2258b1e">
+                    <propertyInstance
+                      Id="dc88311e-4254-447a-9964-9d11f85fb984"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cc1b841-5c80-4b5e-ae94-c7a5897dd0ce">
+                    <propertyInstance
+                      Id="6620d391-6b09-4883-a2a2-93004c28a7a3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22363147-f1b5-4187-9044-30d21e57986f">
+                    <propertyInstance
+                      Id="d7a6acbb-efd9-48d9-a685-96a7ed619fdc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06ea0326-5e0a-42b1-a17e-006090af9443">
+                    <propertyInstance
+                      Id="21c9fcd4-5388-4488-889b-39d486fb7ff1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c00e211c-d91a-4b8d-b376-2747f566b762">
+                    <propertyInstance
+                      Id="95dc605c-828a-4a0c-9932-fb945534f5ed"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="1b5f323a-439e-4c58-87d3-d65cfd4e44b0"
+        name="IWelcomeModel"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="fe96759b-bd2b-4be7-a018-03c610ab39bf"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIWelcomeModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8a6999b2-f682-42e7-a3a3-f3fe09e3d814"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="46c867bd-5dc1-4cf3-a215-d483113c936a">
+                <propertyInstance
+                  Id="8ead37b4-0ec8-4748-abdf-fb9fc0b158f4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3586cbdd-7611-45fb-858e-87dd985d2e3a">
+                <propertyInstance
+                  Id="da4df3c5-1879-42f6-93b7-1131015f05d5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="826bb711-0457-4d82-9396-c7a975c4a598">
+                <propertyInstance
+                  Id="543d35be-920d-4722-a741-ac0b8bdfb920"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78d56cfc-6c3a-4893-893a-3d1651afb9f7">
+                <propertyInstance
+                  Id="cc0dd4c9-e280-454b-b6a5-f2dca3a3e302"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="f3b1d357-9ce1-43d0-8fc4-41098f543844"
+            name="GetWelcomeMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="37559f43-d573-4aec-9733-79834e3ab818"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIWelcomeModel Member%3DGetWelcomeMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6c7e071a-f697-458b-b551-d020cecc541f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bfe644c-13e0-4bca-9a47-fe13eea25b0f">
+                    <propertyInstance
+                      Id="f3c2ca50-89b5-433c-bf65-22c099d9a9bd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29113af1-c429-4d56-9089-98bddf6277ec">
+                    <propertyInstance
+                      Id="f5baa689-f646-446c-a05d-5f408bf5128a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d3bf1b1-4038-459b-b28a-ecc959492875">
+                    <propertyInstance
+                      Id="b92d3b4a-16d2-4957-ae99-b90b435454ac"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2c3022b-1821-4bb0-a120-de05544f6901">
+                    <propertyInstance
+                      Id="ee9082df-c033-4214-9331-82887dd7c3df"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4888afe5-d704-48f6-b6b3-82fb205316fb">
+                    <propertyInstance
+                      Id="7573bf67-61d9-4dfa-99cd-605aac769576"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec7ad5bb-ca6c-4523-9009-e46d254deca4">
+                    <propertyInstance
+                      Id="e6eb5bea-e293-4089-9193-cb666ff0145b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f1808019-9fe8-4852-b53c-b4ec27f0aa0a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d404c1ef-f20a-4588-8c11-aef8e5407217"
+            name="GetWelcomeTitle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d66e3537-9c95-436a-8cdd-89e24dd2c4e2"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIWelcomeModel Member%3DGetWelcomeTitle"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d9eb8a4b-5c0b-4cfe-a17d-bdf815c19ad7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="759fb074-68e8-4ed0-b0fd-815956e901b6">
+                    <propertyInstance
+                      Id="f288e0c0-7882-4fcc-ba9b-88113726b5df"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4647b7fa-f3dc-4580-9dc1-deb66e81606d">
+                    <propertyInstance
+                      Id="bdd526e1-6822-4b86-882c-3c96d6a9199f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68c1625c-3230-4bf6-827d-e78a506db466">
+                    <propertyInstance
+                      Id="a37ea226-444b-4dc0-9479-abfed1f00768"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="975ca328-23ad-4e7c-a4d9-be61eecab9ec">
+                    <propertyInstance
+                      Id="05b72849-19ce-474a-a39e-a90d28e146ef"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2ac74da-67a1-4481-9420-a076f319f03c">
+                    <propertyInstance
+                      Id="51db5443-bf50-4dfb-917d-227a08798d7b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b53affc6-43ff-4aa7-a15d-5402520eab43">
+                    <propertyInstance
+                      Id="cd04af56-a5db-444a-9f44-c2807b2295db"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8c2e4b28-11d3-4226-b609-24034d8c1a50"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="38ef6329-a112-4040-9da4-57509da65b69"
+        name="IConfirmOrderModel"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="c7b80b78-ae9a-4f2e-a6eb-05a5d963b430"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2a15bba5-97c2-40e9-ab7c-5dce5f5a29fa"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e679a1dd-630a-4cd6-956e-656e6c52c741">
+                <propertyInstance
+                  Id="239fe805-539a-4931-a88c-07fb1a71340a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c4ca1e40-d7df-454b-9f06-2a148575f173">
+                <propertyInstance
+                  Id="37eb8e2a-8010-4066-8b75-39c40f5eba47"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7a90cc74-7e03-45d9-b326-881afd7bc4d9">
+                <propertyInstance
+                  Id="374f9189-2140-45e3-8114-848286f2dabd"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d390ed14-a861-4bc0-94c8-65bef37ea18f">
+                <propertyInstance
+                  Id="0dbf9678-a4b6-43ff-9d6b-41fb0b33fac8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="0f806418-9e6d-49cd-838a-47339af7b704"
+            name="CheckForEmptyOrder"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7c038f86-447e-4898-bdbe-1ed5a9c35429"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DCheckForEmptyOrder"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="142f6906-7c54-4743-a753-de92fac15ecf"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9a8774d-7353-42eb-9d0d-e6097a6e3a5e">
+                    <propertyInstance
+                      Id="acd14e77-c256-4f18-a81a-98107f6a9d1d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0ca4343-7c0e-4db7-87fd-ec8a4a07a4c8">
+                    <propertyInstance
+                      Id="c59a3ee0-bc13-48af-b9c7-b0acf889ad34"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8f66c325-b0b0-457a-a44b-8e925ffeb533">
+                    <propertyInstance
+                      Id="91a96d86-0c26-4121-853b-e93069db4f9f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80995f95-edb3-4177-a381-86f81fe08b2f">
+                    <propertyInstance
+                      Id="ee522652-412f-461f-9a93-9873b953d97c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e56fb194-c7df-4556-ad83-7408ecf0eb3c">
+                    <propertyInstance
+                      Id="7ac0bcdf-f23c-49fc-91a2-10550c2e5233"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c29bef69-669a-4a87-af4f-dab78f96abf0">
+                    <propertyInstance
+                      Id="245773fb-1f39-457b-a7a9-63ec98d9e819"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eb19ea8f-0141-438c-938a-014873c600bb"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5a467bcb-a35a-42fa-9e9a-a033fbe4362e"
+            name="CheckIsNavigationValid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0e119dbd-36de-420d-a2ca-d6b4c061caa9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DCheckIsNavigationValid"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bc8a7fbe-360a-40ff-b67c-16fdd3d07e5a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7777277-56e9-4585-94f2-ef1cff216434">
+                    <propertyInstance
+                      Id="a20fe5af-3efc-437a-9e76-aa0242c806a1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b174377d-1810-4c42-a9c6-73eb30207e75">
+                    <propertyInstance
+                      Id="4114a2a3-0db9-4425-8394-991016ae99e0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efe4451f-d014-4dd9-8419-9b64600d8c5a">
+                    <propertyInstance
+                      Id="220be104-4def-4b44-bcda-1b23caf2dcaa"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66fe59da-00e3-4298-9c49-41d54ac3be0d">
+                    <propertyInstance
+                      Id="42ec556c-bc48-4585-bdc7-c2267a527d57"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="221631f6-3868-4f46-bee0-000a89e168fa">
+                    <propertyInstance
+                      Id="99bd8db8-0f5d-4f19-87ce-4452a568dca1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76c0629c-5339-4fee-ad74-ca6aefaa2bf2">
+                    <propertyInstance
+                      Id="2c0197a1-af2e-4aa0-982e-32b8fb37abb8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dcb91168-e66c-4210-9ec4-ef4fa5895939"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="67806faf-0b78-402d-ba28-c3b3f33f475f"
+            name="CheckLoggedInStatus"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="64383e9d-2338-4504-a464-3165ad848741"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DCheckLoggedInStatus"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e2e802fe-72aa-46b2-bc93-bba92fd6736a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5aa95b16-f630-4603-942d-d0b07fbbab79">
+                    <propertyInstance
+                      Id="a42bc85b-5160-428d-8a3a-b8a10aba954b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d80ad09a-66c8-42e4-906c-ec4f000b72d9">
+                    <propertyInstance
+                      Id="f5b4559a-4f81-4737-8466-68f2fe28197f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75c34496-912d-476b-af03-1991a5457ebe">
+                    <propertyInstance
+                      Id="58853837-0680-4ebf-b1e1-f92cb3dfdaff"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eabd5bb2-e34c-44e3-92b1-7ba551108640">
+                    <propertyInstance
+                      Id="795be43f-ed9f-4a82-9024-a4e192730f57"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd6d5a37-a480-4c9a-92aa-d112620d2c0c">
+                    <propertyInstance
+                      Id="826df32c-9755-484e-8393-b47a0aad1020"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6992ff52-b325-40ad-844c-87bea9aa4792">
+                    <propertyInstance
+                      Id="952ddea3-a826-4610-9d30-9fa534196faf"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cc00bf66-fc5b-4fa4-9fc0-8a9c9d84f1f0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="475c3b72-689a-4afd-b9ce-52a23d88d127"
+            name="ClearOrder"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="77e1b166-a7fd-486f-bf73-47384aaf3e20"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DClearOrder"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="beeb7074-8ad6-457f-b91d-cb31ba7c7c9e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91683098-8051-4c83-8a8d-139382657982">
+                    <propertyInstance
+                      Id="b8d4fe7e-c00b-486a-acd8-4204df4a0a42"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e2523be-59bd-40f3-b933-5821065a053c">
+                    <propertyInstance
+                      Id="41460371-efda-4827-9171-7ef03a8ee639"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e38d7fb1-c423-4278-8acb-bef2dfcbbf8f">
+                    <propertyInstance
+                      Id="19d15b62-6bdc-4146-a983-cf18e8b44353"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21861fb8-4f98-4860-b412-793033e8f65b">
+                    <propertyInstance
+                      Id="2edd02f1-5dd1-4023-82f3-4932ec82a27a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e297376d-4b70-420a-8525-a8bbed533060">
+                    <propertyInstance
+                      Id="16078342-1cdf-42e5-9a8b-1e5bebc8c1d2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1884abe-9a64-4cbb-a3be-b0be4d2fd9ee">
+                    <propertyInstance
+                      Id="72aaf956-cf14-4b52-bb83-5e1e4f02e595"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="4508239e-f2d8-4cc7-832c-58a22e93bf48"
+            name="GetCurrentClientName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e1304465-4201-44a8-b1e0-b4461be65fb6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DGetCurrentClientName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f9902e76-25ab-47ee-a510-82334d6accf8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29167a46-3629-46a4-af12-b5beb8cfb094">
+                    <propertyInstance
+                      Id="bc6083d6-3e1c-4024-b0ca-cbaaa7cda8b9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adc9c5b8-1be7-4d93-96d5-ab1827a20364">
+                    <propertyInstance
+                      Id="96decb7a-ef31-4d0b-bc4c-06d7b7df1ce6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c5dc657-ca33-4d17-8059-6b5d7ad249f8">
+                    <propertyInstance
+                      Id="ddda7ac9-fb38-4bbe-866a-f9c3bd78f3f6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1a9e630-4877-45b7-b4c5-88d2d9c8fbab">
+                    <propertyInstance
+                      Id="03bbf618-0e82-4ee9-80c7-7e7fde326e3b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7b18b23-8a88-4bd8-890b-a0b9a0217c73">
+                    <propertyInstance
+                      Id="ecb6a355-10e2-4e8f-a419-8477ab6c2569"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b62feac-02f0-4a02-841f-ac2c0eba6bb3">
+                    <propertyInstance
+                      Id="57b6fd8b-96c6-4043-9559-f90054adb16e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0a414433-3a7f-4941-81ac-38c469cd14c4"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ed2bbf39-8a8d-4a1a-911b-0468b0aee15f"
+            name="GetItemsInCart"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bdda8540-40f9-45c6-a508-aafd22e52a66"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DGetItemsInCart"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ea2f4f8e-8e51-4222-ab80-11745a61efad"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="976539e2-c64c-44f7-a8f8-7677c2f9c3d2">
+                    <propertyInstance
+                      Id="79b12f03-ade8-4a8f-9beb-86619c081730"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c46672c9-1764-47ee-8f4c-e95bfbc30959">
+                    <propertyInstance
+                      Id="bdbb0557-2a55-48c2-84b7-a580bc64747c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b2c04d8-83de-4249-9eda-411b86f28fd4">
+                    <propertyInstance
+                      Id="db2f5007-ec32-4ca7-b925-50a529bfbaf2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb97ea87-3c7f-4550-9852-7995da78dc96">
+                    <propertyInstance
+                      Id="7263a741-ebb0-42eb-b73c-cd0b81646dab"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea157a5d-e0ac-444d-b826-d84839cb8a92">
+                    <propertyInstance
+                      Id="882db5c3-2f21-4b0a-b4b1-cb41f591c0b5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9396b5b6-da45-4263-b23f-efb09ba5f810">
+                    <propertyInstance
+                      Id="0ab2236c-447e-49f0-b0cc-b60dc4466157"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a833bcb2-630c-49b6-9c6c-ef6458d7ce7f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="3dee9a54-0ec9-4905-bd6d-66e082d61277"
+                      LastKnownName="IEnumerable&lt;Object‎&gt;"
+                      LastKnownLocation="Package5_2211.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2f14c60a-8d6a-4a5d-b762-fae9556e897b"
+            name="ResetSession"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="cb8b10af-5d8f-4f73-be8b-bb401665d9c1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DResetSession"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="da2aaeb4-abd9-47f4-bc5f-f6216542e4b4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee6eabe8-4061-4e7c-b3d8-93a2d808ead8">
+                    <propertyInstance
+                      Id="98bbfbae-b98b-4213-90a6-8b1ccacab6ea"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1544d943-f313-463e-89f8-2afa09f0c366">
+                    <propertyInstance
+                      Id="3a8728ea-fc30-44aa-8142-867a1acb5f91"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1471430-cbff-4acc-8df9-575b507de74a">
+                    <propertyInstance
+                      Id="ff8bdec6-2707-49fa-af9e-c38fbe25259c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db643619-8a79-499f-8132-1d1470c34c31">
+                    <propertyInstance
+                      Id="d3f7ca67-551a-4a8b-9d10-ea51a87a1eaa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="499ef87e-255b-4f33-8f62-d7d46c435cea">
+                    <propertyInstance
+                      Id="de3c469b-e4ce-41bd-883e-5de7c09276b7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15e6c147-7910-42c1-9ad0-d97b0744a7db">
+                    <propertyInstance
+                      Id="3a297e21-21bb-47eb-b2dd-29eac16661b0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="3b2a339a-546f-44d0-a032-4f55377b7109"
+            name="SaveConfirmedOrderToDB"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="12a04629-e690-4f65-9d8e-8041f792774b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.ModelInterfaces Type%3DIConfirmOrderModel Member%3DSaveConfirmedOrderToDB"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5a464469-485a-452e-a4c4-7f1bd141f813"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c52599a2-2e01-4b7e-b999-d049297c9a49">
+                    <propertyInstance
+                      Id="5e2a6598-b8d7-4276-b8ca-66da4236e198"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="928b3393-a576-4960-9ed6-dc381f33ac99">
+                    <propertyInstance
+                      Id="d35f2407-59c5-43c9-99d3-81799310fe1f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c962f491-3f75-4b38-a067-6bd2eae8fd66">
+                    <propertyInstance
+                      Id="56fe4a87-8fe5-430c-a0a5-496d03b9467b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5647b1ab-9423-4faa-a241-b2145e67f89d">
+                    <propertyInstance
+                      Id="4925f9ad-3065-4275-a17b-ff41b9b31b1e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96b425ed-ec40-4ade-8edd-3a420ed69dd6">
+                    <propertyInstance
+                      Id="5e0db709-fcdc-4b53-86ab-4cc1dda0c460"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12f0c1a0-9c00-49fe-a807-ca4e8c00f8e0">
+                    <propertyInstance
+                      Id="915c6b55-33af-4e55-abbe-95eb71258aeb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f9db6811-6a97-4706-8aca-7c340fd79b8c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ERP Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d91893f1-b320-48fc-867a-3174985557d8"
+        LastKnownName="Enums"
+        LastKnownLocation="Package_2243.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1c306128-dd65-456a-b588-c77bcf9abbf4"
+        LastKnownName="RepositoryInterfaces"
+        LastKnownLocation="Package_2246.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="470e5667-7417-4a97-a079-27d744fba243"
+        LastKnownName="Structs"
+        LastKnownLocation="Package3_2246.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="80ae0070-b90b-4497-b644-1374cc1a1607"
+        LastKnownName="ServiceInterfaces"
+        LastKnownLocation="Package1_2258.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="79c7fc83-ca2a-435c-bfaf-3f2c65a1caea"
+        LastKnownName="FactoryInterfaces"
+        LastKnownLocation="Package2_2258.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2e199e4e-94be-4603-8ac8-d44270cce47a"
+        LastKnownName="CartInterfaces"
+        LastKnownLocation="Package4_2258.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="470e5667-7417-4a97-a079-27d744fba243"
+  name="Structs"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="8b48f26b-abf0-4732-97c4-c50eb76f192f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DERP.Common.Structs"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6c7a7899-6698-4f77-b763-b8ce077bd4f9"
+        name="LoginResponse"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ed8e282a-2c88-4c99-a963-efce857d8750"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Structs Type%3DLoginResponse"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="be56c12a-a716-481a-88d3-eab5771c1497"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e09598ae-599d-463b-bf58-5df5b1c20e31">
+                <propertyInstance
+                  Id="7976cc81-dd12-4ee6-8338-383683d83c7d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f23e6f67-905b-4d5b-ade0-00672ab504e4">
+                <propertyInstance
+                  Id="628f6cbd-3009-4ae0-8f0c-fb99a55a6a6c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3ce0f2f8-7fd9-4599-ad67-7e2ba0cc25f9">
+                <propertyInstance
+                  Id="b9a649fa-10e8-4a09-8aec-119df601443a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="30577636-e082-41b3-9ea1-ca65ef38ac93">
+                <propertyInstance
+                  Id="49178d0e-c2d1-423a-8b5c-afe86a226a7c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c0e19098-8007-453b-8dfe-d95afea4a187"
+        name="SaveResult"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="67b6dbf2-193c-4c64-a075-9ae526e34bfa"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Structs Type%3DSaveResult"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="94efde57-21a1-4948-8e10-17626f599171"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3ea74ddc-aa3e-4d8b-8be1-c23b36bf58f2">
+                <propertyInstance
+                  Id="615dc674-c079-4ad9-95fb-54251fd8bed4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fc24c492-5935-424d-91a1-91955ccc9b22">
+                <propertyInstance
+                  Id="373303f9-e72b-4851-9ec5-1165fa9fc550"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9c0a55af-5396-4abd-9d52-bac74f20a5de">
+                <propertyInstance
+                  Id="5593dc7f-efbf-4ff8-8dfd-6d4a3d042c3d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ef2de181-887b-4cb5-b2c9-e59f3818d1e0">
+                <propertyInstance
+                  Id="78359178-f492-4e2c-8065-67c4e7eac543"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

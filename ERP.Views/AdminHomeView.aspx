@@ -84,6 +84,40 @@ form1{
     background-image: linear-gradient(to bottom, #ffffff, #8e8686);
     text-decoration: none;
 }
+.pdfButton{
+    background: #BACFE0;
+    background: -webkit-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -moz-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -ms-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: -o-linear-gradient(top, #BACFE0, #6E6E70);
+    background-image: linear-gradient(to bottom, #BACFE0, #6E6E70);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #000000;
+    font-variant: small-caps;
+    font-size: 17px;
+    font-weight: 200;
+    padding: 4px;
+    width: 178px;
+    box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -webkit-box-shadow: 7px 1px 34px -6px #FFFFFF;
+    -moz-box-shadow: 7px 1px 34px -6px #FFFFFF;
+    text-shadow: 8px 0px 43px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.pdfButton:hover {
+    background: #A8B1BF;
+    background-image: -webkit-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -moz-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -ms-linear-gradient(top, #ffffff, #8e8686);
+    background-image: -o-linear-gradient(top, #ffffff, #8e8686);
+    background-image: linear-gradient(to bottom, #ffffff, #8e8686);
+    text-decoration: none;
+}
 .searchButtonsDiv0{
     display:inline-block;
     /*position:fixed;*/
@@ -163,7 +197,7 @@ form1{
     text-decoration: none;
 }
 .divGrid{
-    margin-top: 20px;
+    margin-top: 10px;
     overflow: auto;
     width:max-content;
     margin-left: auto;
@@ -208,7 +242,7 @@ form1{
     font-size: 27px;
     display: inline-block;
     text-align: center;
-    width: 60px;
+    width: 114px;
     border-radius: 12px;
     color: black;
 }
@@ -218,10 +252,16 @@ form1{
     font-variant: small-caps;
     font-weight: 900;
 }
+.LabelRight{
+    font-size: 22px;
+    color: black;
+    font-variant: small-caps;
+    font-weight: 900;
+}
 .DivTextBoxes{
     text-align: center;
-    margin-top: 25px;
-    margin-bottom: 0px;
+    margin-top: 15px;
+    margin-bottom: -10px;
 }
 
 .bottomButtons{
@@ -233,7 +273,9 @@ form1{
 .divRight{
     margin-left: -24px;
 }
-
+.pdfDiv{
+    text-align:center;
+}
 
 </style>
 
@@ -245,11 +287,6 @@ form1{
 
     <div id="parentDiv" class="parent" runat="server">
 
-<%--    <div id="messageDiv" class="messageDiv">
-
-    <asp:Label ID="lblMessage" CssClass="message" runat="server" Visible="false"></asp:Label>
-
-    </div>--%>
 
     <asp:ScriptManager
     ID="ScriptManager1"
@@ -258,11 +295,19 @@ form1{
 
     <asp:UpdatePanel runat="server"> 
 
+    <Triggers>
+        <asp:PostBackTrigger ControlID="btnGetPDF"/>
+    </Triggers>
+
     <ContentTemplate>
 
     <div id="messageDiv" class="messageDiv">
 
     <asp:Label ID="lblMessage" CssClass="message" runat="server" Visible="false"></asp:Label>
+
+    <div id="pdfDiv" class="pdfDiv">
+    <asp:Button ID="btnGetPDF" CssClass="pdfButton" runat="server" Text="Download as PDF" OnClick="btnGetPDF_Click" Visible="True" />
+    </div>
 
     </div>
 
@@ -294,7 +339,7 @@ form1{
 
     <div class="divLeft">
 
-    <asp:label ID="lblNumberOfCompletedItems" runat="server" CssClass="Label" Text="Completed Items:">
+    <asp:label ID="lblNumberOfCompletedItems" runat="server" CssClass="Label" Text="Completed Items :">
 
         <input id="txtNumberOfCompletedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
@@ -302,7 +347,7 @@ form1{
 
     
 
-    <asp:label ID="lblNumberOfCompletedOrders" runat="server" CssClass="Label" Text="Completed Orders:">
+    <asp:label ID="lblNumberOfCompletedOrders" runat="server" CssClass="Label" Text="Completed Orders :">
 
          <input id="txtNumberOfCompletedOrders" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
@@ -312,7 +357,7 @@ form1{
 
     <div class="divRight">
 
-    <asp:label ID="lblNumberOfFailedItems" runat="server" CssClass="Label" Text="Failed Items:">
+    <asp:label ID="lblNumberOfFailedItems" runat="server" CssClass="Label" Text="Failed Items :">
 
     <input id="txtNumberOfFailedItems" runat="server" class="TextBox" type="number" disabled="disabled"/>
 
@@ -320,10 +365,10 @@ form1{
 
     
 
-    <asp:label ID="lblAvgItemProductionTime" runat="server" CssClass="Label" Text="Avg Unit Time (sec):">
+    <asp:label ID="lblAvgOrderProductionTime" runat="server" CssClass="Label" Text="Latest Order Time :">
 
-    <input id="txtAvgItemProductionTime" runat="server" class="TextBox" type="number" disabled="disabled"/>
-
+    <input id="txtAvgOrderProductionTime" runat="server" class="TextBox" type="text" disabled="disabled"/>
+         
     </asp:label>
   
 
@@ -362,12 +407,6 @@ form1{
     <asp:Button ID="btnShowAllCompletedOrders" CssClass="searchButtons" runat="server" Text="Completed Orders" OnClick="btnShowAllCompletedOrders_Click"
                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
 
-<%--    <asp:Button ID="btnCurrentOrder" CssClass="statButtons" runat="server" Text="Current Order In Production" OnClick="btnCurrentOrder_Click" 
-                UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
-
-    <asp:Button ID="btnCurrentItem" CssClass="statButtons" runat="server" Text="Current Item In Production" OnClick="btnCurrentItem_Click" 
-                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />--%>
-
     </div>
 
     </div>
@@ -401,12 +440,11 @@ form1{
       </ContentTemplate>
     </asp:UpdatePanel>
 
-    <%--<asp:Button ID="btnCreateNewOrder" CssClass="navButton" runat="server" Text="Create New Order" OnClick="btnCreateNewOrder_Click" />--%>
-
     </div>
 
     </div>
 
     </div>
+
 
 </asp:Content>

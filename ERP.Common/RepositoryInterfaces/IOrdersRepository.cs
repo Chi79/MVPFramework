@@ -9,6 +9,7 @@ namespace ERP.Common.RepositoryInterfaces
 {
     public interface IOrdersRepository : IRepository<ORDERS>
     {
+        void ResetAllItemsInProduction();
 
         IEnumerable<ORDERS> GetAllOrders();
 
@@ -18,13 +19,13 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ORDERS> GetAllOrdersCompleted();
 
-        IEnumerable<ORDERS> GetAllOrdersInProductionButNotCompleted();
+        IEnumerable<ORDERS> GetAllOrdersInProduction();
 
         IEnumerable<object> GetAllOrdersInProductionAsObject();
 
         IEnumerable<object> GetAllConfirmedOrdersAsObject();
 
-        IEnumerable<ORDERS> GetAllOrdersNotInProductionAndNotCompleted();
+        IEnumerable<ORDERS> GetAllConfirmedOrders();
 
         IEnumerable<ORDERS> GetAllOrdersForCustomerByEmail(string email);
 
@@ -44,13 +45,13 @@ namespace ERP.Common.RepositoryInterfaces
 
         bool IsOrderCompleteByOrderId(int orderId);
 
-        ORDERS GetFirstOrderNotInProductionAndNotCompleted();
+        ORDERS GetFirstOrderToProduce();
 
         ORDERS GetFirstOrderInProductionAndNotCompleted();
 
         IEnumerable<object> GetCurrentOrderInProduction();
 
-        IEnumerable<ORDERS> GetFirstOrderNotInProductionAndNotCompletedAsEnumerable();
+        IEnumerable<ORDERS> GetFirstOrderToProduceAsEnumerable();
 
         IEnumerable<ORDERS> GetFirstOrderInProductionAndNotCompletedAsEnumerable();
 
@@ -60,17 +61,17 @@ namespace ERP.Common.RepositoryInterfaces
 
         IEnumerable<ITEM> GetAllItems();
 
-        IEnumerable<ITEM> GetAllItemsFromFirstOrderNotInProductionAndNotCompleted();
+        IEnumerable<ITEM> GetAllItemsFromNextOrderToProduce();
 
         IEnumerable<ITEM> GetAllItemsFromFirstOrderFailedOrNotInProductionAndNotCompleted();
 
-        IEnumerable<ITEM> GetAllItemsInProductionButNotCompletedFromFirstOrderInProductionAndNotCompleted();
+        IEnumerable<ITEM> GetAllItemsInProductionFromCurrentOrder();
 
-        IEnumerable<ITEM> GetFirstItemInProductionButNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
+        IEnumerable<ITEM> GetAllItemsInProductionFromCurrentOrderAsEnumerable();
 
-        IEnumerable<object> GetCurrentItemInProduction();
+        IEnumerable<object> GetCurrentItemsInProduction();
 
-        IEnumerable<ITEM> GetFirstItemNotInProductionAndNotCompletedFromFirstOrderInProductionAndNotCompletedAsEnumerable();
+        IEnumerable<ITEM> GetFirstItemToProduceFromCurrentOrderAsEnumerable();
 
         IEnumerable<object> GetFirstItemFailedOrNotInProductionFromCurrentOrderAsEnumerable();
 
@@ -98,9 +99,9 @@ namespace ERP.Common.RepositoryInterfaces
 
         string GetNumberOfCompleteOrders();
 
-        string GetAvgTimeToProduceAnItem();
+        string GetAvgTimeToProduceAnOrder();
 
-        IEnumerable<object> GetAvgTimeToProduceAnItemAsList();
+        string GetAvgTimeToProduceTheLastOrder();
 
         string GetNumberOfFailedItems();
 

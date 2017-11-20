@@ -15,7 +15,7 @@ namespace ERP.DataTables.Tables
 
         public int OrderID { get; set; }
 
-        public  DateTime TimeStamp { get; /*set;*/ }
+        public DateTime TimeStamp { get; set; }
 
         public int ItemTrackerID { get; set; }
 

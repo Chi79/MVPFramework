@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP' -  (Package)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap' -  (Package)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Medium" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap::Initializer' -  (Class)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap::Initializer::Dispose' -  (Operation)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap::Initializer::Init' -  (Operation)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap::Initializer::Init::context' -  (Parameter)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::ERP::Bootstrap::Initializer::Initializer' -  (Operation)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::System' -  (Package)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::System::Web' -  (Package)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::System::Web::HttpApplication' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ERP Modelling::System::Web::IHttpModule' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ERP Modelling::ERP::Bootstrap::Initializer to ERP Modelling::System::Web::IHttpModule (InterfaceRealization)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ERP Modelling::System::Web::HttpApplication to ERP Modelling::System::IDisposable (InterfaceRealization)" />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="High" Text="(2) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2017-11-11T18:09:50" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

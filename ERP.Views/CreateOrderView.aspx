@@ -313,7 +313,7 @@ a{
 
     <asp:Label ID="lblAmount" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallClearMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})" /> 
+    <input type="number" runat="server" id="txtSmallClearMls" class="inc_decAmount" min="0" max="12" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})" /> 
 
     <asp:Button ID="btnAddSmallClear" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallClear_Click" />
 
@@ -328,7 +328,7 @@ a{
 
     <asp:Label ID="lblAmount2" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallBlackMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})"/> 
+    <input type="number" runat="server" id="txtSmallBlackMls" class="inc_decAmount" min="0" max="12" step="1" value="0" required="required" inputmode="numeric" pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddSmallBlack" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallBlack_Click" />
 
@@ -343,7 +343,7 @@ a{
 
     <asp:Label ID="lblAmount3" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtSmallRedMls" class="inc_decAmount" min="0" max="15" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
+    <input type="number" runat="server" id="txtSmallRedMls" class="inc_decAmount" min="0" max="12" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddSmallRed" CssClass="addButtons" runat="server" Text="Add Item" OnClick="btnAddSmallRed_Click" />
 
@@ -358,7 +358,7 @@ a{
 
     <asp:Label ID="lblAmount4" CssClass="imgText" runat="server" Text="Amount (ml)"></asp:Label>
 
-    <input type="number" runat="server" id="txtLargeClearMls" class="inc_decAmount" min="0" max="50" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
+    <input type="number" runat="server" id="txtLargeClearMls" class="inc_decAmount" min="0" max="45" step="1" value="0" required="required" inputmode="numeric"  pattern="([0-9]{2})"/> 
 
     <asp:Button ID="btnAddLargeClear" CssClass="addButtons" runat="server" ValidationGroup="largeIncDec1" Text="Add Item" OnClick="btnAddLargeClear_Click" />
 

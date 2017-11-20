@@ -164,6 +164,44 @@ namespace ERP.HTTP.Services
             }
             set { HttpContext.Current.Session["PreventNavigationToOrderConfirmationPage"] = value; }
         }
+
+        public int ButtonLastPressed
+        {
+            get
+            {
+                var number = HttpContext.Current.Session["LastButtonPressed"];
+                if (number != null)
+                {
+
+                    return (int)number;
+
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            set { HttpContext.Current.Session["LastButtonPressed"] = value; }
+        }
+
+        public byte[] file
+        {
+            get
+            {
+                var data = HttpContext.Current.Session["file"];
+                if (data != null)
+                {
+
+                    return (byte[])data;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set { HttpContext.Current.Session["file"] = value; }
+        }
     }
 
 }

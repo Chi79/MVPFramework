@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="173b3926-95b7-457c-93e9-c1c3cfdfeddf"
+  name="ERP"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="77c10226-cbd0-479b-846c-e95a35839068"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DERP"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="54977746-7692-4c89-b0a4-dfea8133c653"
+        LastKnownName="Common"
+        LastKnownLocation="Package1_2211.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="959cb4ec-9697-4a68-b195-3658d98ba263"
+        LastKnownName="DataTables"
+        LastKnownLocation="Package4_2246.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0bc05db7-016c-4d26-9ed2-98ceb68f6bc5"
+        LastKnownName="Views"
+        LastKnownLocation="Package_2248.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7e517e4d-5d96-4ff0-bf57-f82812074853"
+        LastKnownName="Presenters"
+        LastKnownLocation="Package5_2248.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="df10b9fc-da59-4afd-baf5-7aa71ba7e181"
+        LastKnownName="Model"
+        LastKnownLocation="Package_2258.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="4eb76b47-d708-4255-8c07-03e9f61586bb"
+        LastKnownName="DataAccess"
+        LastKnownLocation="Package_2302.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d6728d35-b4c4-46cc-9f82-9c176f677493"
+        LastKnownName="HTTP"
+        LastKnownLocation="Package_1544.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

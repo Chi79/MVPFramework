@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="d91893f1-b320-48fc-867a-3174985557d8"
+  name="Enums"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="40127fc8-4556-4c02-91ce-149ed584d920"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DERP.Common.Enums"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <enumeration
+        Id="d76b04b6-eea8-4927-bfc9-9aad07fc9a15"
+        name="OrdersToFetch"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="6038f642-101e-4eb1-9463-66bd88ee6428"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Enums Type%3DOrdersToFetch"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="50fc38d7-69de-4140-9b59-3904c846349a"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf3922ef-4686-4b71-974b-b6749835fc33">
+                <propertyInstance
+                  Id="34370790-f84e-408c-83ff-4161ba55b210"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="816fcca5-db8d-4057-8a3d-05be1d4fbd80">
+                <propertyInstance
+                  Id="b850ad43-10e6-4049-9243-eae4e7492031"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7ccabcbf-7f5b-4e8f-9c40-7a2e50b49b94">
+                <propertyInstance
+                  Id="16d715e3-7507-459a-af5f-9d21c3b16571"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="5208aa5e-04ea-4cc2-b66b-6c00c8e70ed2"
+        name="ItemsToFetch"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="be84290b-953f-4695-9fb4-f9bca8801352"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Enums Type%3DItemsToFetch"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="07906d45-530a-4748-9f7b-7dadc896b68b"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="af83b55c-4f41-4f15-bf75-a77a3529add8">
+                <propertyInstance
+                  Id="75a46ddf-975c-437d-9ce1-3e8c5ecc4939"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cda3203c-413c-49fb-9332-0c9a4f1ea9c3">
+                <propertyInstance
+                  Id="67fa7553-80d7-44c5-85e2-585389b661cd"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="11669bc3-fe01-428c-8f89-cfd57aadbb64">
+                <propertyInstance
+                  Id="6625db07-1680-461e-bca1-3d3a9d1fddf8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="734b6c81-eb35-45ea-a791-d2316d8652fc"
+        name="ItemSize"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="65f7535e-d824-42de-a243-e17be1cda408"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Enums Type%3DItemSize"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="43f7e020-999b-4c29-8649-44797e69057f"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="edb4b4dc-edcc-4836-bea0-b24f3036b4db">
+                <propertyInstance
+                  Id="9228ae5b-acb7-4d6b-93c7-6e34ab5b4fae"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="013f59fc-1dc3-48dc-bef4-f60be7843d50">
+                <propertyInstance
+                  Id="bef80514-038f-4706-bc74-e6546f33b0bf"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="53a914ec-82ea-4a68-8f12-5853d4381e34">
+                <propertyInstance
+                  Id="20656ce2-82f3-4cd9-8d90-e71e9b36b0b8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="2225cc5b-369b-4108-bd82-43f208d01615"
+        name="ItemColour"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="aab3523a-003b-4234-aa51-9273bd42b619"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Common%2Fbin%2FDebug%2FERP.Common.dll Namespace%3DERP.Common.Enums Type%3DItemColour"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="196729b0-3caa-40d0-81b2-0f5427268b01"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9131238b-1419-4925-a5dc-c3fb5560cd0c">
+                <propertyInstance
+                  Id="4c9a6b56-e6b3-47f3-9b9d-70a10876352e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a2c413a5-a78c-49db-9771-2a2aaf8612e9">
+                <propertyInstance
+                  Id="2ece6336-3666-47d6-a5f1-fa7787621504"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4ea4095b-07b5-4627-929a-b2a812c0246b">
+                <propertyInstance
+                  Id="fe7a6ce0-1b90-4dba-9c12-168f4f78a301"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

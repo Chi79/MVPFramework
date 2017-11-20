@@ -25,9 +25,12 @@ namespace ERP.Model.FetchDataServices
         public string FetchProductionData()
         {
 
-            var result = _uOW.ORDERs.GetAvgTimeToProduceAnItem();
+            //var result = _uOW.ORDERs.GetAvgTimeToProduceAnOrder();
 
-            return result;
+
+            var result = _uOW.ORDERs.GetAvgTimeToProduceTheLastOrder();
+
+            return result;   
 
         }
     }

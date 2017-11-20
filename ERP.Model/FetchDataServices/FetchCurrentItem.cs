@@ -25,7 +25,7 @@ namespace ERP.Model.FetchDataServices
         {
             get
             {
-                if(_uOW.ORDERs.GetCurrentItemInProduction() != null)
+                if(_uOW.ORDERs.GetCurrentItemsInProduction() != null)
                 {
 
                     return "Viewing The Current Items Being Produced.</br> Please click a row to view the other items in the order.";
@@ -43,10 +43,10 @@ namespace ERP.Model.FetchDataServices
         public IEnumerable<object> FetchDataForAdmin()
         {
 
-            var result = _uOW.ORDERs.GetCurrentItemInProduction();
+            var result = _uOW.ORDERs.GetCurrentItemsInProduction();
 
-            return result;
-       
+            return result;    
+
         }
 
     }

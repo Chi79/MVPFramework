@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="2661689f-a229-4299-a677-1d370a589e52"
+  name="CartObjects"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="600b4d88-971a-4ad1-8790-4ceed9964d76"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DERP.Model.CartObjects"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f6e7ba0f-837c-4487-9abe-bc293f99bd87"
+        name="CartItem"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="7ccc147c-5d23-49aa-b89b-e6fe3337a53e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FBruker%2FDesktop%2FERP%2FERP.Model%2Fbin%2FDebug%2FERP.Model.dll Namespace%3DERP.Model.CartObjects Type%3DCartItem"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="451b6e95-d2d6-4393-b8c5-4564ab869e53"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a509ba41-909a-4357-98ce-1d6ec2b62678">
+                <propertyInstance
+                  Id="1b57f3f7-a55b-442d-8b9c-6ae4c641e4e9"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7a41a57d-0f1b-4c8f-8bcc-d18f78cfbb2e">
+                <propertyInstance
+                  Id="0a2564ad-24cb-4073-a3cf-811fb6d0f9fd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ca5ff080-d249-4d1d-b3dd-c262a26daa80">
+                <propertyInstance
+                  Id="45885ac2-9593-4a45-8f45-6254997e87e9"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ecaafa8d-5ab3-4997-8687-b76196290c45">
+                <propertyInstance
+                  Id="e3c67bb1-0a9d-4619-a47d-d9d048e5a38a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="871e10a7-8894-49b5-a364-77e23b18c6d6">
+                <propertyInstance
+                  Id="75ca4b59-ccde-4094-9a4b-e48315039a63"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="177da449-e42a-4876-9853-f59ec786f82d">
+            <interfaceMoniker
+              Id="1222958c-470d-4c20-8ec9-c2b9379290c2"
+              LastKnownName="ICartItem"
+              LastKnownLocation="Package4_2258.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

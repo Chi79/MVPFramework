@@ -140,8 +140,10 @@ namespace ERP.Presenters.Presenters
 
         }
 
+
         private void OnOrderConfirmedClicked(object sender, EventArgs e)
         {
+
 
             _view.PlaceOrderButtonVisible = false;
 

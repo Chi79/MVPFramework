@@ -59,6 +59,7 @@ form1{
     border-radius: 10px;
     background:honeydew;
     text-align:center;
+    width: 580px;
 }
 .PasswordLabel{
     font-variant: small-caps;
@@ -70,6 +71,7 @@ form1{
     border-radius: 10px;
     background:honeydew;
     text-align:center;
+    width: 580px;
 }
 .Message{
     font-variant: small-caps;
@@ -127,7 +129,10 @@ form1{
     <div id="parentDiv" class="parent" runat="server">
 
     <asp:UpdatePanel runat="server">
+
     <ContentTemplate>
+
+    <asp:Panel runat="server" DefaultButton="btnLoginButton">
 
     <div id="loginDiv0" class="loginDiv">
 
@@ -155,8 +160,10 @@ form1{
 
     <div id="loginDiv4" class="loginDiv">
 
-    <asp:Button ID="btnLoginButton" CssClass="LoginButton" Text="Login" runat="server" OnClick="btnLoginButton_Click"
+    <asp:Button ID="btnLoginButton" CssClass="LoginButton" Text="Login" runat="server" OnClick="btnLoginButton_Click" 
                 UseSubmitBehavior="false" OnClientClick="this.disabled='true'; this.value='Please Wait..';" />
+
+    </asp:Panel>
 
     </div>
 

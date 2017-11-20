@@ -50,6 +50,16 @@ namespace ERP.Presenters.Presenters
 
             _view.ShowCurrentOrderClick += OnShowCurrentOrderClicked;
 
+            _view.PDFButtonClick += OnPDFButtonClicked;
+
+        }
+
+        private void OnPDFButtonClicked(object sender, EventArgs e)
+        {
+
+            _model.GetPDF();
+
+            _view.OutputFile();
 
         }
 
@@ -90,7 +100,7 @@ namespace ERP.Presenters.Presenters
         private void SetProductionStats()
         {
 
-            _view.AvgTimeToProduceAnItem = _model.GetAvgTimeToProduceAnItem();
+            _view.AvgTimeToProduceAnOrder = _model.GetAvgTimeToProduceAnItem();
 
             _view.NumberOfItemsFailed = _model.GetNumberOfFailedItems();
 
@@ -168,6 +178,8 @@ namespace ERP.Presenters.Presenters
 
             SetProductionStats();
 
+            CheckPrintDataExists();
+
         }
 
         private void OnRowSelected(object sender, EventArgs e)
@@ -189,6 +201,26 @@ namespace ERP.Presenters.Presenters
             _view.BindData();
 
             _view.Message = _model.FetchItemDataInfoMessage(itemsToFetch);
+
+            CheckPrintDataExists();
+
+        }
+
+        private void CheckPrintDataExists()
+        {
+
+            if (_view.GridViewRowCount != 0)
+            {
+
+                _view.PrintButtonVisible = true;
+
+            }
+            else
+            {
+
+                _view.PrintButtonVisible = false;
+
+            }
 
         }
 

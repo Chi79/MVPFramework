@@ -27,20 +27,19 @@ namespace ERP.Presenters.Presenters
 
         }
 
-        private void OnGoToLoginButtonClicked(object sender, EventArgs e)
-        {
-
-            _view.RedirectToLoginView();
-
-        }
-
-
         public override void Load()
         {
 
             _view.WelcomeTitle = _model.GetWelcomeTitle();
 
             _view.WelcomeMessage = _model.GetWelcomeMessage();
+
+        }
+
+        private void OnGoToLoginButtonClicked(object sender, EventArgs e)
+        {
+
+            _view.RedirectToLoginView();
 
         }
     }

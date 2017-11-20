@@ -49,7 +49,7 @@ namespace ERP.Presenters.Presenters
 
             _view.MessageVisible = true;
 
-            _view.Message = "Thank you " + _model.GetCurrentClientName() + " For Your Order!";
+            _view.Message = "Thank you " + _model.GetCurrentClientName() + " For Your Order! </br> An Invoice has been sent to your email.";
 
         }
 

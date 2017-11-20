@@ -21,7 +21,7 @@ namespace ERP.Common.ViewInterfaces
 
         string NumberOfItemsFailed { set; }
 
-        string AvgTimeToProduceAnItem { set; }
+        string AvgTimeToProduceAnOrder { set; }
 
         IEnumerable<object> SetDataSource { set; }
 
@@ -31,10 +31,15 @@ namespace ERP.Common.ViewInterfaces
 
         int SelectedRowIndex { get; }
 
+        int GridViewRowCount { get; }
+
+        bool PrintButtonVisible { set; }
+
         void RedirectToLoginPage();
 
         void RedirectToOrderPage();
 
+        void OutputFile();
 
         event EventHandler<EventArgs> RowSelected;
 
@@ -54,7 +59,7 @@ namespace ERP.Common.ViewInterfaces
 
         event EventHandler<EventArgs> ShowCurrentItemClick;
 
-        //event EventHandler<EventArgs> CreateNewOrderClick;
+        event EventHandler<EventArgs> PDFButtonClick;
 
     }
 }

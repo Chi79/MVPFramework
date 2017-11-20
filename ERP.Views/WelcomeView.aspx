@@ -73,7 +73,10 @@ form1{
 </style>
 
 <body>
+
     <form id="form1" runat="server">
+
+    <asp:Panel runat="server" DefaultButton="btnGoToLoginScreen">
 
     <div id="labelDiv0" class="labelDiv" >
 
@@ -93,6 +96,9 @@ form1{
 
     </div>
 
-    </form>
+    </asp:Panel>
+
+    </form>   
+
 </body>
 </html>

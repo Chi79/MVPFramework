@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 using ERP.Common.ViewInterfaces;
 using ERP.Presenters.Bases;
 using ERP.Presenters.Presenters;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Net.Mail;
 
 
 namespace ERP.Views
@@ -22,6 +27,7 @@ namespace ERP.Views
         public bool PlaceOrderButtonVisible { set {btnPlaceOrder.Visible = value ; } }
 
         public IEnumerable<object> SetDataSource { set { gvItems.DataSource = value; } }
+
 
         public void BindData()
         {
@@ -84,7 +90,6 @@ namespace ERP.Views
             PageLoad?.Invoke(this, EventArgs.Empty);
 
         }
-
 
         public event EventHandler<EventArgs> EditOrderClick;
 

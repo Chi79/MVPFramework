@@ -40,6 +40,15 @@ namespace ERP.Views {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
+        /// btnGetPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGetPDF;
+        
+        /// <summary>
         /// gvOrders control.
         /// </summary>
         /// <remarks>
@@ -103,22 +112,22 @@ namespace ERP.Views {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtNumberOfFailedItems;
         
         /// <summary>
-        /// lblAvgItemProductionTime control.
+        /// lblAvgOrderProductionTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAvgItemProductionTime;
+        protected global::System.Web.UI.WebControls.Label lblAvgOrderProductionTime;
         
         /// <summary>
-        /// txtAvgItemProductionTime control.
+        /// txtAvgOrderProductionTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtAvgItemProductionTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAvgOrderProductionTime;
         
         /// <summary>
         /// lblInfoMessage control.

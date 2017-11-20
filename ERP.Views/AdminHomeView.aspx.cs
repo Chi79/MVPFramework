@@ -7,6 +7,10 @@ using System.Web.UI.WebControls;
 using ERP.Common.ViewInterfaces;
 using ERP.Presenters.Bases;
 using ERP.Presenters.Presenters;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace ERP.Views
 {
@@ -25,11 +29,15 @@ namespace ERP.Views
 
         public string NumberOfItemsFailed { set { txtNumberOfFailedItems.Value = value; } }
 
-        public string AvgTimeToProduceAnItem { set { txtAvgItemProductionTime.Value = value; } }
+        public string AvgTimeToProduceAnOrder { set { txtAvgOrderProductionTime.Value = value; } }
 
         public object SelectedRowValueDataKey { get { return gvOrders.DataKeys[SelectedRowIndex].Value; } }
 
         public int SelectedRowIndex { get { return gvOrders.SelectedIndex; } }
+
+        public int GridViewRowCount { get { return gvOrders.Rows.Count; } }
+
+        public bool PrintButtonVisible { set { btnGetPDF.Visible = value; } }
 
         public IEnumerable<object> SetDataSource { set { gvOrders.DataSource = value; } }
 
@@ -163,6 +171,31 @@ namespace ERP.Views
         {
 
             ShowCurrentOrderClick?.Invoke(this, EventArgs.Empty);
+
+        }
+
+        public void OutputFile()
+        {
+
+            byte[] fileAsBytes = Session["file"] as byte[];
+
+            Response.ClearContent();
+            Response.Clear();
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition", "attachment; filename=myFile2.pdf");
+            Response.Buffer = true;
+            Response.OutputStream.Write(fileAsBytes, 0, fileAsBytes.Length);
+            Response.Flush();
+            Response.End();
+
+        }
+
+        public event EventHandler<EventArgs> PDFButtonClick;
+
+        protected void btnGetPDF_Click(object sender, EventArgs e)
+        {
+
+            PDFButtonClick?.Invoke(this, EventArgs.Empty);
 
         }
     }

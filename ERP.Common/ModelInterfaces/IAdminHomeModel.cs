@@ -35,6 +35,13 @@ namespace ERP.Common.ModelInterfaces
 
         string GetAvgTimeToProduceAnItem();
 
+        void GetPDF();
+
+        void SetLastButtonPressed(int buttonNumber);
+
+        int GetLastButtonPressed();
+
+        void SetFile(byte[] file);
 
     }
 }
