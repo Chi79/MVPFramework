@@ -37,7 +37,7 @@ namespace ERP.Views
 
         public int GridViewRowCount { get { return gvOrders.Rows.Count; } }
 
-        public bool PrintButtonVisible { set { btnGetPDF.Visible = value; } }
+        public bool PDFButtonVisible { set { btnGetPDF.Visible = value; } }
 
         public IEnumerable<object> SetDataSource { set { gvOrders.DataSource = value; } }
 

@@ -33,7 +33,7 @@ namespace ERP.Common.ViewInterfaces
 
         int GridViewRowCount { get; }
 
-        bool PrintButtonVisible { set; }
+        bool PDFButtonVisible { set; }
 
         void RedirectToLoginPage();
 

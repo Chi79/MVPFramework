@@ -212,13 +212,13 @@ namespace ERP.Presenters.Presenters
             if (_view.GridViewRowCount != 0)
             {
 
-                _view.PrintButtonVisible = true;
+                _view.PDFButtonVisible = true;
 
             }
             else
             {
 
-                _view.PrintButtonVisible = false;
+                _view.PDFButtonVisible = false;
 
             }
 
